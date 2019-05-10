@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -137,6 +138,13 @@ public class UserController {
         }
         PageObject pageObject = userService.doFindPageObjects(pageCurrent, pageSize);
         return new JsonResult(pageObject);
+    }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public JsonResult test(){
+        List list =userService.test();
+        return new JsonResult(list);
     }
 
 

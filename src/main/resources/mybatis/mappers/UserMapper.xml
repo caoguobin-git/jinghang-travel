@@ -17,4 +17,7 @@
     <update id="doValidById">
         update user_info set valid=#{valid} where user_id=#{userId}
     </update>
+    <select id="test" resultType="java.util.Map">
+        select user_role ROLE,count(*) NUM from user_info ui group by user_role
+    </select>
 </mapper>

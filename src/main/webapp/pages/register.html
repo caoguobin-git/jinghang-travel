@@ -103,25 +103,28 @@
       $(".login-box-msg").html("两次密码不一致");
       return;
     }
-
-
-	  var params={
-		 username:$("#usernameId").val(),
-		 password:$("#passwordId").val(),
-	  }
-	  var url="/user/doUserRegister.do";
-	  $.post(url,params,function(result){
-		  if(result.status==200){
-            if (result.data.userRole=="admin") {
-              location.href = "adminIndex.do?t=" + Math.random();
-            }else if(result.data.userRole="user1"){
-              location.href="userIndex.do?t="+Math.random();
-            }
-		  }else{
-			$(".login-box-msg").html(result.data);
-		  }
-		  return false;//防止刷新时重复提交
-	  });
+    var test=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,30}$/;
+    if (!test.test(password)){
+      $(".login-box-msg").html("密码需为八位以上的数字和字母组合");
+      return;
+    }
+    var params={
+      username:$("#usernameId").val(),
+      password:$("#passwordId").val(),
+    }
+    var url="/user/doUserRegister.do";
+    $.post(url,params,function(result){
+      if(result.status==200){
+        if (result.data.userRole=="admin") {
+          location.href = "adminIndex.do?t=" + Math.random();
+        }else if(result.data.userRole="user1"){
+          location.href="userIndex.do?t="+Math.random();
+        }
+      }else{
+        $(".login-box-msg").html(result.data);
+      }
+      return false;//防止刷新时重复提交
+    });
   }
 </script>
 </body>

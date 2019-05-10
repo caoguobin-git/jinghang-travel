@@ -11,7 +11,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.travel.common.entity.UserEntity;
 import com.travel.common.util.MD5HashUtils;
-import com.travel.common.vo.JsonResult;
 import com.travel.common.vo.PageObject;
 import com.travel.mapper.UserMapper;
 import com.travel.service.UserService;
@@ -91,13 +90,17 @@ public class UserServiceImpl implements UserService {
 
             }
         }
-        String s =null;
-        try {
-            s = new ObjectMapper().writeValueAsString(userEntity);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+        if (userEntity.isValid()) {
+            String s = null;
+            try {
+                s = new ObjectMapper().writeValueAsString(userEntity);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+            return s;
+        }else {
+            return "用户已被禁用";
         }
-        return s;
     }
 
     @Override
@@ -138,5 +141,13 @@ public class UserServiceImpl implements UserService {
 
     public int getPageCount(int pageSize) {
         return userMapper.getPageCount() / pageSize + 1;
+    }
+
+
+
+    @Override
+    public List test() {
+
+        return userMapper.test();
     }
 }

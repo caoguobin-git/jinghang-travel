@@ -22,4 +22,6 @@ public interface UserMapper {
     List<Object> doFindPageObjects(Integer pageCurrent, RowBounds rowBounds);
 
     void doValidById(@Param("userId") String userId,@Param("valid") Integer valid);
+
+    List test();
 }
