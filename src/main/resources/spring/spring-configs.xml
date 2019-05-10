@@ -15,7 +15,7 @@
 		如果是单个项目需要定位到具体的service
 		如果是多个项目，需要都进行包扫描 所以写的范围较大
 	-->
-	<context:component-scan base-package="com.duochuang"/>
+	<context:component-scan base-package="com.travel"/>
 	
 	
 	<!--引入外部配置文件  由于后期可能会引入多个配置文件 所以采用list的形式  -->
@@ -61,7 +61,7 @@
 	
 	<!--配置事物切面  -->
 	<aop:config>
-		<aop:pointcut expression="execution(* com.duochuang.service..*.*(..))" id="pc"/>
+		<aop:pointcut expression="execution(* com.travel.service..*.*(..))" id="pc"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="pc"/>
 	</aop:config>
 

@@ -26,6 +26,6 @@
 	<!--为Mapper接口生产代理对象  -->
 	<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!--指定包名 为其创建代理对象  -->
-		<property name="basePackage" value="com.duochuang.mapper"/>
+		<property name="basePackage" value="com.travel.mapper"/>
 	</bean>
 </beans>

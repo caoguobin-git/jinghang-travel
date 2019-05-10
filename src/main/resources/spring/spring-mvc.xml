@@ -16,7 +16,7 @@
 	<mvc:annotation-driven/>
 
 	<!--开启包扫描  -->
-	<!-- <context:component-scan base-package="com.duochuang.controller"/> -->
+	 <context:component-scan base-package="com.travel.controller"/>
 	
 	<!--定义视图解析器  -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -40,6 +40,26 @@
 	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"></bean>
 
 	<mvc:default-servlet-handler/>
+	<!--配置拦截路径-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!--<mvc:mapping-->
+			<!--path="/news/**" />-->
+			<mvc:mapping
+					path="/user/register*"/>
+			<mvc:mapping
+					path="/index.do" />
+			<mvc:mapping
+					path="/hotel/**" />
+			<!--<mvc:mapping-->
+			<!--path="/trade/**"/>-->
+			<mvc:exclude-mapping
+					path="/user/login*"/>
+			<mvc:exclude-mapping
+					path="/blog/get*"/>
+			<bean class="com.travel.interceptor.WebInterceptor"/>
 
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 </beans>
