@@ -49,6 +49,7 @@ public class UserServiceImpl implements UserService {
          * 用户密码加密，采用Md5Hash 迭代三轮
          */
         String password = userEntity.getPassword();
+        String password1 = userEntity.getPassword();
         String salt = new SecureRandomNumberGenerator().nextBytes().toHex();
         password = new Md5Hash(password, salt, 3).toString();
 
@@ -60,7 +61,13 @@ public class UserServiceImpl implements UserService {
         System.out.println(userEntity);
         int result = userMapper.register(userEntity);
         if (result>0) {
-            return "ok";
+            login(userEntity.getUsername(), password1);
+            UserEntity byUsername1 = userMapper.findByUsername(userEntity.getUsername());
+            try {
+                return new ObjectMapper().writeValueAsString(byUsername1);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
         }
         return "注册失败！";
     }

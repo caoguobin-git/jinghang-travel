@@ -112,10 +112,13 @@
 	  var url="/user/doUserRegister.do";
 	  $.post(url,params,function(result){
 		  if(result.status==200){
-			//跳转到indexUI对应的页面
-			location.href="doIndexUI.do?t="+Math.random();
+            if (result.data.userRole=="admin") {
+              location.href = "adminIndex.do?t=" + Math.random();
+            }else if(result.data.userRole="user1"){
+              location.href="userIndex.do?t="+Math.random();
+            }
 		  }else{
-			$(".login-box-msg").html(result.message); 
+			$(".login-box-msg").html(result.data);
 		  }
 		  return false;//防止刷新时重复提交
 	  });

@@ -62,11 +62,18 @@ public class UserController {
         String ipAddress = IPUtils.getIpAddress(request);
         userEntity.setLastIp(ipAddress);
         String result = userService.doUserRegister(userEntity);
-        if ("ok".equalsIgnoreCase(result)) {
-            return new JsonResult("注册成功");
+        if (result.contains("username")) {
+            try {
+                UserEntity userEntity1 = new ObjectMapper().readValue(result, userEntity.getClass());
+                return new JsonResult(userEntity1);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
             return new JsonResult("401", "注册失败", result);
         }
+        return null;
     }
 
 //    @ResponseBody
