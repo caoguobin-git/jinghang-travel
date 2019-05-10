@@ -80,6 +80,7 @@
     function displayCityInfo() {
         console.log("hello")
         console.log($(this).attr("id").substring(12))
+        undisplayCitys();
         $("#content").load("/city/getCityInfo.do?city="+$(this).attr("id").substring(12))
     }
 
