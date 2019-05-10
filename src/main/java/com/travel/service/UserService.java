@@ -9,12 +9,10 @@ package com.travel.service;
 import com.travel.common.entity.UserEntity;
 import com.travel.common.vo.PageObject;
 
-import java.util.Map;
-
 public interface UserService {
-    String register(UserEntity userEntity);
+    String doUserRegister(UserEntity userEntity);
 
-    Map<String, Object> login(String username, String password);
+    String login(String username, String password);
 
     PageObject doFindPageObjects(Integer pageCurrent, Integer pageSize);
 

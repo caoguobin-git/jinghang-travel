@@ -11,20 +11,24 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.travel.common.entity.UserEntity;
 import com.travel.common.util.MD5HashUtils;
+import com.travel.common.vo.JsonResult;
 import com.travel.common.vo.PageObject;
 import com.travel.mapper.UserMapper;
 import com.travel.service.UserService;
 import org.apache.ibatis.session.RowBounds;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,7 +37,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public String register(UserEntity userEntity) {
+    public String doUserRegister(UserEntity userEntity) {
         UserEntity byUsername = userMapper.findByUsername(userEntity.getUsername());
         if (byUsername!=null){
             return "用户已存在！";
@@ -62,27 +66,31 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, Object> login(String username, String password) {
+    public String login(String username, String password) {
         UserEntity userEntity = userMapper.findByUsername(username);
-        Map<String,Object> result=new HashMap<>();
-        if (userEntity==null){
-            result.put("code", "user not exists");
-            result.put("message", "用户不存在");
-            return result;
-        }
-        String hashedPasswordFromSql = userEntity.getPassword();
-        String salt = userEntity.getSalt();
-        String hashedPassword = new Md5Hash(password, salt, 3).toString();
-        if (hashedPassword.equals(hashedPasswordFromSql)){
-            result.put("code", "ok");
-                result.put("message", userEntity);
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        Subject subject = SecurityUtils.getSubject();
+        System.out.println("用户登录模块");
+        try {
+            subject.login(token);
+        }catch (Exception e){
+            if(e instanceof IncorrectCredentialsException){
+                System.out.println("密码错误");
+                return "密码错误";
 
-            return result;
-        }else {
-            result.put("code", "wrong password or username");
-            result.put("message", "用户名或密码错误");
-            return result;
+            }else if(e instanceof UnknownAccountException){
+                System.out.println("该用户名不存在");
+                return "用户不存在";
+
+            }
         }
+        String s =null;
+        try {
+            s = new ObjectMapper().writeValueAsString(userEntity);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return s;
     }
 
     @Override

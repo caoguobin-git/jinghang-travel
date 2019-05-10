@@ -26,8 +26,25 @@ public class IndexController {
     public String doPageUI(){
         return "common/page";
     }
+    @RequestMapping("/adminIndex")
+    public String doIndexUI(){
+        return "starter";
+    }
     @RequestMapping("/jump2page")
     public String jump2page(String url){
         return url;
+    }
+    @RequestMapping("/register")
+    public String register(){
+        return "register";
+    }
+    @RequestMapping("logout")
+    public String logout(){
+        return "login";
+    }
+
+    @RequestMapping("/userIndex")
+    public String userIndex(){
+        return "home/user_index";
     }
 }

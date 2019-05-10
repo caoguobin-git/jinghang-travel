@@ -3,19 +3,27 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring/spring*.xml</param-value>
+    </context-param>
     <filter>
-            <filter-name>shiroFilter</filter-name>
+        <filter-name>shiroFilter</filter-name>
         <description>shiro</description>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-            <init-param>
-                <param-name>targetFilterLifecycle</param-name>
-                <param-value>true</param-value>
-            </init-param>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

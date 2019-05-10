@@ -44,12 +44,24 @@ public class UserController {
         return "sys/user_list";
     }
 
+//    @ResponseBody
+//    @RequestMapping("/register")
+//    public JsonResult register(HttpServletRequest request, UserEntity userEntity) {
+//        String ipAddress = IPUtils.getIpAddress(request);
+//        userEntity.setLastIp(ipAddress);
+//        String result = userService.register(userEntity);
+//        if ("ok".equalsIgnoreCase(result)) {
+//            return new JsonResult("注册成功");
+//        } else {
+//            return new JsonResult("401", "注册失败", result);
+//        }
+//    }
     @ResponseBody
-    @RequestMapping("/register")
-    public JsonResult register(HttpServletRequest request, UserEntity userEntity) {
+    @RequestMapping("/doUserRegister")
+    public JsonResult doUserRegister(HttpServletRequest request, UserEntity userEntity) {
         String ipAddress = IPUtils.getIpAddress(request);
         userEntity.setLastIp(ipAddress);
-        String result = userService.register(userEntity);
+        String result = userService.doUserRegister(userEntity);
         if ("ok".equalsIgnoreCase(result)) {
             return new JsonResult("注册成功");
         } else {
@@ -57,20 +69,39 @@ public class UserController {
         }
     }
 
+//    @ResponseBody
+//    @RequestMapping("/login")
+//    public JsonResult login(HttpServletRequest request, HttpServletResponse response, String username, String password) throws IOException {
+//        Map<String, Object> login = userService.login(username, password);
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        if ("ok".equalsIgnoreCase((String) login.get("code"))) {
+//            String message = objectMapper.writeValueAsString(login.get("message"));
+//            message = StringEscapeUtils.escapeJava(message);
+//            CookieUtils.setCookie(request, response, "userToken", message, 5000000);
+//            response.setHeader("refresh", "3;url=/index.do");
+//            return new JsonResult(login);
+//        } else {
+//            return new JsonResult("403", "登录失败", login.get("message"));
+//        }
+//    }
+
     @ResponseBody
     @RequestMapping("/login")
-    public JsonResult login(HttpServletRequest request, HttpServletResponse response, String username, String password) throws IOException {
-        Map<String, Object> login = userService.login(username, password);
-        ObjectMapper objectMapper = new ObjectMapper();
-        if ("ok".equalsIgnoreCase((String) login.get("code"))) {
-            String message = objectMapper.writeValueAsString(login.get("message"));
-            message = StringEscapeUtils.escapeJava(message);
-            CookieUtils.setCookie(request, response, "userToken", message, 5000000);
-            response.setHeader("refresh", "3;url=/index.do");
-            return new JsonResult(login);
-        } else {
-            return new JsonResult("403", "登录失败", login.get("message"));
+    public JsonResult login(String username, String password){
+        System.out.println("username: "+username);
+        String login = userService.login(username, password);
+        if (login.contains("username")){
+            UserEntity userEntity = null;
+            try {
+                userEntity = new ObjectMapper().readValue(login, UserEntity.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return new JsonResult(userEntity);
         }
+
+
+        return new JsonResult("201","登录失败",login);
     }
 
     @RequestMapping("doUserEditUI")
