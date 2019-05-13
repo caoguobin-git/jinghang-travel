@@ -82,17 +82,7 @@
 				<ref bean="adminRealm"></ref>
 				<ref bean="userRealm"/>
 			</list>
-<!--			<map>-->
-<!--				<entry key="user" value-ref="userRealm" />-->
-<!--				<entry key="admin" value-ref="adminRealm" />-->
-<!--			</map>-->
-		</property>
-		<property
-				name="definedRealms">
-			<map>
-				<entry key="user" value-ref="userRealm"></entry>
-				<entry key="admin" value-ref="adminRealm"></entry>
-			</map>
+
 		</property>
 		<property name="authenticationStrategy">
 			<bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy"></bean>

@@ -4,8 +4,83 @@
     <meta charset="UTF-8">
     <title>
         欢迎注册</title>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+
 </head>
 <body>
-<h>注册</h>
+<div id="user-register-box">
+    <p class="user-register-box-msg">欢迎注册</p>
+    用户名：<input
+        class="username"
+        placeholder="请输入用户名">
+    <br/>
+    密码：<input
+        class="password"
+        placeholder="请输入密码">
+    <br/>
+    确认密码：<input
+        class="confirm-password"
+        placeholder="请再次输入密码">
+    <br/>
+    <button class="cancle-user-register-btn">
+        取消
+    </button>
+    <button class="confirm-user-register-btn">
+        注册
+    </button>
+    <span class="to-login-page">已有账号，点击登录</span>
+</div>
 </body>
 </html>
+<script>
+    $(function () {
+        $("#user-register-box .confirm-user-register-btn").click(doUserRegister)
+        $("#user-register-box .cancle-user-register-btn").click(gotoHomePage)
+        $("#user-register-box .to-login-page").click(toLoginPage)
+    })
+
+    function toLoginPage() {
+        location.href="/user/loadPage.do?url=user_login&t="+Math.random();
+    }
+    function gotoHomePage() {
+        location.href="/user/index.do?t="+Math.random();
+    }
+
+    function doUserRegister() {
+        console.log("hello")
+        var username = $("#user-register-box .username").val()
+        var password = $("#user-register-box .password").val()
+        var confirmPassword=$("#user-register-box .confirm-password").val()
+        var url = "/user/register.do";
+        if (username==null || username==""){
+            $("#user-register-box .user-register-box-msg").html("用户名不正确");
+            return;
+        }
+        if (password==null||password==""||password!=confirmPassword){
+            $("user-register-box .user-register-box-msg").html("两次密码不一致");
+            return;
+        }
+        // var test=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,30}$/;
+        // if (!test.test(password)){
+        //     $(".login-box-msg").html("密码需为八位以上的数字和字母组合");
+        //     return;
+        // }
+        var param = {
+            "username": username,
+            "password": password
+        }
+        console.log(param)
+        $.ajax({
+            url:url,
+            data:param,
+            type:"post",
+            dataType:"json",
+            success:function (result) {
+                if (result.status==200){
+                    location.href="/user/index.do?t="+Math.random();
+                }
+            }
+        })
+
+    }
+</script>

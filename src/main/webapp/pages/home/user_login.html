@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        欢迎注册</title>
+        欢迎登录</title>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-
 </head>
 <body>
-<div id="user-register-box">
-    <p class="user-register-box-msg">欢迎注册</p>
+<div id="user-login-box">
+    <p class="user-login-box-msg">
+        欢迎登录</p>
     用户名：<input
         class="username"
         placeholder="请输入用户名">
@@ -18,43 +18,36 @@
         class="password"
         placeholder="请输入密码">
     <br/>
-    确认密码：<input
-        class="confirm-password"
-        placeholder="请再次输入密码">
-    <br/>
-    <button class="cancle-user-register-btn">
+    <button class="cancle-user-login-btn">
         取消
     </button>
-    <button class="confirm-user-register-btn">
-        注册
+    <button class="confirm-user-login-btn">
+        登录
     </button>
+    <span class="to-register-page">还没有账号？点击登录</span>
 </div>
 </body>
 </html>
 <script>
     $(function () {
-        $("#user-register-box .confirm-user-register-btn").click(doUserLogin)
+        $("#user-login-box .cancle-user-login-btn").click(gotoHomePage)
+        $("#user-login-box .confirm-user-login-btn").click(doUserLogin)
+        $("#user-login-box .to-register-page").click(toRegisterPage)
     })
 
     function doUserLogin() {
         console.log("hello")
-        var username = $("#user-register-box .username").val()
-        var password = $("#user-register-box .password").val()
-        var confirmPassword=$("#user-register-box .confirm-password").val()
-        var url = "/user/register.do";
-        if (username==null || username==""){
+        var username = $("#user-login-box .username").val()
+        var password = $("#user-login-box .password").val()
+        var url = "/user/login.do";
+        if (username == null || username == "") {
             $("#user-register-box .user-register-box-msg").html("用户名不正确");
             return;
         }
-        if (password==null||password==""||password!=confirmPassword){
-            $("user-register-box .user-register-box-msg").html("两次密码不一致");
+        if (password == null || password == "") {
+            $("user-register-box .user-register-box-msg").html("密码为空");
             return;
         }
-        // var test=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,30}$/;
-        // if (!test.test(password)){
-        //     $(".login-box-msg").html("密码需为八位以上的数字和字母组合");
-        //     return;
-        // }
         var param = {
             "username": username,
             "password": password
@@ -67,8 +60,20 @@
             dataType:"json",
             success:function (result) {
                 console.log(result)
+                if (result.status==200){
+                    location.href="/user/index.do?t="+Math.random();
+                }else {
+                    $("#user-login-box .user-login-box-msg").html(result.data)
+                }
             }
         })
+    }
 
+    function toRegisterPage() {
+        location.href = "/user/loadPage.do?url=user_register&t=" + Math.random();
+    }
+
+    function gotoHomePage() {
+        location.href = "/user/index.do?t=" + Math.random();
     }
 </script>

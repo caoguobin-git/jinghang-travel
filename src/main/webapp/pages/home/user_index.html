@@ -145,7 +145,16 @@
 </html>
 <script>
     $(function () {
-
+        setInterval(function () {
+            $.ajax({
+                url:"/user/getUserInfo.do",
+                type:"post",
+                dataType:"json",
+                success:function (result) {
+                    console.log(result)
+                }
+            })
+        },500)
     })
 
     $("#head").load("/pages/home/head.html");

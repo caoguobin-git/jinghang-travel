@@ -25,15 +25,15 @@ import java.util.logging.ConsoleHandler;
 
 public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
     private static final Logger logger = LoggerFactory.getLogger(MyModularRealmAuthenticator.class);
-    private Map<String, Object> definedRealms;
 
 
     @Override
     protected AuthenticationInfo doAuthenticate(AuthenticationToken authenticationToken) throws AuthenticationException {
 
+        assertRealmsConfigured();
+
         logger.info("执行到验证登录方法啦 啊啊啊啊啊 ");
         // 判断getRealms()是否返回为空
-        assertRealmsConfigured();
         // 强制转换回自定义的CustomizedToken
         MyToken token = (MyToken) authenticationToken;
         // 找到当前登录人的登录类型
@@ -62,18 +62,11 @@ public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
      */
     @Override
     protected void assertRealmsConfigured() throws IllegalStateException {
-        this.definedRealms = this.getDefinedRealms();
-        if (CollectionUtils.isEmpty(this.definedRealms)) {
+        Collection<Realm> realms = getRealms();
+        if (CollectionUtils.isEmpty(realms)) {
             throw new ShiroException("值传递错误!");
         }
     }
 
-    public Map<String, Object> getDefinedRealms() {
-        return definedRealms;
-    }
-
-    public void setDefinedRealms(Map<String, Object> definedRealms) {
-        this.definedRealms = definedRealms;
-    }
 }
 

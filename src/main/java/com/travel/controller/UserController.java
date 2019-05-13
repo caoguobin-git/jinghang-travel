@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -62,7 +63,8 @@ private final String USER_LOGIN_TYPE=LoginType.USER.toString();
 
     @RequestMapping("/login")
     @ResponseBody
-    public JsonResult login(String username,String password){
+    public JsonResult login(HttpServletRequest request,String username,String password){
+        HttpSession session = request.getSession();
         System.out.println("username: "+username);
         String login = userService.login(username, password,USER_LOGIN_TYPE);
         if (login.contains("username")){
@@ -72,10 +74,19 @@ private final String USER_LOGIN_TYPE=LoginType.USER.toString();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            session.setAttribute("userInfo", userEntity);
             return new JsonResult(userEntity);
         }
-
-
         return new JsonResult("201","登录失败",login);
+    }
+
+    @RequestMapping("/getUserInfo")
+    @ResponseBody
+    public JsonResult getUserInfo(HttpServletRequest request){
+        Object userInfo = request.getSession().getAttribute("userInfo");
+        if (userInfo==null){
+            return new JsonResult("201","尚未登录","尚未登录");
+        }
+        return new JsonResult(userInfo);
     }
 }
