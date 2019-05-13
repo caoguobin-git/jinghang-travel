@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.travel.mapper.SceneryMapper">
+<select id="getPageCount" resultType="int">
+    select count(*) from scenery_info si;
+</select>
+    <select id="doFindPageObjects" resultType="com.travel.common.entity.SceneryEntity">
+        select si.id,scenery_id,scenery_name,scenery_desc,scenery_pic,ci.city_id,ci.city_name,si.create_time,si.modified_time from scenery_info si left join city_info ci on si.city_id=ci.city_id
+    </select>
+
+    <select id="doFindObjectById" resultType="com.travel.common.entity.SceneryEntity">
+        select * from scenery_info si where scenery_id=#{id}
+    </select>
+</mapper>
