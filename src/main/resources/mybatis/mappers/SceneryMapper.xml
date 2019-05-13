@@ -10,6 +10,13 @@
     </select>
 
     <select id="doFindObjectById" resultType="com.travel.common.entity.SceneryEntity">
-        select * from scenery_info si where scenery_id=#{id}
+               select si.id,scenery_id,scenery_name,scenery_desc,scenery_pic,ci.city_id,ci.city_name,si.create_time,si.modified_time from scenery_info si left join city_info ci on si.city_id=ci.city_id
+ where scenery_id=#{id}
     </select>
+    <select id="getCityId" resultType="int">
+        select city_id from city_info ci where city_name=#{cityName}
+    </select>
+    <insert id="doSaveObject" parameterType="com.travel.common.entity.SceneryEntity">
+        insert into scenery_info (scenery_id, city_id, scenery_pic, scenery_name, scenery_desc) values (#{sceneryId},#{cityId},#{sceneryPic},#{sceneryName},#{sceneryDesc})
+    </insert>
 </mapper>

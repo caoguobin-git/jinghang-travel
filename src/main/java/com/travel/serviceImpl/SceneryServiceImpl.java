@@ -1,17 +1,24 @@
 package com.travel.serviceImpl;
 
 import com.travel.common.entity.SceneryEntity;
+import com.travel.common.util.FilePathUtil;
+import com.travel.common.util.MD5HashUtils;
 import com.travel.common.vo.PageObject;
 import com.travel.mapper.SceneryMapper;
 import com.travel.service.SceneryService;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
 public class SceneryServiceImpl implements SceneryService {
+    private final String ROOT_PATH="e:/travel";
+    private final String CHILD_PATH="/sceneryPic";
 
     @Autowired
     private SceneryMapper sceneryMapper;
@@ -46,6 +53,31 @@ public class SceneryServiceImpl implements SceneryService {
     public SceneryEntity doFindObjectById(String id) {
         SceneryEntity sceneryEntity=sceneryMapper.doFindObjectById(id);
         return sceneryEntity;
+    }
+
+    @Override
+    public String doSaveObject(String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
+
+        String fileName=sceneryPicFile.getOriginalFilename();
+        String fileType=fileName.substring(fileName.lastIndexOf(".")+1);
+        String s = FilePathUtil.uploadFile(ROOT_PATH+CHILD_PATH, fileType);
+        System.out.println(s);
+        File file=new File(ROOT_PATH+CHILD_PATH+s);
+        System.out.println(CHILD_PATH+s);
+        String sceneryPicPath=CHILD_PATH+s;
+        sceneryPicFile.transferTo(file);
+        int cityId=sceneryMapper.getCityId(cityName);
+        System.out.println(cityId);
+        SceneryEntity sceneryEntity=new SceneryEntity();
+        String sceneryId= MD5HashUtils.getRandomUUID();
+        sceneryEntity.setCityId(cityId);
+        sceneryEntity.setSceneryId(sceneryId);
+        sceneryEntity.setSceneryDesc(sceneryDesc);
+        sceneryEntity.setSceneryName(sceneryName);
+        sceneryEntity.setSceneryPic(sceneryPicPath);
+        int a = sceneryMapper.doSaveObject(sceneryEntity);
+
+        return null;
     }
 
 

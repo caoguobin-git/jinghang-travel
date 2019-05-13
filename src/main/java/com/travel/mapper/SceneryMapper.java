@@ -11,4 +11,8 @@ public interface SceneryMapper {
     List<Object> doFindPageObjects(Integer pageCurrent, RowBounds rowBounds);
 
     SceneryEntity doFindObjectById(String id);
+
+    int getCityId(String cityName);
+
+    int doSaveObject(SceneryEntity sceneryEntity);
 }
