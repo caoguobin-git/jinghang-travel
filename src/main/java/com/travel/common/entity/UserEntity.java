@@ -2,32 +2,29 @@
  * File Name: UserEntity
  * Author: caoguobin
  * mail: caoguobin@live.com
- * Created Time: 09 05 2019 11:19
+ * Created Time: 13 05 2019 13:57
  ***********************************************/
 
 package com.travel.common.entity;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class UserEntity implements Serializable {
+public class UserEntity {
     private String userId;
     private String username;
     private String password;
     private String salt;
-    private String userRole;
-    private String lastIp;
-    private String lastLoginTime;
-    private boolean valid;
-    private Timestamp createTime;
-    private Timestamp modifiedTime;
+    private Timestamp regTime;
+    private boolean ifuse;
+    private Timestamp loginTime;
+    private String loginIp;
 
-    public boolean isValid() {
-        return valid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setValid(boolean valid) {
-        this.valid = valid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -54,52 +51,36 @@ public class UserEntity implements Serializable {
         this.salt = salt;
     }
 
-    public String getUserRole() {
-        return userRole;
+    public Timestamp getRegTime() {
+        return regTime;
     }
 
-    public void setUserRole(String userRole) {
-        this.userRole = userRole;
+    public void setRegTime(Timestamp regTime) {
+        this.regTime = regTime;
     }
 
-    public String getLastIp() {
-        return lastIp;
+    public boolean isIfuse() {
+        return ifuse;
     }
 
-    public void setLastIp(String lastIp) {
-        this.lastIp = lastIp;
+    public void setIfuse(boolean ifuse) {
+        this.ifuse = ifuse;
     }
 
-    public String getLastLoginTime() {
-        return lastLoginTime;
+    public Timestamp getLoginTime() {
+        return loginTime;
     }
 
-    public void setLastLoginTime(String lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
+    public void setLoginTime(Timestamp loginTime) {
+        this.loginTime = loginTime;
     }
 
-    public Timestamp getCreateTime() {
-        return createTime;
+    public String getLoginIp() {
+        return loginIp;
     }
 
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
-
-    public Timestamp getModifiedTime() {
-        return modifiedTime;
-    }
-
-    public void setModifiedTime(Timestamp modifiedTime) {
-        this.modifiedTime = modifiedTime;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp;
     }
 
     @Override
@@ -113,16 +94,14 @@ public class UserEntity implements Serializable {
                 .append(password).append('\"');
         sb.append(",\"salt\":\"")
                 .append(salt).append('\"');
-        sb.append(",\"userRole\":\"")
-                .append(userRole).append('\"');
-        sb.append(",\"lastIp\":\"")
-                .append(lastIp).append('\"');
-        sb.append(",\"lastLoginTime\":\"")
-                .append(lastLoginTime).append('\"');
-        sb.append(",\"createTime\":\"")
-                .append(createTime).append('\"');
-        sb.append(",\"modifiedTime\":\"")
-                .append(modifiedTime).append('\"');
+        sb.append(",\"regTime\":\"")
+                .append(regTime).append('\"');
+        sb.append(",\"ifuse\":")
+                .append(ifuse);
+        sb.append(",\"loginTime\":\"")
+                .append(loginTime).append('\"');
+        sb.append(",\"loginIp\":\"")
+                .append(loginIp).append('\"');
         sb.append('}');
         return sb.toString();
     }

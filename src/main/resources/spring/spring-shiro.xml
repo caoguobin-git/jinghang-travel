@@ -54,7 +54,7 @@
 				/login*=anon
 				/register*=anon
 				<!-- 剩余其他路径，必须认证通过才可以访问 -->
-				/** = authc
+				/** = anon
 			</value>
 		</property>
 	</bean>
@@ -64,11 +64,45 @@
 
 	<!-- 配置shiro安全管理器 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-		<property name="realms" ref="customRealm"></property>
+		<property name="realms">
+			<list>
+				<ref bean="adminRealm"></ref>
+				<ref bean="userRealm"></ref>
+			</list>
+		</property>
+		<property
+				name="authenticator" ref="authenticator">
+		</property>
 	</bean>
 
+	<bean id="authenticator" class="com.travel.realm.MyModularRealmAuthenticator">
+		<!-- 配置认证策略，只要有一个Realm认证成功即可，并且返回所有认证成功信息 -->
+		<property name="realms">
+			<list>
+				<ref bean="adminRealm"></ref>
+				<ref bean="userRealm"/>
+			</list>
+<!--			<map>-->
+<!--				<entry key="user" value-ref="userRealm" />-->
+<!--				<entry key="admin" value-ref="adminRealm" />-->
+<!--			</map>-->
+		</property>
+		<property
+				name="definedRealms">
+			<map>
+				<entry key="user" value-ref="userRealm"></entry>
+				<entry key="admin" value-ref="adminRealm"></entry>
+			</map>
+		</property>
+		<property name="authenticationStrategy">
+			<bean class="org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy"></bean>
+		</property>
+	</bean>
 	<!-- 自定义Realm -->
-	<bean id="customRealm" class="com.travel.realm.UserRealm">
+	<bean id="userRealm" class="com.travel.realm.UserRealm">
+		<property name="credentialsMatcher" ref="credentialsMatcher"></property>
+	</bean>
+	<bean id="adminRealm" class="com.travel.realm.AdminRealm">
 		<property name="credentialsMatcher" ref="credentialsMatcher"></property>
 	</bean>
 

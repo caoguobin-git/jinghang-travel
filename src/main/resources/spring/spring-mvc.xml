@@ -40,26 +40,26 @@
 	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"></bean>
 
 	<mvc:default-servlet-handler/>
-	<!--配置拦截路径-->
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<!--<mvc:mapping-->
-			<!--path="/news/**" />-->
-			<mvc:mapping
-					path="/user/register*"/>
-			<mvc:mapping
-					path="/index.do" />
-			<mvc:mapping
-					path="/hotel/**" />
-			<!--<mvc:mapping-->
-			<!--path="/trade/**"/>-->
-			<mvc:exclude-mapping
-					path="/user/login*"/>
-			<mvc:exclude-mapping
-					path="/blog/get*"/>
-			<bean class="com.travel.interceptor.WebInterceptor"/>
+<!--	&lt;!&ndash;配置拦截路径&ndash;&gt;-->
+<!--	<mvc:interceptors>-->
+<!--		<mvc:interceptor>-->
+<!--			&lt;!&ndash;<mvc:mapping&ndash;&gt;-->
+<!--			&lt;!&ndash;path="/news/**" />&ndash;&gt;-->
+<!--			<mvc:mapping-->
+<!--					path="/user/register*"/>-->
+<!--			<mvc:mapping-->
+<!--					path="/index.do" />-->
+<!--			<mvc:mapping-->
+<!--					path="/hotel/**" />-->
+<!--			&lt;!&ndash;<mvc:mapping&ndash;&gt;-->
+<!--			&lt;!&ndash;path="/trade/**"/>&ndash;&gt;-->
+<!--			<mvc:exclude-mapping-->
+<!--					path="/user/login*"/>-->
+<!--			<mvc:exclude-mapping-->
+<!--					path="/blog/get*"/>-->
+<!--			<bean class="com.travel.interceptor.WebInterceptor"/>-->
 
-		</mvc:interceptor>
-	</mvc:interceptors>
+<!--		</mvc:interceptor>-->
+<!--	</mvc:interceptors>-->
 
 </beans>

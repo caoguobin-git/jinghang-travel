@@ -112,7 +112,7 @@
         //1.params
         var params = {"id": id};
         //2.url
-        var url = "user/doFindObjectById.do";
+        var url = "admin/doFindObjectById.do";
         //3.ajax request
         $.getJSON(url, params, function (result) {//JsonResult
             if (result.state == 1) {
@@ -129,7 +129,7 @@
     }
 
     function doLoadPage(title) {
-        var url = "user/doUserEditUI.do"
+        var url = "admin/doUserEditUI.do"
         $("#mainContentId").load(url, function () {
             $(".box-title").html(title);
         })
@@ -150,7 +150,7 @@
         };
         //url
         console.log(params)
-        var url = "user/doValidById.do";
+        var url = "admin/doValidById.do";
         $.post(url, params, function (result) {
             if (result.status == 200) {
                 alert(result.message)
@@ -180,7 +180,7 @@
 
     //页面加载完成异步加载当前页数据
     function doGetObjects() {
-        var url = "user/doFindPageObjects.do";
+        var url = "admin/doFindPageObjects.do";
         var pageCurrent = $("#pageId").data("pageCurrent");
         if (!pageCurrent) pageCurrent = 1;
         var params = {"pageCurrent": pageCurrent}

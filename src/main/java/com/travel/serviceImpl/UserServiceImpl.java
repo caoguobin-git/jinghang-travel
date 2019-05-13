@@ -2,7 +2,7 @@
  * File Name: UserServiceImpl
  * Author: caoguobin
  * mail: caoguobin@live.com
- * Created Time: 09 05 2019 11:03
+ * Created Time: 13 05 2019 14:06
  ***********************************************/
 
 package com.travel.serviceImpl;
@@ -11,14 +11,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.travel.common.entity.UserEntity;
 import com.travel.common.util.MD5HashUtils;
-import com.travel.common.vo.PageObject;
 import com.travel.mapper.UserMapper;
+import com.travel.realm.MyToken;
 import com.travel.service.UserService;
-import org.apache.ibatis.session.RowBounds;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.subject.Subject;
@@ -27,7 +25,6 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -36,7 +33,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public String doUserRegister(UserEntity userEntity) {
+    public String register(UserEntity userEntity) {
         UserEntity byUsername = userMapper.findByUsername(userEntity.getUsername());
         if (byUsername!=null){
             return "用户已存在！";
@@ -55,12 +52,12 @@ public class UserServiceImpl implements UserService {
         userEntity.setPassword(password);
         userEntity.setSalt(salt);
         Timestamp timestamp = new Timestamp(new Date().getTime());
-        userEntity.setCreateTime(timestamp);
-        userEntity.setModifiedTime(timestamp);
+        userEntity.setRegTime(timestamp);
+        userEntity.setLoginTime(timestamp);
         System.out.println(userEntity);
         int result = userMapper.register(userEntity);
         if (result>0) {
-            login(userEntity.getUsername(), password1);
+//            login(adminEntity.getUsername(), password1);
             UserEntity byUsername1 = userMapper.findByUsername(userEntity.getUsername());
             try {
                 return new ObjectMapper().writeValueAsString(byUsername1);
@@ -72,9 +69,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String login(String username, String password) {
+    public String login(String username, String password, String userLoginType) {
         UserEntity userEntity = userMapper.findByUsername(username);
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        MyToken token = new MyToken(username, password,userLoginType);
         Subject subject = SecurityUtils.getSubject();
         System.out.println("用户登录模块");
         try {
@@ -90,7 +87,7 @@ public class UserServiceImpl implements UserService {
 
             }
         }
-        if (userEntity.isValid()) {
+        if (userEntity.isIfuse()) {
             String s = null;
             try {
                 s = new ObjectMapper().writeValueAsString(userEntity);
@@ -104,50 +101,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageObject doFindPageObjects(Integer pageCurrent, Integer pageSize) {
-        if (pageSize == null) {
-            pageSize = 20;
-        }
-        int pageCount = getPageCount(pageSize);
-        if (pageCurrent == null || pageCurrent < 1) {
-            pageCurrent = 1;
-        }
-        if (pageCurrent > pageCount) {
-            pageCurrent = pageCount;
-        }
-        PageObject pageObject = new PageObject();
-        pageObject.setTotal(userMapper.getPageCount());
-        pageObject.setPageCount(pageCount);
-        pageObject.setPageCurrent(pageCurrent);
-        pageObject.setPageSize(pageSize);
-        List<Object> list = userMapper.doFindPageObjects(pageCurrent,new RowBounds(pageCurrent-1, pageSize));
-        System.out.println(list.size());
-        for (Object o : list) {
-            System.out.println(o.toString());
-        }
-        pageObject.setRecords(list);
-        return pageObject;
-    }
-
-    @Override
-    public void doValidById(String userId, Integer valid) {
-        userMapper.doValidById(userId,valid);
-    }
-
-    @Override
     public UserEntity findByUsername(String username) {
         return userMapper.findByUsername(username);
-    }
-
-    public int getPageCount(int pageSize) {
-        return userMapper.getPageCount() / pageSize + 1;
-    }
-
-
-
-    @Override
-    public List test() {
-
-        return userMapper.test();
     }
 }

@@ -1,47 +1,220 @@
 <div id="head_top">
-    <div class="icon"><img src="pages/home/img/icon.jpg"></div>
+    <div class="icon"><img src="/pages/home/img/icon.jpg"></div>
     <div>京杭大运河旅游</div>
     <div onclick="window.open('userIndex.do','_self')">首页</div>
     <div>运河万象</div>
     <div id="yunhe18cheng">运河十八城</div>
     <table id="city-select-box">
         <tr>
-            <td class="city-select" id="city-select-0">北京</td>
-            <td class="city-select" id="city-select-1">宿迁</td>
+            <td class="city-select" id="city-select-beijing">北京</td>
+            <td class="city-select" id="city-select-suqian">宿迁</td>
         </tr>
         <tr>
-            <td class="city-select" id="city-select-2">天津</td>
-            <td class="city-select" id="city-select-3">淮安</td>
+            <td class="city-select" id="city-select-tianjin">天津</td>
+            <td class="city-select" id="city-select-huaian">淮安</td>
         </tr>
         <tr>
-            <td class="city-select" id="city-select-4">沧州</td>
-            <td class="city-select" id="city-select-5">扬州</td>
+            <td class="city-select" id="city-select-cangzhou">沧州</td>
+            <td class="city-select" id="city-select-yangzhou">扬州</td>
         </tr>
         <tr>
-            <td class="city-select" id="city-select-6">德州</td>
-            <td class="city-select" id="city-select-7">常州</td>
+            <td class="city-select" id="city-select-dezhou">德州</td>
+            <td class="city-select" id="city-select-changzhou">常州</td>
         </tr>
         <tr>
-            <td class="city-select" id="city-select-8">衡水</td>
-            <td class="city-select" id="city-select-9">无锡</td>
+            <td class="city-select" id="city-select-hengshui">衡水</td>
+            <td class="city-select" id="city-select-wuxi">无锡</td>
         </tr>
         <tr>
-            <td class="city-select" id="city-select-10">聊城</td>
-            <td class="city-select" id="city-select-11">苏州</td>
+            <td class="city-select" id="city-select-liaocheng">聊城</td>
+            <td class="city-select" id="city-select-suzhou">苏州</td>
         </tr>
         <tr>
-            <td class="city-select" id="city-select-12">济宁</td>
-            <td class="city-select" id="city-select-13">湖州</td>
+            <td class="city-select" id="city-select-jining">济宁</td>
+            <td class="city-select" id="city-select-huzhou">湖州</td>
         </tr>
         <tr>
-            <td class="city-select" id="city-select-14">泰安</td>
-            <td class="city-select" id="city-select-15">嘉兴</td>
+            <td class="city-select" id="city-select-taian">泰安</td>
+            <td class="city-select" id="city-select-jiaxing">嘉兴</td>
         </tr>
         <tr>
-            <td class="city-select" id="city-select-16">枣庄</td>
-            <td class="city-select" id="city-select-17">杭州</td>
+            <td class="city-select" id="city-select-zaozhuang">枣庄</td>
+            <td class="city-select" id="city-select-hangzhou">杭州</td>
         </tr>
     </table>
     <div>千年运河</div>
-    <div><input>搜索</div>
+
+    <div><input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索</div>
+    <div id="user_register_login">登录/注册</div>
 </div>
+
+<script type="text/javascript">
+
+    $(function () {
+        $("img").click(displayCityInfo)
+        $("#yunhe18cheng").hover(displayCitys, undisplayCitys)
+        $("#city-select-box").hover(displayCitys, undisplayCitys)
+        $(".city-select").click(displayCityInfo)
+        $(".index_text").hover(displayText, undisplayText)
+        $("#user_register_login").click(gotoUserLoginPage)
+    })
+
+    $("#city-select-box").hide()
+
+
+    function gotoUserLoginPage(){
+        location.href="/user/loadPage.do?url=user_login&t="+Math.random()
+    }
+
+
+    function displayText() {
+        $(this).css("height", "500")
+    }
+
+    function undisplayText() {
+        $(this).css("height", "200")
+
+    }
+
+    function displayCitys() {
+        $("#city-select-box").css({
+            "left": $("#yunhe18cheng").offset().left,
+            "top": $("#yunhe18cheng").offset().top + 60
+        })
+        $("#city-select-box").show()
+    }
+
+    function undisplayCitys() {
+        $("#city-select-box").hide()
+
+    }
+
+    function displayCityInfo() {
+        undisplayCitys();
+        var city=$(this).attr("id").substring(12)
+        console.log(city)
+        location.href="/jump2page.do?url=city/"+city;
+    }
+
+    /**
+     *
+     * 图片轮播
+     */
+    function my$(id) {
+        return document.getElementById(id);
+    }
+
+    //获取各元素，方便操作
+    var box = my$("box");
+    var inner = box.children[0];
+    var ulObj = inner.children[0];
+    var list = ulObj.children;
+    var olObj = inner.children[1];
+    var arr = my$("arr");
+    var imgWidth = inner.offsetWidth;
+    var right = my$("right");
+    var pic = 0;
+    //根据li个数，创建小按钮
+    for (var i = 0; i < list.length; i++) {
+        var liObj = document.createElement("li");
+
+        olObj.appendChild(liObj);
+        liObj.innerText = (i + 1);
+        liObj.setAttribute("index", i);
+
+        //为按钮注册mouseover事件
+        liObj.onmouseover = function () {
+            //先清除所有按钮的样式
+
+            for (var j = 0; j < olObj.children.length; j++) {
+                olObj.children[j].removeAttribute("class");
+            }
+            this.className = "current";
+            pic = this.getAttribute("index");
+            animate(ulObj, -pic * imgWidth);
+        }
+
+    }
+
+
+    //设置ol中第一个li有背景颜色
+    olObj.children[0].className = "current";
+    //克隆一个ul中第一个li,加入到ul中的最后=====克隆
+    ulObj.appendChild(ulObj.children[0].cloneNode(true));
+
+    var timeId = setInterval(onmouseclickHandle, 1500);
+    //左右焦点实现点击切换图片功能
+    box.onmouseover = function () {
+        arr.style.display = "block";
+        clearInterval(timeId);
+    };
+    box.onmouseout = function () {
+        arr.style.display = "none";
+        timeId = setInterval(onmouseclickHandle, 1500);
+    };
+
+    right.onclick = onmouseclickHandle;
+
+    function onmouseclickHandle() {
+        //如果pic的值是5,恰巧是ul中li的个数-1的值,此时页面显示第六个图片,而用户会认为这是第一个图,
+        //所以,如果用户再次点击按钮,用户应该看到第二个图片
+        if (pic == list.length - 1) {
+            //如何从第6个图,跳转到第一个图
+            pic = 0;//先设置pic=0
+            ulObj.style.left = 0 + "px";//把ul的位置还原成开始的默认位置
+        }
+        pic++;//立刻设置pic加1,那么此时用户就会看到第二个图片了
+        animate(ulObj, -pic * imgWidth);//pic从0的值加1之后,pic的值是1,然后ul移动出去一个图片
+        //如果pic==5说明,此时显示第6个图(内容是第一张图片),第一个小按钮有颜色,
+        if (pic == list.length - 1) {
+            //第五个按钮颜色干掉
+            olObj.children[olObj.children.length - 1].className = "";
+            //第一个按钮颜色设置上
+            olObj.children[0].className = "current";
+        } else {
+            //干掉所有的小按钮的背景颜色
+            for (var i = 0; i < olObj.children.length; i++) {
+                olObj.children[i].removeAttribute("class");
+            }
+            olObj.children[pic].className = "current";
+        }
+    }
+
+    left.onclick = function () {
+        if (pic == 0) {
+            pic = list.length - 1;
+            ulObj.style.left = -pic * imgWidth + "px";
+        }
+        pic--;
+        animate(ulObj, -pic * imgWidth);
+        for (var i = 0; i < olObj.children.length; i++) {
+            olObj.children[i].removeAttribute("class");
+        }
+        //当前的pic索引对应的按钮设置颜色
+        olObj.children[pic].className = "current";
+    };
+
+    //设置任意的一个元素,移动到指定的目标位置
+    function animate(element, target) {
+        clearInterval(element.timeId);
+        //定时器的id值存储到对象的一个属性中
+        element.timeId = setInterval(function () {
+            //获取元素的当前的位置,数字类型
+            var current = element.offsetLeft;
+            //每次移动的距离
+            var step = 70;
+            step = current < target ? step : -step;
+            //当前移动到位置
+            current += step;
+            if (Math.abs(current - target) > Math.abs(step)) {
+                element.style.left = current - 32 + "px";
+            } else {
+                //清理定时器
+                clearInterval(element.timeId);
+                //直接到达目标
+                element.style.left = target - 32 + "px";
+            }
+        }, 30);
+    }
+
+</script>

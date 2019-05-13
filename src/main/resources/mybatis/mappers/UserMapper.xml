@@ -6,18 +6,7 @@
         select * from user_info where username=#{username}
     </select>
     <insert id="register" parameterType="com.travel.common.entity.UserEntity">
-        insert into user_info (user_id,username,password,salt,last_ip) values (#{userId},#{username},#{password},#{salt},#{lastIp})
+        insert into user_info (user_id,username,password,salt,login_ip) values (#{userId},#{username},#{password},#{salt},#{loginIp})
     </insert>
-    <select id="getPageCount" resultType="int">
-        select count(*) from user_info
-    </select>
-    <select id="doFindPageObjects" resultType="com.travel.common.entity.UserEntity">
-        select * from user_info order by id
-    </select>
-    <update id="doValidById">
-        update user_info set valid=#{valid} where user_id=#{userId}
-    </update>
-    <select id="test" resultType="java.util.Map">
-        select user_role ROLE,count(*) NUM from user_info ui group by user_role
-    </select>
+
 </mapper>

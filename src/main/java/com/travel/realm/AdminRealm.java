@@ -1,8 +1,7 @@
 package com.travel.realm;
 
 import com.travel.common.entity.AdminEntity;
-import com.travel.common.entity.UserEntity;
-import com.travel.service.UserService;
+import com.travel.service.AdminService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -12,18 +11,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserRealm extends AuthorizingRealm {
-
-
-    private static final Logger logger = LoggerFactory.getLogger(MyModularRealmAuthenticator.class);
-
+public class AdminRealm extends AuthorizingRealm {
     @Autowired
-    private UserService userService;
+    private AdminService adminService;
 
     @Override
     public String getName() {
-        return "UserRealm";
+        return "AdminRealm";
     }
+    private static final Logger logger = LoggerFactory.getLogger(MyModularRealmAuthenticator.class);
+
+
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
@@ -54,11 +52,10 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
-
-        System.out.println("开始user身份认证...");
+        System.out.println("开始Admin身份认证...");
         MyToken userToken = (MyToken) token;
         String adminName =  userToken.getUsername();//获取用户名，默认和login.html中的adminName对应。
-        UserEntity admin = userService.findByUsername(adminName);
+        AdminEntity admin = adminService.findByUsername(adminName);
 
         if (admin == null) {
             //没有返回登录用户名对应的SimpleAuthenticationInfo对象时,就会在LoginController中抛出UnknownAccountException异常
@@ -68,21 +65,22 @@ public class UserRealm extends AuthorizingRealm {
 
         String username=admin.getUsername();
         String password=admin.getPassword();
-        ByteSource salt = ByteSource.Util.bytes(admin.getSalt());
+         ByteSource salt = ByteSource.Util.bytes(admin.getSalt());
         //验证通过返回一个封装了用户信息的AuthenticationInfo实例即可。
         SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(username,password,salt,getName());
         logger.info("返回Admin认证信息：" + authenticationInfo);
         return authenticationInfo;
 
+
+
 //        String username = (String) authenticationToken.getPrincipal();
-//        System.out.println("user realm");
-//
-//        UserEntity userEntity = userService.findByUsername(username);
-//        if (userEntity == null) {
+//        System.out.println("admin realm");
+//        AdminEntity adminEntity = adminService.findByUsername(username);
+//        if (adminEntity == null) {
 //            throw new UnknownAccountException("该用户不存在");
 //        }
-//        ByteSource salt = ByteSource.Util.bytes(userEntity.getSalt());
-//        String password = userEntity.getPassword();
+//        ByteSource salt = ByteSource.Util.bytes(adminEntity.getSalt());
+//        String password = adminEntity.getPassword();
 //       SimpleAuthenticationInfo a = new SimpleAuthenticationInfo(username, password, salt, getName());
 //       return a;
     }

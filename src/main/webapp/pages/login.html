@@ -83,7 +83,6 @@
                 <!-- /.col -->
             </div>
         </form>
-        <span onclick="javascript:window.open('/register.do','_self')">没有账号？点击注册</span>
 
 
     </div>
@@ -112,17 +111,13 @@
             username: $("#usernameId").val(),
             password: $("#passwordId").val()
         }
-        var url = "/user/login.do";
+        var url = "/admin/login.do";
         $.post(url, params, function (result) {
             console.log(result)
             console.log(result.data)
             if (result.status == 200) {
                 //跳转到indexUI对应的页面
-                if (result.data.userRole=="admin") {
                     location.href = "adminIndex.do?t=" + Math.random();
-                }else if(result.data.userRole="user1"){
-                    location.href="userIndex.do?t="+Math.random();
-                }
             } else {
                 if ("ok" == result.message) {
                     $(".login-box-msg").html("登录成功");
