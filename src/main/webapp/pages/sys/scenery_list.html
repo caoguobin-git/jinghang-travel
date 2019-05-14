@@ -86,8 +86,35 @@
         $(".input-group-btn")
             .on("click", ".btn-search", doQueryObjects)
             .on("click", ".btn-add,.btn-update", doLoadEditUI);
-        $("tbody").on("click", ".btn-valid", doValidById);
+        // $(".scenery-delete-btn").click(doDeleteObject)
+        $("#tbodyId").on("click",".scenery-delete-btn",doDeleteObject)
     });
+
+
+    function doDeleteObject() {
+        var id=$(this).siblings(".scenery-id").text()
+        if (confirm("确定删除ID为"+id+"的信息吗？")) {
+            var url="scenery/doDeleteObject.do";
+            var param={
+                "sceneryId":id
+            }
+            $.ajax({
+                url:url,
+                data:param,
+                type:"post",
+                dataType:"json",
+                success:function (result) {
+                    console.log(result)
+                    if (result.status==200){
+                        alert("信息删除成功");
+                        $("#mainContentId").load("scenery/doSceneryListUI.do");
+                    } else {
+                        alert(result.data)
+                    }
+                }
+            })
+        }
+    }
 
     function doLoadEditUI() {
         //1.判定点击的对象
@@ -135,42 +162,7 @@
         })
     }
 
-    //禁用和启用操作
-    function doValidById() {
-        //params
-        var id = $(this).parents("tr").children(".user-id").text();
-        var valid = $(this).parents("tr").children(".user-valid").text();
-        var newValid = (valid == "启用" ? 0 : 1);
-        $(this).parents("tr").children(".user-valid").text((newValid == 1 ? "启用" : "禁用"));
-        $(this).text(($(this).text() == "禁用") ? "启用" : "禁用")
 
-        var params = {
-            "userId": id,
-            "valid": newValid
-        };
-        //url
-        console.log(params)
-        var url = "admin/doValidById.do";
-        $.post(url, params, function (result) {
-            if (result.status == 200) {
-                alert(result.message)
-            } else {
-                alert(result.message);
-            }
-        })
-    }
-
-    function doEditRow(obj, valid) {
-        //1.修改按钮上的内容
-        $(obj).html(valid ? "启用" : "禁用");
-        //2.修改tr中第5个td中的内容(查询API文档)
-        var tr = $(obj).parents("tr");
-        tr.children(".user-valid").text(valid ? "禁用" : "启用");
-        //3.获取当前行tr对象，然后重新绑定新的值
-        var rowData = tr.data("rowData")
-        rowData.valid = valid ? 0 : 1;
-        tr.data("rowData", rowData);
-    }
 
     //处理查询按钮事件
     function doQueryObjects() {
@@ -218,16 +210,15 @@
 
     function doCreateTds(row) {
         var tds = "<td><input type='radio' name='radioId' value='" + row.sceneryId + "' ></td>" +
-            "<td class='user-id'>" + row.id + "</td>" +
-            "<td>" + row.sceneryId + "</td>" +
+            "<td >" + row.id + "</td>" +
+            "<td class='scenery-id'>" + row.sceneryId + "</td>" +
             "<td>" + row.cityName + "</td>" +
             "<td> " + row.sceneryName + "</td>" +
-            "<td><img style='width: 40px' src='" + row.sceneryPic + "'/></td>" +
+            "<td><img style='width: 40px' src='http://image.travel.com/" + row.sceneryPic + "'/></td>" +
             "<td>" + row.sceneryDesc + "</td>" +
             "<td>" + new Date(row.createTime).toLocaleString() + "</td>" +
             "<td>" + new Date(row.modifiedTime).toLocaleString() + "</td>" +
-            "<td class='user-valid'>" + (row.valid ? "启用" : "禁用") + "</td>" +
-            "<td><div  class='btn-valid'>" + (row.valid ? "禁用" : "启用") + "</div></td>";
+            "<td class='scenery-delete-btn'>删除</td>";
         return tds;
     }
 </script>

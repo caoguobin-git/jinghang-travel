@@ -17,8 +17,8 @@ import java.util.List;
 
 @Service
 public class SceneryServiceImpl implements SceneryService {
-    private final String ROOT_PATH="e:/travel";
-    private final String CHILD_PATH="/sceneryPic";
+    private final String ROOT_PATH = "e:/travel";
+    private final String CHILD_PATH = "/sceneryPic";
 
     @Autowired
     private SceneryMapper sceneryMapper;
@@ -40,7 +40,7 @@ public class SceneryServiceImpl implements SceneryService {
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
-        List<Object> list = sceneryMapper.doFindPageObjects(pageCurrent,new RowBounds(pageCurrent-1, pageSize));
+        List<Object> list = sceneryMapper.doFindPageObjects(pageCurrent, new RowBounds(pageCurrent - 1, pageSize));
         System.out.println(list.size());
         for (Object o : list) {
             System.out.println(o.toString());
@@ -51,33 +51,94 @@ public class SceneryServiceImpl implements SceneryService {
 
     @Override
     public SceneryEntity doFindObjectById(String id) {
-        SceneryEntity sceneryEntity=sceneryMapper.doFindObjectById(id);
+        SceneryEntity sceneryEntity = sceneryMapper.doFindObjectById(id);
         return sceneryEntity;
     }
 
     @Override
     public String doSaveObject(String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
 
-        String fileName=sceneryPicFile.getOriginalFilename();
-        String fileType=fileName.substring(fileName.lastIndexOf(".")+1);
-        String s = FilePathUtil.uploadFile(ROOT_PATH+CHILD_PATH, fileType);
+        String fileName = sceneryPicFile.getOriginalFilename();
+        String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
+        String s = FilePathUtil.uploadFile(ROOT_PATH + CHILD_PATH, fileType);
         System.out.println(s);
-        File file=new File(ROOT_PATH+CHILD_PATH+s);
-        System.out.println(CHILD_PATH+s);
-        String sceneryPicPath=CHILD_PATH+s;
+        File file = new File(ROOT_PATH + CHILD_PATH + s);
+        System.out.println(CHILD_PATH + s);
+        String sceneryPicPath = CHILD_PATH + s;
         sceneryPicFile.transferTo(file);
-        int cityId=sceneryMapper.getCityId(cityName);
+        int cityId = sceneryMapper.getCityId(cityName);
         System.out.println(cityId);
-        SceneryEntity sceneryEntity=new SceneryEntity();
-        String sceneryId= MD5HashUtils.getRandomUUID();
+        SceneryEntity sceneryEntity = new SceneryEntity();
+        String sceneryId = MD5HashUtils.getRandomUUID();
         sceneryEntity.setCityId(cityId);
         sceneryEntity.setSceneryId(sceneryId);
         sceneryEntity.setSceneryDesc(sceneryDesc);
         sceneryEntity.setSceneryName(sceneryName);
         sceneryEntity.setSceneryPic(sceneryPicPath);
         int a = sceneryMapper.doSaveObject(sceneryEntity);
-
+        if (a>0){
+            return "ok";
+        }
         return null;
+    }
+
+    @Override
+    public String doUpdateObject(String sceneryId, String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
+        //查找原来的图片进行删除操作，节省磁盘空间
+        SceneryEntity sceneryEntity1 = sceneryMapper.doFindObjectById(sceneryId);
+        if (sceneryPicFile!=null){
+            String sceneryPic = sceneryEntity1.getSceneryPic();
+            String prePicPath = ROOT_PATH + sceneryPic;
+            File preFile = new File(prePicPath);
+            if (preFile.exists()) {
+                preFile.delete();
+            }
+        }
+        String sceneryPicPath = null;
+        if (sceneryPicFile != null) {
+            String fileName = sceneryPicFile.getOriginalFilename();
+            String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
+            String s = FilePathUtil.uploadFile(ROOT_PATH + CHILD_PATH, fileType);
+            System.out.println(s);
+            File file = new File(ROOT_PATH + CHILD_PATH + s);
+            System.out.println(CHILD_PATH + s);
+            sceneryPicPath = CHILD_PATH + s;
+            sceneryPicFile.transferTo(file);
+        }
+        int cityId = sceneryMapper.getCityId(cityName);
+        System.out.println(cityId);
+        SceneryEntity sceneryEntity = new SceneryEntity();
+        sceneryEntity.setCityId(cityId);
+        sceneryEntity.setSceneryId(sceneryId);
+        sceneryEntity.setSceneryDesc(sceneryDesc);
+        sceneryEntity.setSceneryName(sceneryName);
+        sceneryEntity.setSceneryPic(sceneryPicPath);
+        int a = sceneryMapper.doUpdateObject(sceneryEntity);
+        if (a>0){
+            return "ok";
+        }
+        return null;
+    }
+
+    @Override
+    public String doDeleteObject(String sceneryId) {
+        SceneryEntity sceneryEntity = sceneryMapper.doFindObjectById(sceneryId);
+        if (sceneryEntity==null){
+            return "记录不存在";
+        }
+        //删除图片
+        String sceneryPic = sceneryEntity.getSceneryPic();
+        String prePicPath = ROOT_PATH + sceneryPic;
+        File preFile = new File(prePicPath);
+        if (preFile.exists()) {
+            preFile.delete();
+        }
+
+        int a = sceneryMapper.doDeleteObject(sceneryId);
+        if (a>0){
+            return "ok";
+        }
+        return "删除失败，没有权限或记录不存在";
     }
 
 

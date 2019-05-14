@@ -2,21 +2,79 @@
         "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.travel.mapper.SceneryMapper">
-<select id="getPageCount" resultType="int">
-    select count(*) from scenery_info si;
-</select>
-    <select id="doFindPageObjects" resultType="com.travel.common.entity.SceneryEntity">
-        select si.id,scenery_id,scenery_name,scenery_desc,scenery_pic,ci.city_id,ci.city_name,si.create_time,si.modified_time from scenery_info si left join city_info ci on si.city_id=ci.city_id
+    <select id="getPageCount"
+            resultType="int">
+        select count(
+                       *)
+        from scenery_info si;
+    </select>
+    <select id="doFindPageObjects"
+            resultType="com.travel.common.entity.SceneryEntity">
+        select si.id,
+               scenery_id,
+               scenery_name,
+               scenery_desc,
+               scenery_pic,
+               ci.city_id,
+               ci.city_name,
+               si.create_time,
+               si.modified_time
+        from scenery_info si
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
     </select>
 
-    <select id="doFindObjectById" resultType="com.travel.common.entity.SceneryEntity">
-               select si.id,scenery_id,scenery_name,scenery_desc,scenery_pic,ci.city_id,ci.city_name,si.create_time,si.modified_time from scenery_info si left join city_info ci on si.city_id=ci.city_id
- where scenery_id=#{id}
+    <select id="doFindObjectById"
+            resultType="com.travel.common.entity.SceneryEntity">
+        select si.id,
+               scenery_id,
+               scenery_name,
+               scenery_desc,
+               scenery_pic,
+               ci.city_id,
+               ci.city_name,
+               si.create_time,
+               si.modified_time
+        from scenery_info si
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where scenery_id =
+              #{id}
     </select>
-    <select id="getCityId" resultType="int">
-        select city_id from city_info ci where city_name=#{cityName}
+    <select id="getCityId"
+            resultType="int">
+        select city_id
+        from city_info ci
+        where city_name =
+              #{cityName}
     </select>
-    <insert id="doSaveObject" parameterType="com.travel.common.entity.SceneryEntity">
-        insert into scenery_info (scenery_id, city_id, scenery_pic, scenery_name, scenery_desc) values (#{sceneryId},#{cityId},#{sceneryPic},#{sceneryName},#{sceneryDesc})
+    <insert id="doSaveObject"
+            parameterType="com.travel.common.entity.SceneryEntity">
+        insert into scenery_info (scenery_id,
+                                  city_id,
+                                  scenery_pic,
+                                  scenery_name,
+                                  scenery_desc)
+        values (#{sceneryId},
+                #{cityId},
+                #{sceneryPic},
+                #{sceneryName},
+                #{sceneryDesc})
     </insert>
+    <update id="doUpdateObject"
+            parameterType="com.travel.common.entity.SceneryEntity">
+        update scenery_info si set
+        <if test="cityId!=null">city_id=#{cityId},</if>
+        <if test="sceneryPic!=null">scenery_pic=#{sceneryPic},</if>
+        <if test="sceneryName!=null">scenery_name=#{sceneryName},</if>
+        <if test="sceneryDesc!=null">scenery_desc=#{sceneryDesc}</if>
+        where scenery_id =
+        <if test="sceneryId!=null">#{sceneryId}</if>
+    </update>
+
+    <delete id="doDeleteObject" parameterType="java.lang.String">
+        delete from scenery_info where scenery_id=#{sceneryId}
+    </delete>
 </mapper>

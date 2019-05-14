@@ -119,9 +119,8 @@
                 <label for="sceneryDesc"
                        class="col-sm-2 control-label">景点描述</label>
                 <div class="col-sm-10">
-                    <input type="text"
-                           class="form-control"
-                           id="sceneryDesc">
+                    <textarea type="text" class="form-control"
+                              id="sceneryDesc"></textarea>
                 </div>
             </div>
 
@@ -145,24 +144,37 @@
 <script type="text/javascript"
         src="/bower_components/layer/layer.js"></script>
 <script type="text/javascript">
-    // //json 格式的javascript对象
-    // $(document).ready(function () {
-    //     //页面加载完成以后加载角色信息并初始化页面
-    //     //事件注册
-    //     $(".box-footer")
-    //         .on("click", ".btn-cancel", doCancel)
-    //         .on("click", ".btn-save", doSaveOrUpdate);
-    //
-    //
-    // });
+
     $(function () {
         $(".box-footer")
             .on("click", ".btn-cancel", doCancel)
             .on("click", ".btn-save", doSaveOrUpdate);
         initDatas();
+        $("#sceneryPicFile").change(previewPic)
 
     })
 
+    //图片预览
+    function previewPic(e) {
+        var imgBox=e.target;
+        uploadImg($("#sceneryPicFile"),imgBox)
+    }
+    function uploadImg(element, tag) {
+        var file = tag.files[0];
+        var imgSrc;
+        if (!/image\/\w+/.test(file.type)) {
+            alert("看清楚，这个需要图片！");
+            return false;
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function() {
+            imgSrc = this.result;
+            $("#sceneryPic").attr("src", imgSrc);
+        };
+    }
+
+    //初始化数据
     function initDatas() {
         var type = $(".box-title").html();
         if ("添加" == type.substring(0, 2)) {
@@ -176,8 +188,9 @@
             $("#sceneryId").val(datas.sceneryId)
             $("#cityName").val(datas.cityName)
             $("#sceneryName").val(datas.sceneryName)
-            $("#sceneryPic").attr("src", datas.sceneryPic);
+            $("#sceneryPic").attr("src", "http://image.travel.com/"+datas.sceneryPic);
             $("#sceneryDesc").val(datas.sceneryDesc)
+            console.log("http://image.travel.com/"+datas.sceneryPic)
         }
 
     }
@@ -226,23 +239,17 @@
             contentType: false,
             async: false,
             success: function (result) {
-                console.log(result)
+                if (result.status==200) {
+                    alert("景点信息" + type.substring(0, 2) + "成功");
+                    $("#mainContentId").removeData("rowData");
+                    $("#mainContentId").load("scenery/doSceneryListUI.do");
+                }else {
+                    return;
+                }
             }
         })
     }
 
-    function doGetEditFormData() {
-        var formData = new FormData();
-        formData.append("sceneryId", $("#sceneryId").val())
-        formData.append("cityName", $("#cityName").val())
-        formData.append("sceneryName", $("#sceneryName").val())
-        formData.append("sceneryPic", $("#sceneryPic").val())
-        formData.append("sceneryDesc", $("#sceneryDesc").val())
-        formData.append("sceneryPicFile", $("#sceneryPicFile")[0].files[0])
-
-
-        return formData;
-    }
 
 </script>
     

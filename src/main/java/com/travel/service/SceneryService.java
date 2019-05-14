@@ -12,4 +12,8 @@ public interface SceneryService {
     SceneryEntity doFindObjectById(String id);
 
     String doSaveObject(String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException;
+
+    String doUpdateObject(String sceneryId, String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException;
+
+    String doDeleteObject(String sceneryId);
 }

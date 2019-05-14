@@ -15,4 +15,8 @@ public interface SceneryMapper {
     int getCityId(String cityName);
 
     int doSaveObject(SceneryEntity sceneryEntity);
+
+    int doUpdateObject(SceneryEntity sceneryEntity);
+
+    int doDeleteObject(String sceneryId);
 }

@@ -58,6 +58,36 @@ public class SceneryController {
         System.out.println(sceneryName);
         System.out.println(sceneryDesc);
         System.out.println(sceneryPicFile);
-        return  null;
+        if ("ok".equals(result)){
+            return new JsonResult("OK");
+        }else {
+            return new JsonResult("201","操作失败","请重试");
+        }
+    }
+    @RequestMapping("/doUpdateObject")
+    @ResponseBody
+    public JsonResult doUpdateObject(String sceneryId,String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
+        String result=sceneryService.doUpdateObject(sceneryId,cityName,sceneryName,sceneryDesc,sceneryPicFile);
+        System.out.println(sceneryId);
+        System.out.println(cityName);
+        System.out.println(sceneryName);
+        System.out.println(sceneryDesc);
+        System.out.println(sceneryPicFile);
+        if ("ok".equals(result)){
+            return new JsonResult("OK");
+        }else {
+            return new JsonResult("201","操作失败","请重试");
+        }
+    }
+
+    @RequestMapping("/doDeleteObject")
+    @ResponseBody
+    public JsonResult doDeleteObject(String sceneryId){
+        String result = sceneryService.doDeleteObject(sceneryId);
+        if ("ok".equals(result)){
+            return new JsonResult("OK");
+        }else {
+            return new JsonResult("201","操作失败","删除失败，记录可能已经不存在");
+        }
     }
 }
