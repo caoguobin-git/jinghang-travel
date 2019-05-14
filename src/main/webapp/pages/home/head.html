@@ -98,7 +98,9 @@
         undisplayCitys();
         var city=$(this).attr("id").substring(12)
         console.log(city)
-        location.href="/jump2page.do?url=city/"+city;
+        $("#main-data-content").data("cityName",city)
+        // location.href="/jump2page.do?url=city/"+city;
+        $("#content").load("/jump2page.do?url=city/"+city)
     }
 
     /**

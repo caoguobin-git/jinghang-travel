@@ -7,15 +7,12 @@ import com.travel.common.vo.PageObject;
 import com.travel.mapper.SceneryMapper;
 import com.travel.service.SceneryService;
 import org.apache.ibatis.session.RowBounds;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -151,6 +148,31 @@ public class SceneryServiceImpl implements SceneryService {
         return "删除失败，没有权限或记录不存在";
     }
 
+    @Override
+    public PageObject getScenerysByCityName(Integer pageCurrent, Integer pageSize, String cityName) {
+        if (pageSize == null) {
+            pageSize = 20;
+        }
+        int pageCount = getPageCount(pageSize);
+        if (pageCurrent == null || pageCurrent < 1) {
+            pageCurrent = 1;
+        }
+        if (pageCurrent > pageCount) {
+            pageCurrent = pageCount;
+        }
+        PageObject pageObject = new PageObject();
+        pageObject.setTotal(sceneryMapper.getPageCount());
+        pageObject.setPageCount(pageCount);
+        pageObject.setPageCurrent(pageCurrent);
+        pageObject.setPageSize(pageSize);
+        List<Object> list = sceneryMapper.getScenerysByCityName(pageCurrent,cityName, new RowBounds(pageCurrent - 1, pageSize));
+        System.out.println(list.size());
+        for (Object o : list) {
+            System.out.println(o.toString());
+        }
+        pageObject.setRecords(list);
+        return pageObject;
+    }
 
 
     public int getPageCount(int pageSize) {

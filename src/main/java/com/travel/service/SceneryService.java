@@ -17,4 +17,5 @@ public interface SceneryService {
 
     String doDeleteObject(String sceneryId);
 
+    PageObject getScenerysByCityName(Integer pageCurrent, Integer pageSize,String cityName);
 }

@@ -28,7 +28,7 @@ public class SceneryController {
 
     @RequestMapping("/doFindPageObjects")
     @ResponseBody
-    public JsonResult doFindPageObjects(Integer pageCurrent, Integer pageSize, String sceneryName) {
+    public JsonResult doFindPageObjects(Integer pageCurrent, Integer pageSize) {
         if (pageCurrent == null) {
             pageCurrent = 1;
         }
@@ -92,5 +92,18 @@ public class SceneryController {
         } else {
             return new JsonResult("201", "操作失败", "删除失败，记录可能已经不存在");
         }
+    }
+
+    @RequestMapping("/getScenerysByCityName")
+    @ResponseBody
+    public JsonResult getScenerysByCityName(Integer pageCurrent, Integer pageSize,String cityName){
+        if (pageCurrent == null) {
+            pageCurrent = 1;
+        }
+        if (pageSize == null) {
+            pageSize = 20;
+        }
+        PageObject pageObject = sceneryService.getScenerysByCityName(pageCurrent, pageSize,cityName);
+        return new JsonResult(pageObject);
     }
 }

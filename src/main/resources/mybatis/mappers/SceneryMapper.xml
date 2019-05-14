@@ -80,4 +80,21 @@
     <delete id="doDeleteObject" parameterType="java.lang.String">
         delete from scenery_info where scenery_id=#{sceneryId}
     </delete>
+
+    <select id="getScenerysByCityName" resultType="com.travel.common.entity.SceneryEntity">
+        select si.id,
+               scenery_id,
+               scenery_name,
+               scenery_desc,
+               scenery_pic,
+               ci.city_id,
+               ci.city_name,
+               si.create_time,
+               si.modified_time
+        from scenery_info si
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+                              where ci.city_pinyin=#{cityName}
+    </select>
 </mapper>

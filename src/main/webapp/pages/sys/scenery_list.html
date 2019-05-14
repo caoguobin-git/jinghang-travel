@@ -41,9 +41,9 @@
                         <th>
                             ID
                         </th>
-                        <th>
-                            景点ID
-                        </th>
+                        <!--<th>-->
+                            <!--景点ID-->
+                        <!--</th>-->
                         <th>
                             所在城市
                         </th>
@@ -211,7 +211,7 @@
     function doCreateTds(row) {
         var tds = "<td><input type='radio' name='radioId' value='" + row.sceneryId + "' ></td>" +
             "<td >" + row.id + "</td>" +
-            "<td class='scenery-id'>" + row.sceneryId + "</td>" +
+            "<td class='scenery-id' style='display: none'>" + row.sceneryId + "</td>" +
             "<td>" + row.cityName + "</td>" +
             "<td> " + row.sceneryName + "</td>" +
             "<td><img style='width: 40px' src='http://image.travel.com/" + row.sceneryPic + "'/></td>" +

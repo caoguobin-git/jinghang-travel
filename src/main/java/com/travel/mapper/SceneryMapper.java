@@ -1,6 +1,7 @@
 package com.travel.mapper;
 
 import com.travel.common.entity.SceneryEntity;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -20,4 +21,5 @@ public interface SceneryMapper {
 
     int doDeleteObject(String sceneryId);
 
+    List<Object> getScenerysByCityName(Integer pageCurrent, @Param("cityName") String cityName, RowBounds rowBounds);
 }
