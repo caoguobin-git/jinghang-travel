@@ -3,7 +3,7 @@
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">
-                    景点信息管理</h3>
+                    美食信息管理</h3>
                 <div class="box-tools">
                     <div class="input-group input-group-sm"
                          style="width: 350px;">
@@ -11,7 +11,7 @@
                                name="table_search"
                                id="searchNameId"
                                class="form-control pull-right"
-                               placeholder="景点名">
+                               placeholder="美食名称">
 
                         <div class="input-group-btn">
                             <button type="button"
@@ -42,19 +42,25 @@
                             ID
                         </th>
                         <th>
-                            景点ID
+                            美食ID
                         </th>
                         <th>
                             所在城市
                         </th>
                         <th>
-                            景点名称
+                            所在景点
                         </th>
                         <th>
-                            景点图片
+                            美食名称
                         </th>
                         <th>
-                            景点描述
+                            美食图片
+                        </th>
+                        <th>
+                            美食价格
+                        </th>
+                        <th>
+                            美食描述
                         </th>
                         <th>
                             创建时间
@@ -87,16 +93,16 @@
             .on("click", ".btn-search", doQueryObjects)
             .on("click", ".btn-add,.btn-update", doLoadEditUI);
         // $(".scenery-delete-btn").click(doDeleteObject)
-        $("#tbodyId").on("click",".scenery-delete-btn",doDeleteObject)
+        $("#tbodyId").on("click",".food-delete-btn",doDeleteObject)
     });
 
 
     function doDeleteObject() {
-        var id=$(this).siblings(".scenery-id").text()
+        var id=$(this).siblings(".food-id").text()
         if (confirm("确定删除ID为"+id+"的信息吗？")) {
-            var url="scenery/doDeleteObject.do";
+            var url="food/doDeleteObject.do";
             var param={
-                "sceneryId":id
+                "foodId":id
             }
             $.ajax({
                 url:url,
@@ -107,7 +113,7 @@
                     console.log(result)
                     if (result.status==200){
                         alert("信息删除成功");
-                        $("#mainContentId").load("scenery/doSceneryListUI.do");
+                        $("#mainContentId").load("food/doFoodListUI.do");
                     } else {
                         alert(result.data)
                     }
@@ -120,10 +126,10 @@
         //1.判定点击的对象
         var title;
         if ($(this).hasClass("btn-add")) {
-            title = "添加景点";
+            title = "添加美食";
             doLoadPage(title);
         } else if ($(this).hasClass("btn-update")) {
-            title = "修改景点";
+            title = "修改美食";
             var id = doGetCheckedId();
             console.log("id=" + id)
             if (!id) {
@@ -139,10 +145,11 @@
         //1.params
         var params = {"id": id};
         //2.url
-        var url = "scenery/doFindObjectById.do";
+        var url = "food/doFindObjectById.do";
         //3.ajax request
         $.getJSON(url, params, function (result) {//JsonResult
             if (result.status == 200) {
+                console.log(result)
                 $("#mainContentId").data("rowData", result.data);
                 doLoadPage(title);
             } else {
@@ -156,7 +163,7 @@
     }
 
     function doLoadPage(title) {
-        var url = "scenery/doSceneryEditUI.do"
+        var url = "food/doFoodEditUI.do"
         $("#mainContentId").load(url, function () {
             $(".box-title").html(title);
         })
@@ -172,11 +179,11 @@
 
     //页面加载完成异步加载当前页数据
     function doGetObjects() {
-        var url = "scenery/doFindPageObjects.do";
+        var url = "food/doFindPageObjects.do";
         var pageCurrent = $("#pageId").data("pageCurrent");
         if (!pageCurrent) pageCurrent = 1;
         var params = {"pageCurrent": pageCurrent}
-        params.sceneryName = $("#searchNameId").val().trim();
+        params.username = $("#searchNameId").val().trim();
         console.log(params);
         $.getJSON(url, params, function (result) {
             console.log(result);
@@ -209,16 +216,18 @@
     }
 
     function doCreateTds(row) {
-        var tds = "<td><input type='radio' name='radioId' value='" + row.sceneryId + "' ></td>" +
+        var tds = "<td><input type='radio' name='radioId' value='" + row.foodId + "' ></td>" +
             "<td >" + row.id + "</td>" +
-            "<td class='scenery-id'>" + row.sceneryId + "</td>" +
+            "<td class='food-id'>" + row.foodId + "</td>" +
             "<td>" + row.cityName + "</td>" +
-            "<td> " + row.sceneryName + "</td>" +
-            "<td><img style='width: 40px' src='http://image.travel.com/" + row.sceneryPic + "'/></td>" +
-            "<td ><div style='word-break: break-all ;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width: 120px;'>" + row.sceneryDesc + "</div></td>" +
+            "<td>" + row.sceneryName + "</td>" +
+            "<td> " + row.foodName + "</td>" +
+            "<td><img style='width: 40px' src='http://image.travel.com/" + row.foodPic + "'/></td>" +
+            "<td>" + row.foodPrice.toFixed(2) + " 元/份</td>" +
+            "<td><div style='word-break: break-all ;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width: 120px;'>" + row.foodDesc + "</div></td>" +
             "<td>" + new Date(row.createTime).toLocaleString() + "</td>" +
             "<td>" + new Date(row.modifiedTime).toLocaleString() + "</td>" +
-            "<td class='scenery-delete-btn'>删除</td>";
+            "<td class='food-delete-btn'>删除</td>";
         return tds;
     }
 </script>

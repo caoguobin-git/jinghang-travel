@@ -2,19 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c4d045a-adc9-4bb8-8339-8cdcc3b54c7b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/common/entity/HotelEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/mapper/HotelMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/service/HotelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/HotelServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/HotelMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/common/entity/FoodEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/controller/FoodController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/mapper/FoodMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/service/FoodService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/FoodServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/FoodMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/food_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/travel/controller/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/travel/controller/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/travel/controller/SceneryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/travel/controller/SceneryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/travel/mapper/SceneryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/travel/mapper/SceneryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/travel/service/SceneryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/travel/service/SceneryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/SceneryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/SceneryMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/starter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/starter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_list.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,6 +59,13 @@
         <item name="travel@39.106.33.181" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="travel: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="food_info: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="travel@39.106.33.181" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="travel: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="hotel_info: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
@@ -67,78 +77,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/HotelServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="103" column="36" lean-forward="true" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/mapper/HotelMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mappers/SceneryMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="73" column="68" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mappers/HotelMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="99" selection-start-line="99" selection-end-line="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="129" column="20" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="261" column="23" selection-start-line="261" selection-start-column="23" selection-end-line="261" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1269">
-              <caret line="151" column="34" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
+            <state relative-caret-position="178">
+              <caret line="177" column="5" lean-forward="true" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#td#6;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#8;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,17 +92,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/HotelController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
+            <state relative-caret-position="1213">
               <caret line="80" column="41" selection-start-line="80" selection-start-column="41" selection-end-line="80" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/service/HotelService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="20" column="140" selection-start-line="20" selection-start-column="140" selection-end-line="20" selection-end-column="140" />
+            <state relative-caret-position="333">
+              <caret line="178" column="26" selection-start-line="178" selection-start-column="15" selection-end-line="178" selection-end-column="26" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#td#5;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#6;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/SceneryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,10 +124,72 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.0.7.RELEASE/spring-aop-4.0.7.RELEASE.jar!/org/springframework/aop/interceptor/ExposeInvocationInterceptor.class">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/service/SceneryService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="386">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="674">
+              <caret line="152" selection-start-line="152" selection-end-line="152" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/mapper/SceneryMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/starter.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="217" column="66" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/food_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="220" column="8" selection-start-line="220" selection-start-column="8" selection-end-line="220" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#td#6;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#8;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="271" column="27" lean-forward="true" selection-start-line="271" selection-start-column="27" selection-end-line="271" selection-end-column="27" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#5;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -189,11 +209,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>doUserListUI</find>
-      <find>console.log</find>
-      <find>doValidById</find>
-      <find>rowData</find>
-      <find>Page Header</find>
       <find>td</find>
       <find>src=&quot;dist/img/user2-160x160.jpg&quot;</find>
       <find>btn-valid</find>
@@ -219,7 +234,17 @@
       <find>sceneryPic</find>
       <find>hotelId</find>
       <find>sceneryId</find>
+      <find>hotel</find>
+      <find>Hotel</find>
+      <find>酒店</find>
+      <find>btn-s</find>
+      <find>btn-search</find>
     </findStrings>
+    <replaceStrings>
+      <replace>food</replace>
+      <replace>Food</replace>
+      <replace>美食</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -227,14 +252,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/AdminMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/login.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/user_list.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/AdminMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/common/entity/UserEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/interceptor/WebInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/realm/CustomizedToken.java" />
@@ -261,23 +278,31 @@
         <option value="$PROJECT_DIR$/src/main/java/com/travel/Test111.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/common/util/FilePathUtil.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_edit.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_list.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/SceneryController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/service/SceneryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/SceneryMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/common/entity/HotelEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/starter.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/8b28147c-f048-4930-8dd2-c4706881163a/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/HotelController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/service/HotelService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/HotelServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/HotelMapper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_edit.html" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/HotelMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/SceneryMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/starter.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/service/FoodService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/common/entity/FoodEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/FoodServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/FoodMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/FoodMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/FoodController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/food_list.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_list.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/SceneryMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/service/SceneryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/SceneryController.java" />
       </list>
     </option>
   </component>
@@ -552,7 +577,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557764071330" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/pages/sys" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mybatis/mappers" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -563,16 +588,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\jinghang-travel\src\main\webapp\pages\sys" />
       <recent name="D:\jinghang-travel\src\main\resources\mybatis\mappers" />
+      <recent name="D:\jinghang-travel\src\main\webapp\pages\sys" />
       <recent name="E:\source\jinghang-travel\src\main\webapp\pages\sys" />
       <recent name="E:\source\jinghang-travel\src\main\resources\mybatis\mappers" />
       <recent name="D:\jinghang-travel\src\main\webapp\images" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.travel.realm" />
-      <recent name="com.travel.common.util" />
-      <recent name="com.travel.interceptor" />
+      <recent name="com.travel.mapper" />
+      <recent name="com.travel.serviceImpl" />
+      <recent name="com.travel.common.entity" />
+      <recent name="com.travel.service" />
+      <recent name="com.travel.controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\jinghang-travel\src\main\webapp\js" />
@@ -727,17 +754,23 @@
       <option name="project" value="LOCAL" />
       <updated>1557802013869</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="2019-05-14-15-27&#10;添加酒店信息的增删改查">
+      <created>1557818852016</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1557818852016</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121879000" />
+    <option name="totallyTimeSpent" value="124866000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16808964" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16808964" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -745,7 +778,7 @@
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Image Layers" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="0" sideWeight="0.4994664" visible="true" weight="0.33189654" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4994664" visible="true" weight="0.33189654" />
       <window_info anchor="bottom" id="Spring" order="1" weight="0.3297414" />
       <window_info anchor="bottom" id="Database Console" order="2" weight="0.28125" />
       <window_info anchor="bottom" id="Terminal" order="3" />
@@ -768,7 +801,7 @@
       <window_info anchor="right" id="Maven" order="3" weight="0.18890075" />
       <window_info anchor="right" id="PlantUML" order="4" weight="0.32977587" />
       <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.45614034" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.30683032" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="9" />
@@ -785,7 +818,8 @@
     <MESSAGE value="2019-05-10-17-12" />
     <MESSAGE value="2019-05-10-17-19&#10;添加网站首页 头部" />
     <MESSAGE value="2019-05-14-10-46&#10;添加景点信息的增删改查" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019-05-14-10-46&#10;添加景点信息的增删改查" />
+    <MESSAGE value="2019-05-14-15-27&#10;添加酒店信息的增删改查" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019-05-14-15-27&#10;添加酒店信息的增删改查" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -810,65 +844,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://46018c6c-ec7c-4304-9def-9b7fc053771f/schema/travel/table/admin_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://46018c6c-ec7c-4304-9def-9b7fc053771f/schema/travel/table/city_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="119" column="50" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/user_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="231" column="9" selection-end-line="236" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="89" column="40" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/service/AdminService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/mapper/AdminMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/AdminServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="141" selection-start-line="141" selection-end-line="144" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mappers/AdminMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
@@ -892,13 +867,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/menu_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-192" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="156" column="14" selection-start-line="156" selection-start-column="14" selection-end-line="156" selection-end-column="14" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/head.html">
@@ -986,50 +954,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="96" column="43" lean-forward="true" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#td#5;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/common/entity/SceneryEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
           <caret line="84" column="16" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/SceneryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="91" column="5" lean-forward="true" selection-start-line="18" selection-end-line="91" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/mapper/SceneryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="20" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/service/SceneryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="9" selection-start-line="9" selection-end-line="17" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1039,13 +967,6 @@
           <filtering enabled="true">
             <filter text="" />
           </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/starter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="461" column="48" selection-start-line="461" selection-start-column="48" selection-end-line="461" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1132,23 +1053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1269">
-          <caret line="151" column="34" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#td#6;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/HotelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="80" column="41" selection-start-line="80" selection-start-column="41" selection-end-line="80" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/service/HotelService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -1169,32 +1073,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/HotelServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="103" column="36" lean-forward="true" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="261" column="23" selection-start-line="261" selection-start-column="23" selection-end-line="261" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="129" column="20" selection-start-line="129" selection-start-column="20" selection-end-line="129" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1208,8 +1092,182 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mappers/SceneryMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="73" column="68" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
+        <state relative-caret-position="280">
+          <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/HotelServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2109">
+          <caret line="103" column="36" lean-forward="true" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="88" column="87" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="87" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/common/entity/FoodEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2792">
+          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/service/FoodService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/mapper/FoodMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/FoodServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mappers/FoodMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="94" column="13" lean-forward="true" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/FoodController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/food_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="220" column="8" selection-start-line="220" selection-start-column="8" selection-end-line="220" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#td#6;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#8;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="271" column="27" lean-forward="true" selection-start-line="271" selection-start-column="27" selection-end-line="271" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#5;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/starter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="217" column="66" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="177" column="5" lean-forward="true" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#td#6;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#8;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/HotelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1213">
+          <caret line="80" column="41" selection-start-line="80" selection-start-column="41" selection-end-line="80" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="178" column="26" selection-start-line="178" selection-start-column="15" selection-end-line="178" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#td#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#6;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/mapper/SceneryMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="152" selection-start-line="152" selection-end-line="152" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/service/SceneryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/SceneryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

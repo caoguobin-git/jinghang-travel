@@ -19,4 +19,5 @@ public interface SceneryMapper {
     int doUpdateObject(SceneryEntity sceneryEntity);
 
     int doDeleteObject(String sceneryId);
+
 }

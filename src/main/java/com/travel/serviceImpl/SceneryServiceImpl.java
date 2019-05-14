@@ -152,6 +152,7 @@ public class SceneryServiceImpl implements SceneryService {
     }
 
 
+
     public int getPageCount(int pageSize) {
         return sceneryMapper.getPageCount() / pageSize + 1;
     }

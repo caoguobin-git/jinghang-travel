@@ -1,5 +1,6 @@
 package com.travel.controller;
 
+import com.google.common.base.Strings;
 import com.travel.common.entity.SceneryEntity;
 import com.travel.common.vo.JsonResult;
 import com.travel.common.vo.PageObject;
@@ -27,7 +28,7 @@ public class SceneryController {
 
     @RequestMapping("/doFindPageObjects")
     @ResponseBody
-    public JsonResult doFindPageObjects(Integer pageCurrent, Integer pageSize) {
+    public JsonResult doFindPageObjects(Integer pageCurrent, Integer pageSize, String sceneryName) {
         if (pageCurrent == null) {
             pageCurrent = 1;
         }
@@ -36,58 +37,60 @@ public class SceneryController {
         }
         PageObject pageObject = sceneryService.doFindPageObjects(pageCurrent, pageSize);
         return new JsonResult(pageObject);
+
     }
 
     @RequestMapping("/doFindObjectById")
     @ResponseBody
-    public JsonResult doFindObjectById(String id){
-        SceneryEntity sceneryEntity=sceneryService.doFindObjectById(id);
+    public JsonResult doFindObjectById(String id) {
+        SceneryEntity sceneryEntity = sceneryService.doFindObjectById(id);
         return new JsonResult(sceneryEntity);
     }
 
     @RequestMapping("/doSceneryEditUI")
-    public String doSceneryEditUI(){
+    public String doSceneryEditUI() {
         return "sys/scenery_edit";
     }
 
     @RequestMapping("/doSaveObject")
     @ResponseBody
     public JsonResult doSaveObject(String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
-        String result=sceneryService.doSaveObject(cityName,sceneryName,sceneryDesc,sceneryPicFile);
+        String result = sceneryService.doSaveObject(cityName, sceneryName, sceneryDesc, sceneryPicFile);
         System.out.println(cityName);
         System.out.println(sceneryName);
         System.out.println(sceneryDesc);
         System.out.println(sceneryPicFile);
-        if ("ok".equals(result)){
+        if ("ok".equals(result)) {
             return new JsonResult("OK");
-        }else {
-            return new JsonResult("201","操作失败","请重试");
+        } else {
+            return new JsonResult("201", "操作失败", "请重试");
         }
     }
+
     @RequestMapping("/doUpdateObject")
     @ResponseBody
-    public JsonResult doUpdateObject(String sceneryId,String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
-        String result=sceneryService.doUpdateObject(sceneryId,cityName,sceneryName,sceneryDesc,sceneryPicFile);
+    public JsonResult doUpdateObject(String sceneryId, String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
+        String result = sceneryService.doUpdateObject(sceneryId, cityName, sceneryName, sceneryDesc, sceneryPicFile);
         System.out.println(sceneryId);
         System.out.println(cityName);
         System.out.println(sceneryName);
         System.out.println(sceneryDesc);
         System.out.println(sceneryPicFile);
-        if ("ok".equals(result)){
+        if ("ok".equals(result)) {
             return new JsonResult("OK");
-        }else {
-            return new JsonResult("201","操作失败","请重试");
+        } else {
+            return new JsonResult("201", "操作失败", "请重试");
         }
     }
 
     @RequestMapping("/doDeleteObject")
     @ResponseBody
-    public JsonResult doDeleteObject(String sceneryId){
+    public JsonResult doDeleteObject(String sceneryId) {
         String result = sceneryService.doDeleteObject(sceneryId);
-        if ("ok".equals(result)){
+        if ("ok".equals(result)) {
             return new JsonResult("OK");
-        }else {
-            return new JsonResult("201","操作失败","删除失败，记录可能已经不存在");
+        } else {
+            return new JsonResult("201", "操作失败", "删除失败，记录可能已经不存在");
         }
     }
 }

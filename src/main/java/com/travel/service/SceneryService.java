@@ -16,4 +16,5 @@ public interface SceneryService {
     String doUpdateObject(String sceneryId, String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException;
 
     String doDeleteObject(String sceneryId);
+
 }

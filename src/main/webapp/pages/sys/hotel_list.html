@@ -224,7 +224,7 @@
             "<td> " + row.hotelName + "</td>" +
             "<td><img style='width: 40px' src='http://image.travel.com/" + row.hotelPic + "'/></td>" +
             "<td>" + row.hotelPrice.toFixed(2) + "元/天</td>" +
-            "<td>" + row.hotelDesc + "</td>" +
+            "<td><div style='word-break: break-all ;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width: 120px;'>" + row.hotelDesc + "</div></td>" +
             "<td>" + new Date(row.createTime).toLocaleString() + "</td>" +
             "<td>" + new Date(row.modifiedTime).toLocaleString() + "</td>" +
             "<td class='hotel-delete-btn'>删除</td>";

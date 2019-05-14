@@ -261,7 +261,7 @@ desired effect
               </span>
               </a>
               <ul class="treeview-menu">
-                  <li><a>美食信息管理</a></li>
+                  <li><a id="load-food-id">美食信息管理</a></li>
                   <li><a>船票信息管理</a></li>
                   <li><a id="load-scenery-id">景点信息管理</a></li>
                   <li><a id="load-hotel-id">酒店信息管理</a></li>
@@ -460,6 +460,7 @@ desired effect
     	 doLoadUI("load-log-id","log/doLogListUI.do");
     	 doLoadUI("load-scenery-id","scenery/doSceneryListUI.do");
     	 doLoadUI("load-hotel-id","hotel/doHotelListUI.do");
+    	 doLoadUI("load-food-id","food/doFoodListUI.do");
       })
       function doLoadUI(id,url){
     	  $("#"+id).click(function(){
