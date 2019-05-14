@@ -65,11 +65,14 @@
     </insert>
     <update id="doUpdateObject"
             parameterType="com.travel.common.entity.SceneryEntity">
-        update scenery_info si set
+        update scenery_info si
+        <trim prefix="set" suffixOverrides=",">
         <if test="cityId!=null">city_id=#{cityId},</if>
         <if test="sceneryPic!=null">scenery_pic=#{sceneryPic},</if>
         <if test="sceneryName!=null">scenery_name=#{sceneryName},</if>
-        <if test="sceneryDesc!=null">scenery_desc=#{sceneryDesc}</if>
+        <if test="sceneryDesc!=null">scenery_desc=#{sceneryDesc},</if>
+        <if test="modifiedTime!=null">modified_time=#{modifiedTime},</if>
+        </trim>
         where scenery_id =
         <if test="sceneryId!=null">#{sceneryId}</if>
     </update>

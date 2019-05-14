@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.travel.mapper.HotelMapper">
+    <select id="getPageCount"
+            resultType="int">
+        select count(
+                       *)
+        from hotel_info;
+    </select>
+    <select id="doFindPageObjects"
+            resultType="com.travel.common.entity.HotelEntity">
+        select hi.id,
+               hi.hotel_id,
+               ci.city_name,
+               si.scenery_name,
+               hi.hotel_name,
+               hi.hotel_pic,
+               hi.hotel_price,
+               hi.hotel_desc,
+               hi.create_time,
+               hi.modified_time
+        from hotel_info hi
+                 left join scenery_info si
+                           on hi.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+
+    </select>
+    <select id="doFindObjectById"
+            resultType="com.travel.common.entity.HotelEntity">
+        select hi.id,
+               hi.hotel_id,
+               ci.city_name,
+               si.scenery_name,
+               hi.hotel_name,
+               hi.hotel_pic,
+               hi.hotel_price,
+               hi.hotel_desc,
+               hi.create_time,
+               hi.modified_time
+        from hotel_info hi
+                 left join scenery_info si
+                           on hi.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where hi.hotel_id =
+              #{id}
+    </select>
+    <insert id="doSaveObject"
+            parameterType="com.travel.common.entity.HotelEntity">
+        insert into hotel_info (hotel_id,
+                                scenery_id,
+                                hotel_name,
+                                hotel_price,
+                                hotel_pic,
+                                hotel_desc)
+        values (#{hotelId},
+                #{sceneryId},
+                #{hotelName},
+                #{hotelPrice},
+                #{hotelPic},
+                #{hotelDesc})
+    </insert>
+
+    <select id="getSceneryOptions"
+            resultType="java.lang.String">
+        select scenery_name
+        from scenery_info si
+        where si.city_id =
+              (select city_id
+               from city_info ci
+               where city_name =
+                     #{cityName})
+    </select>
+
+    <select id="getSceneryId"
+            resultType="java.lang.String">
+        select scenery_id
+        from scenery_info
+        where scenery_name =
+              #{sceneryName}
+    </select>
+
+    <delete id="doDeleteObject"
+            parameterType="java.lang.String">
+        delete
+        from hotel_info
+        where hotel_id =
+              #{hotelId}
+    </delete>
+
+    <update id="doUpdateObject"
+            parameterType="com.travel.common.entity.HotelEntity">
+        update hotel_info
+        <trim prefix="set" suffixOverrides=",">
+        <if test="sceneryId != null">scenery_id=#{sceneryId},</if>
+        <if test="hotelName != null">hotel_name=#{hotelName},</if>
+        <if test="hotelDesc != null">hotel_desc=#{hotelDesc},</if>
+        <if test="hotelPrice != null">hotel_price=#{hotelPrice},</if>
+        <if test="hotelPic != null">hotel_pic=#{hotelPic},</if>
+        </trim>
+        where hotel_id =
+        <if test="hotelId != null">#{hotelId}</if>
+    </update>
+
+</mapper>

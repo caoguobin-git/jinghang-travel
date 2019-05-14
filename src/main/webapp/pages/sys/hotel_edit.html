@@ -1,0 +1,309 @@
+<!-- Horizontal Form -->
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">
+            添加酒店</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form class="form-horizontal">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="hotelId"
+                       class="col-sm-2 control-label"
+                >id</label>
+                <div class="col-sm-10">
+                    <input type="text"
+                           class="form-control"
+                           readonly="readonly"
+                           id="hotelId">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cityName"
+                       class="col-sm-2 control-label">所属城市</label>
+
+                <div class="col-sm-10">
+                    <select id="cityName"
+                            class="form-control">
+                        <option>
+                            北京
+                        </option>
+                        <option>
+                            宿迁
+                        </option>
+                        <option>
+                            天津
+                        </option>
+                        <option>
+                            淮安
+                        </option>
+                        <option>
+                            沧州
+                        </option>
+                        <option>
+                            扬州
+                        </option>
+                        <option>
+                            德州
+                        </option>
+                        <option>
+                            常州
+                        </option>
+                        <option>
+                            衡水
+                        </option>
+                        <option>
+                            无锡
+                        </option>
+                        <option>
+                            聊城
+                        </option>
+                        <option>
+                            苏州
+                        </option>
+                        <option>
+                            济宁
+                        </option>
+                        <option>
+                            湖州
+                        </option>
+                        <option>
+                            泰安
+                        </option>
+                        <option>
+                            嘉兴
+                        </option>
+                        <option>
+                            枣庄
+                        </option>
+                        <option>
+                            杭州
+                        </option>
+
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sceneryName"
+                       class="col-sm-2 control-label">所属景点</label>
+
+                <div class="col-sm-10">
+                    <select id="sceneryName"
+                            class="form-control">
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="hotelName"
+                       class="col-sm-2 control-label">酒店名称</label>
+                <div class="col-sm-10">
+                    <input type="text"
+                           class="form-control load-sys-dept"
+                           id="hotelName"
+                           placeholder="酒店名称">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hotelPrice"
+                       class="col-sm-2 control-label">酒店价格</label>
+                <div class="col-sm-10">
+                    <input type="number"
+                           class="form-control load-sys-dept"
+                           id="hotelPrice"
+                           placeholder="酒店价格">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="hotelPic"
+                       class="col-sm-2 control-label">酒店图片</label>
+                <form enctype="multipart/form-data"
+                      method="post">
+                    <input type="file"
+                           multiple
+                           id="hotelPicFile"
+                           placeholder="酒店图片">
+                </form>
+                <div class="col-sm-10">
+
+                    <img src="#"
+                         style="width: 60px"
+                         id="hotelPic">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hotelDesc"
+                       class="col-sm-2 control-label">酒店描述</label>
+                <div class="col-sm-10">
+                    <textarea
+                            type="text"
+                            class="form-control"
+                            id="hotelDesc"></textarea>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="button"
+                    class="btn btn-default btn-cancel">
+                Cancel
+            </button>
+            <button type="button"
+                    class="btn btn-info pull-right btn-save">
+                Save
+            </button>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+</div>
+<script type="text/javascript"
+        src="/bower_components/ztree/jquery.ztree.all.min.js"></script>
+<script type="text/javascript"
+        src="/bower_components/layer/layer.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $(".box-footer")
+            .on("click", ".btn-cancel", doCancel)
+            .on("click", ".btn-save", doSaveOrUpdate);
+        initDatas();
+        $("#hotelPicFile").change(previewPic)
+        $("#cityName").change(getSceneryOptions)
+
+    })
+
+    //图片预览
+    function previewPic(e) {
+        var imgBox = e.target;
+        uploadImg($("#hotelPicFile"), imgBox)
+    }
+
+    function uploadImg(element, tag) {
+        var file = tag.files[0];
+        var imgSrc;
+        if (!/image\/\w+/.test(file.type)) {
+            alert("看清楚，这个需要图片！");
+            return false;
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            imgSrc = this.result;
+            $("#hotelPic").attr("src", imgSrc);
+        };
+    }
+
+    //初始化数据
+    function initDatas() {
+        var type = $(".box-title").html();
+        if ("添加" == type.substring(0, 2)) {
+            $("#hotelId").val("")
+            $("#cityName").val("")
+            $("#hotelName").val("")
+            $("#hotelPic").attr("src", null);
+            $("#hotelDesc").val("")
+        } else {
+            var datas = $("#mainContentId").data("rowData");
+            $("#hotelId").val(datas.hotelId)
+            $("#cityName").val(datas.cityName)
+            $("#cityName").attr("disabled", "disabled")
+            $("#hotelName").val(datas.hotelName)
+            $("#hotelPrice").val(datas.hotelPrice)
+            $("#hotelPic").attr("src", "http://image.travel.com/" + datas.hotelPic);
+            $("#hotelDesc").val(datas.hotelDesc)
+            console.log("http://image.travel.com/" + datas.hotelPic)
+            getSceneryOptions(datas.cityName);
+        }
+
+    }
+
+    function getSceneryOptions() {
+        var city= $("#cityName").val()
+        var url = "hotel/getSceneryOptions.do";
+        var param = {"cityName": city};
+        $.ajax({
+            url:url,
+            data:param,
+            type:"post",
+            dataType:"json",
+            success:function (result) {
+                console.log(result)
+                setSceneryOptions(result.data);
+            }
+        })
+    }
+    function setSceneryOptions(datas) {
+        var sceneryOptions=$("#sceneryName");
+        sceneryOptions.empty()
+        $.each(datas,function (index,item) {
+            console.log(index+"  "+item)
+            sceneryOptions.append("<option value='" + item + "'>" + item + "</option>")
+
+        })
+    }
+
+    function doCancel() {
+        $("#mainContentId").removeData("rowData");
+        $("#mainContentId").load("hotel/doHotelListUI.do");
+    }
+
+    function doSaveOrUpdate() {
+        var type = $(".box-title").html();
+        if ("添加" == type.substring(0, 2)) {
+
+        }
+        var params = new FormData();
+        if ($("#hotelId").val() != null & $("#hotelId").val() != "") {
+
+            params.append("hotelId", $("#hotelId").val())
+        }
+
+        params.append("sceneryName", $("#sceneryName").val())
+        params.append("hotelName", $("#hotelName").val())
+        params.append("hotelDesc", $("#hotelDesc").val())
+        params.append("hotelPrice", $("#hotelPrice").val())
+        params.append("hotelPicFile",$("#hotelPicFile")[0].files[0])
+
+        console.log(params)
+
+
+        //2.发起异步请求
+        var insertUrl = "hotel/doSaveObject.do";
+        var updateUrl = "hotel/doUpdateObject.do";
+        var url = "添加" == type.substring(0, 2) ? insertUrl : updateUrl;
+        console.log(params);
+        $.ajax({
+            url: url,
+            data: params,
+            type: "post",
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            async: false,
+            success: function (result) {
+                if (result.status == 200) {
+                    alert("景点信息" + type.substring(0, 2) + "成功");
+                    $("#mainContentId").removeData("rowData");
+                    $("#mainContentId").load("hotel/doHotelListUI.do");
+                } else {
+                    return;
+                }
+            }
+        })
+    }
+
+
+</script>
+    
+    
+    
+    
+    
+    
+    

@@ -1,0 +1,237 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">
+                    酒店信息管理</h3>
+                <div class="box-tools">
+                    <div class="input-group input-group-sm"
+                         style="width: 350px;">
+                        <input type="text"
+                               name="table_search"
+                               id="searchNameId"
+                               class="form-control pull-right"
+                               placeholder="酒店名称">
+
+                        <div class="input-group-btn">
+                            <button type="button"
+                                    class="btn btn-default btn-search">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            <button type="button"
+                                    class="btn btn-default btn-add">
+                                添加
+                            </button>
+                            <button type="button"
+                                    class="btn btn-default btn-update">
+                                修改
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            酒店ID
+                        </th>
+                        <th>
+                            所在城市
+                        </th>
+                        <th>
+                            所在景点
+                        </th>
+                        <th>
+                            酒店名称
+                        </th>
+                        <th>
+                            酒店图片
+                        </th>
+                        <th>
+                            酒店价格
+                        </th>
+                        <th>
+                            酒店描述
+                        </th>
+                        <th>
+                            创建时间
+                        </th>
+                        <th>
+                            修改时间
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbodyId"></tbody>
+                </table>
+            </div>
+            <div id="pageId"
+                 class="box-footer clearfix">
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#pageId").load("doPageUI.do", function () {
+            doGetObjects();
+        });
+        $(".input-group-btn")
+            .on("click", ".btn-search", doQueryObjects)
+            .on("click", ".btn-add,.btn-update", doLoadEditUI);
+        // $(".scenery-delete-btn").click(doDeleteObject)
+        $("#tbodyId").on("click",".hotel-delete-btn",doDeleteObject)
+    });
+
+
+    function doDeleteObject() {
+        var id=$(this).siblings(".hotel-id").text()
+        if (confirm("确定删除ID为"+id+"的信息吗？")) {
+            var url="hotel/doDeleteObject.do";
+            var param={
+                "hotelId":id
+            }
+            $.ajax({
+                url:url,
+                data:param,
+                type:"post",
+                dataType:"json",
+                success:function (result) {
+                    console.log(result)
+                    if (result.status==200){
+                        alert("信息删除成功");
+                        $("#mainContentId").load("hotel/doHotelListUI.do");
+                    } else {
+                        alert(result.data)
+                    }
+                }
+            })
+        }
+    }
+
+    function doLoadEditUI() {
+        //1.判定点击的对象
+        var title;
+        if ($(this).hasClass("btn-add")) {
+            title = "添加酒店";
+            doLoadPage(title);
+        } else if ($(this).hasClass("btn-update")) {
+            title = "修改酒店";
+            var id = doGetCheckedId();
+            console.log("id=" + id)
+            if (!id) {
+                alert("请先选择");
+                return;
+            }
+            //基于id进行查询并加载编辑页面
+            doFindObjectById(id, title);
+        }
+    }
+
+    function doFindObjectById(id, title) {
+        //1.params
+        var params = {"id": id};
+        //2.url
+        var url = "hotel/doFindObjectById.do";
+        //3.ajax request
+        $.getJSON(url, params, function (result) {//JsonResult
+            if (result.status == 200) {
+                console.log(result)
+                $("#mainContentId").data("rowData", result.data);
+                doLoadPage(title);
+            } else {
+                alert(result.message);
+            }
+        });
+    }
+
+    function doGetCheckedId() {
+        return $("tbody input[name='radioId']:checked").val();
+    }
+
+    function doLoadPage(title) {
+        var url = "hotel/doHotelEditUI.do"
+        $("#mainContentId").load(url, function () {
+            $(".box-title").html(title);
+        })
+    }
+
+
+
+    //处理查询按钮事件
+    function doQueryObjects() {
+        $("#pageId").data("pageCurrent", 1);
+        doGetObjects();
+    }
+
+    //页面加载完成异步加载当前页数据
+    function doGetObjects() {
+        var url = "hotel/doFindPageObjects.do";
+        var pageCurrent = $("#pageId").data("pageCurrent");
+        if (!pageCurrent) pageCurrent = 1;
+        var params = {"pageCurrent": pageCurrent}
+        params.username = $("#searchNameId").val().trim();
+        console.log(params);
+        $.getJSON(url, params, function (result) {
+            console.log(result);
+            doHandleResponseResult(result);
+        });
+    }
+
+    function doHandleResponseResult(result) {
+        if (result.status == 200) {
+            doSetTableBodyRows(result.data.records);
+            doSetPagination(result.data);
+        } else {
+            alert(result.message);
+        }
+    }
+
+    //通过服务端返回的数据初始化页面
+    function doSetTableBodyRows(data) {
+        //1.获取tbody对象，并清空内容
+        var tBody = $("#tbodyId");
+        tBody.empty();
+        //2.迭代data内容将数据追加到tbody中
+        for (var i in data) {
+            var tr = $("<tr></tr>");
+            tr.data("rowData", data[i]);
+            var tds = doCreateTds(data[i]);
+            tr.append(tds);
+            tBody.append(tr);
+        }
+    }
+
+    function doCreateTds(row) {
+        var tds = "<td><input type='radio' name='radioId' value='" + row.hotelId + "' ></td>" +
+            "<td >" + row.id + "</td>" +
+            "<td class='hotel-id'>" + row.hotelId + "</td>" +
+            "<td>" + row.cityName + "</td>" +
+            "<td>" + row.sceneryName + "</td>" +
+            "<td> " + row.hotelName + "</td>" +
+            "<td><img style='width: 40px' src='http://image.travel.com/" + row.hotelPic + "'/></td>" +
+            "<td>" + row.hotelPrice.toFixed(2) + "元/天</td>" +
+            "<td>" + row.hotelDesc + "</td>" +
+            "<td>" + new Date(row.createTime).toLocaleString() + "</td>" +
+            "<td>" + new Date(row.modifiedTime).toLocaleString() + "</td>" +
+            "<td class='hotel-delete-btn'>删除</td>";
+        return tds;
+    }
+</script>
+
+
+
+

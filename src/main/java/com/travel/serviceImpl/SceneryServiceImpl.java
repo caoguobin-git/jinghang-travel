@@ -7,12 +7,17 @@ import com.travel.common.vo.PageObject;
 import com.travel.mapper.SceneryMapper;
 import com.travel.service.SceneryService;
 import org.apache.ibatis.session.RowBounds;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -57,15 +62,17 @@ public class SceneryServiceImpl implements SceneryService {
 
     @Override
     public String doSaveObject(String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
-
+        String sceneryPicPath=null;
+        if (sceneryPicFile!=null){
         String fileName = sceneryPicFile.getOriginalFilename();
         String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
         String s = FilePathUtil.uploadFile(ROOT_PATH + CHILD_PATH, fileType);
         System.out.println(s);
         File file = new File(ROOT_PATH + CHILD_PATH + s);
         System.out.println(CHILD_PATH + s);
-        String sceneryPicPath = CHILD_PATH + s;
+            sceneryPicPath = CHILD_PATH + s;
         sceneryPicFile.transferTo(file);
+        }
         int cityId = sceneryMapper.getCityId(cityName);
         System.out.println(cityId);
         SceneryEntity sceneryEntity = new SceneryEntity();
@@ -108,6 +115,9 @@ public class SceneryServiceImpl implements SceneryService {
         int cityId = sceneryMapper.getCityId(cityName);
         System.out.println(cityId);
         SceneryEntity sceneryEntity = new SceneryEntity();
+        Date date=new Date();
+        Timestamp timestamp=new Timestamp(date.getTime());
+        sceneryEntity.setModifiedTime(timestamp);
         sceneryEntity.setCityId(cityId);
         sceneryEntity.setSceneryId(sceneryId);
         sceneryEntity.setSceneryDesc(sceneryDesc);
@@ -117,7 +127,7 @@ public class SceneryServiceImpl implements SceneryService {
         if (a>0){
             return "ok";
         }
-        return null;
+        return "修改失败";
     }
 
     @Override
