@@ -1,5 +1,5 @@
 /***********************************************
- * File Name: HotelEntity
+ * File Name: TicketEntity
  * Author: caoguobin
  * mail: caoguobin@live.com
  * Created Time: 14 05 2019 11:11
@@ -9,37 +9,37 @@ package com.travel.common.entity;
 
 import java.sql.Timestamp;
 
-public class HotelEntity {
+public class TicketEntity {
     private int id;
-    private String hotelId;
+    private String ticketId;
     private String sceneryId;
     private String sceneryName;
     private String cityId;
     private String cityName;
-    private String hotelName;
-    private double hotelPrice;
-    private String hotelPic;
-    private String hotelDesc;
-    private String hotelTel;
-    private String hotelAddr;
+    private String ticketName;
+    private String ticketType;
+    private double ticketPrice;
+    private String ticketPic;
+    private String ticketDesc;
+    private String ticketTel;
     private Timestamp createTime;
     private Timestamp modifiedTime;
 
 
-    public String getHotelTel() {
-        return hotelTel;
+    public String getTicketTel() {
+        return ticketTel;
     }
 
-    public void setHotelTel(String hotelTel) {
-        this.hotelTel = hotelTel;
+    public void setTicketTel(String ticketTel) {
+        this.ticketTel = ticketTel;
     }
 
-    public String getHotelAddr() {
-        return hotelAddr;
+    public String getTicketType() {
+        return ticketType;
     }
 
-    public void setHotelAddr(String hotelAddr) {
-        this.hotelAddr = hotelAddr;
+    public void setTicketType(String ticketType) {
+        this.ticketType = ticketType;
     }
 
     public int getId() {
@@ -50,12 +50,12 @@ public class HotelEntity {
         this.id = id;
     }
 
-    public String getHotelId() {
-        return hotelId;
+    public String getTicketId() {
+        return ticketId;
     }
 
-    public void setHotelId(String hotelId) {
-        this.hotelId = hotelId;
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
     }
 
     public String getSceneryId() {
@@ -90,36 +90,36 @@ public class HotelEntity {
         this.cityName = cityName;
     }
 
-    public String getHotelName() {
-        return hotelName;
+    public String getTicketName() {
+        return ticketName;
     }
 
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
+    public void setTicketName(String ticketName) {
+        this.ticketName = ticketName;
     }
 
-    public double getHotelPrice() {
-        return hotelPrice;
+    public double getTicketPrice() {
+        return ticketPrice;
     }
 
-    public void setHotelPrice(double hotelPrice) {
-        this.hotelPrice = hotelPrice;
+    public void setTicketPrice(double ticketPrice) {
+        this.ticketPrice = ticketPrice;
     }
 
-    public String getHotelPic() {
-        return hotelPic;
+    public String getTicketPic() {
+        return ticketPic;
     }
 
-    public void setHotelPic(String hotelPic) {
-        this.hotelPic = hotelPic;
+    public void setTicketPic(String ticketPic) {
+        this.ticketPic = ticketPic;
     }
 
-    public String getHotelDesc() {
-        return hotelDesc;
+    public String getTicketDesc() {
+        return ticketDesc;
     }
 
-    public void setHotelDesc(String hotelDesc) {
-        this.hotelDesc = hotelDesc;
+    public void setTicketDesc(String ticketDesc) {
+        this.ticketDesc = ticketDesc;
     }
 
     public Timestamp getCreateTime() {
@@ -143,8 +143,8 @@ public class HotelEntity {
         final StringBuilder sb = new StringBuilder("{");
         sb.append("\"id\":")
                 .append(id);
-        sb.append(",\"hotelId\":\"")
-                .append(hotelId).append('\"');
+        sb.append(",\"ticketId\":\"")
+                .append(ticketId).append('\"');
         sb.append(",\"sceneryId\":\"")
                 .append(sceneryId).append('\"');
         sb.append(",\"sceneryName\":\"")
@@ -153,14 +153,14 @@ public class HotelEntity {
                 .append(cityId).append('\"');
         sb.append(",\"cityName\":\"")
                 .append(cityName).append('\"');
-        sb.append(",\"hotelName\":\"")
-                .append(hotelName).append('\"');
-        sb.append(",\"hotelPrice\":")
-                .append(hotelPrice);
-        sb.append(",\"hotelPic\":\"")
-                .append(hotelPic).append('\"');
-        sb.append(",\"hotelDesc\":\"")
-                .append(hotelDesc).append('\"');
+        sb.append(",\"ticketName\":\"")
+                .append(ticketName).append('\"');
+        sb.append(",\"ticketPrice\":")
+                .append(ticketPrice);
+        sb.append(",\"ticketPic\":\"")
+                .append(ticketPic).append('\"');
+        sb.append(",\"ticketDesc\":\"")
+                .append(ticketDesc).append('\"');
         sb.append(",\"createTime\":\"")
                 .append(createTime).append('\"');
         sb.append(",\"modifiedTime\":\"")

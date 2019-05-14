@@ -8,7 +8,6 @@
 package com.travel.serviceImpl;
 
 import com.travel.common.entity.HotelEntity;
-import com.travel.common.entity.SceneryEntity;
 import com.travel.common.util.FilePathUtil;
 import com.travel.common.util.MD5HashUtils;
 import com.travel.common.vo.PageObject;
@@ -21,8 +20,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -69,7 +66,7 @@ public class HotelServiceImpl implements HotelService {
 
 
     @Override
-    public String doUpdateObject(String hotelId,String sceneryName, String hotelName,String hotelDesc,double hotelPrice, MultipartFile hotelPicFile) throws IOException {
+    public String doUpdateObject(String hotelId, String sceneryName, String hotelName, String hotelDesc, double hotelPrice, String hotelAddr, String hotelTel, MultipartFile hotelPicFile) throws IOException {
         //查找原来的图片进行删除操作，节省磁盘空间
         HotelEntity hotelEntity = hotelMapper.doFindObjectById(hotelId);
         if (hotelPicFile != null) {
@@ -100,6 +97,8 @@ public class HotelServiceImpl implements HotelService {
         hotelEntity1.setHotelPic(hotelPicPath);
         hotelEntity1.setSceneryId(sceneryId);
         hotelEntity1.setHotelPrice(hotelPrice);
+        hotelEntity1.setHotelAddr(hotelAddr);
+        hotelEntity1.setHotelTel(hotelTel);
 
         int a = hotelMapper.doUpdateObject(hotelEntity1);
         if (a > 0) {
@@ -136,7 +135,7 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public String doSaveObject(String sceneryName, String hotelName, String hotelDesc, double hotelPrice, MultipartFile hotelPicFile) throws IOException {
+    public String doSaveObject(String sceneryName, String hotelName, String hotelDesc, double hotelPrice, String hotelAddr, String hotelTel, MultipartFile hotelPicFile) throws IOException {
         String hotelPicPath = null;
         if (hotelPicFile != null) {
             String fileName = hotelPicFile.getOriginalFilename();
@@ -158,6 +157,8 @@ public class HotelServiceImpl implements HotelService {
         hotelEntity.setHotelPrice(hotelPrice);
         hotelEntity.setHotelPic(hotelPicPath);
         hotelEntity.setHotelDesc(hotelDesc);
+        hotelEntity.setHotelAddr(hotelAddr);
+        hotelEntity.setHotelTel(hotelTel);
 
         int a = hotelMapper.doSaveObject(hotelEntity);
         if (a > 0) {

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.travel.mapper.TicketMapper">
+    <select id="getPageCount"
+            resultType="int">
+        select count(
+                       *)
+        from ticket_info;
+    </select>
+    <select id="doFindPageObjects"
+            resultType="com.travel.common.entity.TicketEntity">
+        select ti.id,
+               ti.ticket_id,
+               ci.city_name,
+               si.scenery_name,
+               ti.ticket_name,
+               ti.ticket_pic,
+               ti.ticket_price,
+               ti.ticket_desc,
+               ti.ticket_tel,
+               ti.ticket_type,
+               ti.create_time,
+               ti.modified_time
+        from ticket_info  ti
+                 left join scenery_info si
+                           on ti.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+
+    </select>
+    <select id="doFindObjectById"
+            resultType="com.travel.common.entity.TicketEntity">
+        select hi.id,
+               hi.ticket_id,
+               ci.city_name,
+               si.scenery_name,
+               hi.ticket_name,
+               hi.ticket_pic,
+               hi.ticket_price,
+               hi.ticket_desc,
+               hi.ticket_type,
+               hi.ticket_tel,
+               hi.create_time,
+               hi.modified_time
+        from ticket_info hi
+                 left join scenery_info si
+                           on hi.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where hi.ticket_id =
+              #{id}
+    </select>
+    <insert id="doSaveObject"
+            parameterType="com.travel.common.entity.TicketEntity">
+        insert into ticket_info (ticket_id,
+                                scenery_id,
+                                ticket_name,
+                                ticket_price,
+                                ticket_pic,
+                                ticket_desc,
+                                 ticket_type,
+                                 ticket_tel)
+        values (#{ticketId},
+                #{sceneryId},
+                #{ticketName},
+                #{ticketPrice},
+                #{ticketPic},
+                #{ticketDesc},
+                #{ticketType},
+                #{ticketTel})
+
+    </insert>
+
+    <select id="getSceneryOptions"
+            resultType="java.lang.String">
+        select scenery_name
+        from scenery_info si
+        where si.city_id =
+              (select city_id
+               from city_info ci
+               where city_name =
+                     #{cityName})
+    </select>
+
+    <select id="getSceneryId"
+            resultType="java.lang.String">
+        select scenery_id
+        from scenery_info
+        where scenery_name =
+              #{sceneryName}
+    </select>
+
+    <delete id="doDeleteObject"
+            parameterType="java.lang.String">
+        delete
+        from ticket_info
+        where ticket_id =
+              #{ticketId}
+    </delete>
+
+    <update id="doUpdateObject"
+            parameterType="com.travel.common.entity.TicketEntity">
+        update ticket_info
+        <trim prefix="set" suffixOverrides=",">
+        <if test="sceneryId != null">scenery_id=#{sceneryId},</if>
+        <if test="ticketName != null">ticket_name=#{ticketName},</if>
+        <if test="ticketDesc != null">ticket_desc=#{ticketDesc},</if>
+        <if test="ticketPrice != null">ticket_price=#{ticketPrice},</if>
+        <if test="ticketPic != null">ticket_pic=#{ticketPic},</if>
+        <if test="ticketType != null">ticket_type=#{ticketType},</if>
+        <if test="ticketTel != null">ticket_tel=#{ticketTel},</if>
+        </trim>
+        where ticket_id =
+        <if test="ticketId != null">#{ticketId}</if>
+    </update>
+
+</mapper>

@@ -2,21 +2,21 @@
 <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title">
-            添加酒店</h3>
+            添加票务</h3>
     </div>
     <!-- /.box-header -->
     <!-- form start -->
     <form class="form-horizontal">
         <div class="box-body">
             <div class="form-group">
-                <label for="hotelId"
+                <label for="ticketId"
                        class="col-sm-2 control-label"
                 >id</label>
                 <div class="col-sm-10">
                     <input type="text"
                            class="form-control"
                            readonly="readonly"
-                           id="hotelId">
+                           id="ticketId">
                 </div>
             </div>
             <div class="form-group">
@@ -98,72 +98,74 @@
             </div>
 
             <div class="form-group">
-                <label for="hotelName"
-                       class="col-sm-2 control-label">酒店名称</label>
+                <label for="ticketName"
+                       class="col-sm-2 control-label">票务名称</label>
                 <div class="col-sm-10">
                     <input type="text"
                            class="form-control load-sys-dept"
-                           id="hotelName"
-                           placeholder="酒店名称">
+                           id="ticketName"
+                           placeholder="票务名称">
                 </div>
             </div>
             <div class="form-group">
-                <label for="hotelPrice"
-                       class="col-sm-2 control-label">酒店价格</label>
+                <label for="ticketPrice"
+                       class="col-sm-2 control-label">票务价格</label>
                 <div class="col-sm-10">
                     <input type="number"
                            class="form-control load-sys-dept"
-                           id="hotelPrice"
-                           placeholder="酒店价格">
+                           id="ticketPrice"
+                           placeholder="票务价格">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="hotelPic"
-                       class="col-sm-2 control-label">酒店图片</label>
+                <label for="ticketPic"
+                       class="col-sm-2 control-label">票务图片</label>
                 <form enctype="multipart/form-data"
                       method="post">
                     <input type="file"
                            multiple
-                           id="hotelPicFile"
-                           placeholder="酒店图片">
+                           id="ticketPicFile"
+                           placeholder="票务图片">
                 </form>
                 <div class="col-sm-10">
 
                     <img src="#"
                          style="width: 60px"
-                         id="hotelPic">
+                         id="ticketPic">
 
                 </div>
             </div>
             <div class="form-group">
-                <label for="hotelAddr"
-                       class="col-sm-2 control-label">酒店地址</label>
+                <label for="ticketType"
+                       class="col-sm-2 control-label">票务类型</label>
                 <div class="col-sm-10">
-                    <input type="text"
-                           class="form-control"
-                           id="hotelAddr"
-                           placeholder="酒店地址">
+                    <select class="form-control"
+                            id="ticketType">
+                        <option value="steameer">船票</option>
+                        <option value="admission">门票</option>
+                    </select>
+
                 </div>
             </div>
             <div class="form-group">
-                <label for="hotelTel"
-                       class="col-sm-2 control-label">酒店电话</label>
+                <label for="ticketTel"
+                       class="col-sm-2 control-label">票务电话</label>
                 <div class="col-sm-10">
                     <input type="text"
                            class="form-control load-sys-dept"
-                           id="hotelTel"
-                           placeholder="酒店电话">
+                           id="ticketTel"
+                           placeholder="票务电话">
                 </div>
             </div>
             <div class="form-group">
-                <label for="hotelDesc"
-                       class="col-sm-2 control-label">酒店描述</label>
+                <label for="ticketDesc"
+                       class="col-sm-2 control-label">票务描述</label>
                 <div class="col-sm-10">
                     <textarea
                             type="text"
                             class="form-control"
-                            id="hotelDesc"></textarea>
+                            id="ticketDesc"></textarea>
                 </div>
             </div>
 
@@ -193,7 +195,7 @@
             .on("click", ".btn-cancel", doCancel)
             .on("click", ".btn-save", doSaveOrUpdate);
         initDatas();
-        $("#hotelPicFile").change(previewPic)
+        $("#ticketPicFile").change(previewPic)
         $("#cityName").change(getSceneryOptions)
 
     })
@@ -201,7 +203,7 @@
     //图片预览
     function previewPic(e) {
         var imgBox = e.target;
-        uploadImg($("#hotelPicFile"), imgBox)
+        uploadImg($("#ticketPicFile"), imgBox)
     }
 
     function uploadImg(element, tag) {
@@ -215,7 +217,7 @@
         reader.readAsDataURL(file);
         reader.onload = function () {
             imgSrc = this.result;
-            $("#hotelPic").attr("src", imgSrc);
+            $("#ticketPic").attr("src", imgSrc);
         };
     }
 
@@ -223,25 +225,26 @@
     function initDatas() {
         var type = $(".box-title").html();
         if ("添加" == type.substring(0, 2)) {
-            $("#hotelId").val("")
+            $("#ticketId").val("")
             $("#cityName").val("")
-            $("#hotelName").val("")
-            $("#hotelPic").attr("src", null);
-            $("#hotelDesc").val("")
-            $("#hotelAddr").val("")
-            $("#hotelTel").val("")
+            $("#ticketName").val("")
+            $("#ticketPic").attr("src", null);
+            $("#ticketDesc").val("")
+            $("#ticketType").val("")
+            $("#ticketTel").val("")
         } else {
             var datas = $("#mainContentId").data("rowData");
-            $("#hotelId").val(datas.hotelId)
+            $("#ticketId").val(datas.ticketId)
             $("#cityName").val(datas.cityName)
             $("#cityName").attr("disabled", "disabled")
-            $("#hotelName").val(datas.hotelName)
-            $("#hotelPrice").val(datas.hotelPrice)
-            $("#hotelPic").attr("src", "http://image.travel.com/" + datas.hotelPic);
-            $("#hotelDesc").val(datas.hotelDesc)
-            $("#hotelAddr").val(datas.hotelAddr)
-            $("#hotelTel").val(datas.hotelTel)
-            console.log("http://image.travel.com/" + datas.hotelPic)
+            $("#ticketName").val(datas.ticketName)
+            $("#ticketPrice").val(datas.ticketPrice)
+            $("#ticketPic").attr("src", "http://image.travel.com/" + datas.ticketPic);
+            $("#ticketDesc").val(datas.ticketDesc)
+            $("#ticketType").val(datas.ticketType)
+            $("#ticketTel").val(datas.ticketTel)
+            console.log(datas.ticketType)
+            console.log(datas.ticketTel)
             getSceneryOptions(datas.cityName);
         }
 
@@ -249,7 +252,7 @@
 
     function getSceneryOptions() {
         var city= $("#cityName").val()
-        var url = "hotel/getSceneryOptions.do";
+        var url = "ticket/getSceneryOptions.do";
         var param = {"cityName": city};
         $.ajax({
             url:url,
@@ -274,7 +277,7 @@
 
     function doCancel() {
         $("#mainContentId").removeData("rowData");
-        $("#mainContentId").load("hotel/doHotelListUI.do");
+        $("#mainContentId").load("ticket/doTicketListUI.do");
     }
 
     function doSaveOrUpdate() {
@@ -283,25 +286,25 @@
 
         }
         var params = new FormData();
-        if ($("#hotelId").val() != null & $("#hotelId").val() != "") {
+        if ($("#ticketId").val() != null & $("#ticketId").val() != "") {
 
-            params.append("hotelId", $("#hotelId").val())
+            params.append("ticketId", $("#ticketId").val())
         }
 
         params.append("sceneryName", $("#sceneryName").val())
-        params.append("hotelName", $("#hotelName").val())
-        params.append("hotelDesc", $("#hotelDesc").val())
-        params.append("hotelAddr", $("#hotelAddr").val())
-        params.append("hotelTel", $("#hotelTel").val())
-        params.append("hotelPrice", $("#hotelPrice").val())
-        params.append("hotelPicFile",$("#hotelPicFile")[0].files[0])
+        params.append("ticketName", $("#ticketName").val())
+        params.append("ticketDesc", $("#ticketDesc").val())
+        params.append("ticketType", $("#ticketType").val())
+        params.append("ticketTel", $("#ticketTel").val())
+        params.append("ticketPrice", $("#ticketPrice").val())
+        params.append("ticketPicFile",$("#ticketPicFile")[0].files[0])
 
         console.log(params)
 
 
         //2.发起异步请求
-        var insertUrl = "hotel/doSaveObject.do";
-        var updateUrl = "hotel/doUpdateObject.do";
+        var insertUrl = "ticket/doSaveObject.do";
+        var updateUrl = "ticket/doUpdateObject.do";
         var url = "添加" == type.substring(0, 2) ? insertUrl : updateUrl;
         console.log(params);
         $.ajax({
@@ -316,7 +319,7 @@
                 if (result.status == 200) {
                     alert("景点信息" + type.substring(0, 2) + "成功");
                     $("#mainContentId").removeData("rowData");
-                    $("#mainContentId").load("hotel/doHotelListUI.do");
+                    $("#mainContentId").load("ticket/doTicketListUI.do");
                 } else {
                     return;
                 }

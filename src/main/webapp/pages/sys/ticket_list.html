@@ -3,7 +3,7 @@
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">
-                    酒店信息管理</h3>
+                    票务信息管理</h3>
                 <div class="box-tools">
                     <div class="input-group input-group-sm"
                          style="width: 350px;">
@@ -11,7 +11,7 @@
                                name="table_search"
                                id="searchNameId"
                                class="form-control pull-right"
-                               placeholder="酒店名称">
+                               placeholder="票务名称">
 
                         <div class="input-group-btn">
                             <button type="button"
@@ -48,19 +48,20 @@
                             所在景点
                         </th>
                         <th>
-                            酒店名称
+                            票务名称
                         </th>
                         <th>
-                            酒店图片
+                            票务图片
                         </th>
                         <th>
-                            酒店价格
+                            票务价格
                         </th>
                         <th>
-                            酒店描述
-                        </th><th>
-                        酒店地址
-                    </th>
+                            票务描述
+                        </th>
+                        <th>
+                            票务类型
+                        </th>
                         <th>
                             联系电话
                         </th>
@@ -96,27 +97,27 @@
             .on("click", ".btn-search", doQueryObjects)
             .on("click", ".btn-add,.btn-update", doLoadEditUI);
         // $(".scenery-delete-btn").click(doDeleteObject)
-        $("#tbodyId").on("click",".hotel-delete-btn",doDeleteObject)
+        $("#tbodyId").on("click", ".ticket-delete-btn", doDeleteObject)
     });
 
 
     function doDeleteObject() {
-        var id=$(this).siblings(".hotel-id").text()
-        if (confirm("确定删除ID为"+id+"的信息吗？")) {
-            var url="hotel/doDeleteObject.do";
-            var param={
-                "hotelId":id
+        var id = $(this).siblings(".ticket-id").text()
+        if (confirm("确定删除ID为" + id + "的信息吗？")) {
+            var url = "ticket/doDeleteObject.do";
+            var param = {
+                "ticketId": id
             }
             $.ajax({
-                url:url,
-                data:param,
-                type:"post",
-                dataType:"json",
-                success:function (result) {
+                url: url,
+                data: param,
+                type: "post",
+                dataType: "json",
+                success: function (result) {
                     console.log(result)
-                    if (result.status==200){
+                    if (result.status == 200) {
                         alert("信息删除成功");
-                        $("#mainContentId").load("hotel/doHotelListUI.do");
+                        $("#mainContentId").load("ticket/doTicketListUI.do");
                     } else {
                         alert(result.data)
                     }
@@ -129,10 +130,10 @@
         //1.判定点击的对象
         var title;
         if ($(this).hasClass("btn-add")) {
-            title = "添加酒店";
+            title = "添加票务";
             doLoadPage(title);
         } else if ($(this).hasClass("btn-update")) {
-            title = "修改酒店";
+            title = "修改票务";
             var id = doGetCheckedId();
             console.log("id=" + id)
             if (!id) {
@@ -148,7 +149,7 @@
         //1.params
         var params = {"id": id};
         //2.url
-        var url = "hotel/doFindObjectById.do";
+        var url = "ticket/doFindObjectById.do";
         //3.ajax request
         $.getJSON(url, params, function (result) {//JsonResult
             if (result.status == 200) {
@@ -166,12 +167,11 @@
     }
 
     function doLoadPage(title) {
-        var url = "hotel/doHotelEditUI.do"
+        var url = "ticket/doTicketEditUI.do"
         $("#mainContentId").load(url, function () {
             $(".box-title").html(title);
         })
     }
-
 
 
     //处理查询按钮事件
@@ -182,7 +182,7 @@
 
     //页面加载完成异步加载当前页数据
     function doGetObjects() {
-        var url = "hotel/doFindPageObjects.do";
+        var url = "ticket/doFindPageObjects.do";
         var pageCurrent = $("#pageId").data("pageCurrent");
         if (!pageCurrent) pageCurrent = 1;
         var params = {"pageCurrent": pageCurrent}
@@ -219,20 +219,20 @@
     }
 
     function doCreateTds(row) {
-        var tds = "<td><input type='radio' name='radioId' value='" + row.hotelId + "' ></td>" +
+        var tds = "<td><input type='radio' name='radioId' value='" + row.ticketId + "' ></td>" +
             "<td>" + row.id + "</td>" +
-            "<td class='hotel-id' style='display: none'>" + row.hotelId + "</td>" +
+            "<td class='ticket-id' style='display: none'>" + row.ticketId + "</td>" +
             "<td>" + row.cityName + "</td>" +
             "<td>" + row.sceneryName + "</td>" +
-            "<td> " + row.hotelName + "</td>" +
-            "<td><img style='width: 40px' src='http://image.travel.com/" + row.hotelPic + "'/></td>" +
-            "<td>" + row.hotelPrice.toFixed(2) + "元/天</td>" +
-            "<td><div style='word-break: break-all ;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width: 120px;'>" + row.hotelDesc + "</div></td>" +
-            "<td> " + row.hotelAddr + "</td>" +
-            "<td> " + row.hotelTel + "</td>" +
+            "<td> " + row.ticketName + "</td>" +
+            "<td><img style='width: 40px' src='http://image.travel.com/" + row.ticketPic + "'/></td>" +
+            "<td>" + row.ticketPrice.toFixed(2) + "元(全票)</td>" +
+            "<td><div style='word-break: break-all ;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width: 120px;'>" + row.ticketDesc + "</div></td>" +
+            "<td> " + ("admission" == row.ticketType ? "门票" : "船票") + "</td>" +
+            "<td> " + row.ticketTel + "</td>" +
             "<td>" + new Date(row.createTime).toLocaleString() + "</td>" +
             "<td>" + new Date(row.modifiedTime).toLocaleString() + "</td>" +
-            "<td class='hotel-delete-btn'>删除</td>";
+            "<td class='ticket-delete-btn'>删除</td>";
         return tds;
     }
 </script>

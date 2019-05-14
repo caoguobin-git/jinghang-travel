@@ -18,11 +18,11 @@ public interface HotelService {
 
     HotelEntity doFindObjectById(String id);
 
-    String doUpdateObject(String hotelId,String sceneryName, String hotelName,String hotelDesc,double hotelPrice, MultipartFile hotelPicFile) throws IOException;
+    String doUpdateObject(String hotelId, String sceneryName, String hotelName, String hotelDesc, double hotelPrice, String hotelAddr, String hotelTel, MultipartFile hotelPicFile) throws IOException;
 
     String doDeleteObject(String hotelId);
 
     List<String> getSceneryOptions(String cityName);
 
-    String doSaveObject(String sceneryName, String hotelName, String hotelDesc, double hotelPrice, MultipartFile hotelPicFile) throws IOException;
+    String doSaveObject(String sceneryName, String hotelName, String hotelDesc, double hotelPrice, String hotelAddr, String hotelTel, MultipartFile hotelPicFile) throws IOException;
 }

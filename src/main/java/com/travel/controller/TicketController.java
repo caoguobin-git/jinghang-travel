@@ -1,5 +1,5 @@
 /***********************************************
- * File Name: HotelController
+ * File Name: TicketController
  * Author: caoguobin
  * mail: caoguobin@live.com
  * Created Time: 09 05 2019 13:45
@@ -7,12 +7,11 @@
 
 package com.travel.controller;
 
-import com.travel.common.entity.HotelEntity;
-import com.travel.common.entity.SceneryEntity;
+import com.sun.media.sound.SoftTuning;
+import com.travel.common.entity.TicketEntity;
 import com.travel.common.vo.JsonResult;
 import com.travel.common.vo.PageObject;
-import com.travel.service.HotelService;
-import com.travel.service.SceneryService;
+import com.travel.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,16 +21,16 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 
-@RequestMapping("/hotel")
+@RequestMapping("/ticket")
 @Controller
-public class HotelController {
+public class TicketController {
 
     @Autowired
-    private HotelService hotelService;
+    private TicketService ticketService;
 
-    @RequestMapping("/doHotelListUI")
+    @RequestMapping("/doTicketListUI")
     public String doSceneryListUI() {
-        return "sys/hotel_list";
+        return "sys/ticket_list";
     }
 
     @RequestMapping("/doFindPageObjects")
@@ -43,32 +42,34 @@ public class HotelController {
         if (pageSize == null) {
             pageSize = 20;
         }
-        PageObject pageObject = hotelService.doFindPageObjects(pageCurrent, pageSize);
+        PageObject pageObject = ticketService.doFindPageObjects(pageCurrent, pageSize);
         return new JsonResult(pageObject);
     }
 
     @RequestMapping("/doFindObjectById")
     @ResponseBody
     public JsonResult doFindObjectById(String id){
-        HotelEntity hotelEntity=hotelService.doFindObjectById(id);
-        return new JsonResult(hotelEntity);
+        TicketEntity ticketEntity=ticketService.doFindObjectById(id);
+        return new JsonResult(ticketEntity);
     }
 
-    @RequestMapping("/doHotelEditUI")
+    @RequestMapping("/doTicketEditUI")
     public String doSceneryEditUI(){
-        return "sys/hotel_edit";
+        return "sys/ticket_edit";
     }
 
     @RequestMapping("/doSaveObject")
     @ResponseBody
-    public JsonResult doSaveObject(String sceneryName, String hotelName,String hotelDesc,double hotelPrice,String hotelAddr,String hotelTel, MultipartFile hotelPicFile) throws IOException {
+    public JsonResult doSaveObject(String sceneryName, String ticketName,String ticketDesc,double ticketPrice,String ticketType,String ticketTel, MultipartFile ticketPicFile) throws IOException {
 
-        String result=hotelService.doSaveObject(sceneryName,hotelName,hotelDesc,hotelPrice,hotelAddr,hotelTel,hotelPicFile);
+        String result=ticketService.doSaveObject(sceneryName,ticketName,ticketDesc,ticketPrice,ticketType,ticketTel,ticketPicFile);
         System.out.println(sceneryName);
-        System.out.println(hotelName);
-        System.out.println(hotelDesc);
-        System.out.println(hotelPrice);
-        System.out.println(hotelPicFile);
+        System.out.println(ticketName);
+        System.out.println(ticketDesc);
+        System.out.println(ticketPrice);
+        System.out.println(ticketPicFile);
+        System.out.println(ticketType);
+        System.out.println(ticketTel);
         if ("ok".equals(result)){
             return new JsonResult("OK");
         }else {
@@ -77,8 +78,8 @@ public class HotelController {
     }
     @RequestMapping("/doUpdateObject")
     @ResponseBody
-    public JsonResult doUpdateObject(String hotelId,String sceneryName, String hotelName,String hotelDesc,double hotelPrice,String hotelAddr,String hotelTel, MultipartFile hotelPicFile) throws IOException {
-        String result=hotelService.doUpdateObject(hotelId,sceneryName,hotelName,hotelDesc,hotelPrice,hotelAddr,hotelTel,hotelPicFile);
+    public JsonResult doUpdateObject(String ticketId,String sceneryName, String ticketName,String ticketDesc,double ticketPrice,String ticketType,String ticketTel, MultipartFile ticketPicFile) throws IOException {
+        String result=ticketService.doUpdateObject(ticketId,sceneryName,ticketName,ticketDesc,ticketPrice,ticketType,ticketTel,ticketPicFile);
 
         if ("ok".equals(result)){
             return new JsonResult("OK");
@@ -90,14 +91,14 @@ public class HotelController {
     @RequestMapping("/getSceneryOptions")
     @ResponseBody
     public JsonResult getSceneryOptions(String cityName){
-        List<String> scenerys=hotelService.getSceneryOptions(cityName);
+        List<String> scenerys=ticketService.getSceneryOptions(cityName);
         return new JsonResult(scenerys);
     }
 
     @RequestMapping("/doDeleteObject")
     @ResponseBody
-    public JsonResult doDeleteObject(String hotelId){
-        String result = hotelService.doDeleteObject(hotelId);
+    public JsonResult doDeleteObject(String ticketId){
+        String result = ticketService.doDeleteObject(ticketId);
         if ("ok".equals(result)){
             return new JsonResult("OK");
         }else {

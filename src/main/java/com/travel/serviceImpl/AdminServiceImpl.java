@@ -143,7 +143,4 @@ public class AdminServiceImpl implements AdminService {
     public int getPageCount(int pageSize) {
         return adminMapper.getPageCount() / pageSize + 1;
     }
-
-
-
 }

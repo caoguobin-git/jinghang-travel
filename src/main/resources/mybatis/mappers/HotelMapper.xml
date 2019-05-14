@@ -18,6 +18,8 @@
                hi.hotel_pic,
                hi.hotel_price,
                hi.hotel_desc,
+               hi.hotel_addr,
+               hi.hotel_tel,
                hi.create_time,
                hi.modified_time
         from hotel_info hi
@@ -39,6 +41,8 @@
                hi.hotel_pic,
                hi.hotel_price,
                hi.hotel_desc,
+               hi.hotel_addr,
+               hi.hotel_tel,
                hi.create_time,
                hi.modified_time
         from hotel_info hi
@@ -58,13 +62,17 @@
                                 hotel_name,
                                 hotel_price,
                                 hotel_pic,
-                                hotel_desc)
+                                hotel_desc,
+                                hotel_addr,
+                                hotel_tel)
         values (#{hotelId},
                 #{sceneryId},
                 #{hotelName},
                 #{hotelPrice},
                 #{hotelPic},
-                #{hotelDesc})
+                #{hotelDesc},
+                #{hotelAddr},
+                #{hotelTel})
     </insert>
 
     <select id="getSceneryOptions"
@@ -103,6 +111,8 @@
         <if test="hotelDesc != null">hotel_desc=#{hotelDesc},</if>
         <if test="hotelPrice != null">hotel_price=#{hotelPrice},</if>
         <if test="hotelPic != null">hotel_pic=#{hotelPic},</if>
+        <if test="hotelAddr != null">hotel_addr=#{hotelAddr},</if>
+        <if test="hotelTel != null">hotel_tel=#{hotelTel},</if>
         </trim>
         where hotel_id =
         <if test="hotelId != null">#{hotelId}</if>
