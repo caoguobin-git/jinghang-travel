@@ -2,10 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c4d045a-adc9-4bb8-8339-8cdcc3b54c7b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0670575a-2e33-4508-8fa4-1471ab78196f.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jinghang-travel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/css/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/bootstrap/js/npm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/images/yunhe.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/user_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/user_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/starter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/starter.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="418">
+              <caret line="34" selection-start-line="34" selection-end-line="43" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -67,52 +88,153 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/css/home.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2641">
-              <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/js/home.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/css/travel.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/travle.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/head.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="219" lean-forward="true" selection-start-line="219" selection-end-line="219" />
+            <state relative-caret-position="292">
+              <caret line="221" column="26" selection-start-line="221" selection-start-column="26" selection-end-line="221" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#8;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/starter.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="69" selection-start-line="69" selection-end-line="70" />
+              <folding>
+                <element signature="e#1079#1085#0" expanded="true" />
+                <element signature="e#1085#1091#0" expanded="true" />
+                <element signature="e#1091#1097#0" expanded="true" />
+                <element signature="e#1123#1129#0" expanded="true" />
+                <element signature="e#1129#1135#0" expanded="true" />
+                <element signature="e#1135#1141#0" expanded="true" />
+                <element signature="e#1141#1147#0" expanded="true" />
+                <element signature="e#1121#1127#0" expanded="true" />
+                <element signature="e#1127#1133#0" expanded="true" />
+                <element signature="e#1133#1139#0" expanded="true" />
+                <element signature="e#1139#1145#0" expanded="true" />
+                <element signature="e#1145#1151#0" expanded="true" />
+                <element signature="e#1151#1157#0" expanded="true" />
+                <element signature="e#1157#1163#0" expanded="true" />
+                <element signature="e#1163#1169#0" expanded="true" />
+                <element signature="e#1193#1199#0" expanded="true" />
+                <element signature="e#1199#1205#0" expanded="true" />
+                <element signature="e#1205#1211#0" expanded="true" />
+                <element signature="e#1211#1217#0" expanded="true" />
+                <element signature="e#1217#1223#0" expanded="true" />
+                <element signature="e#1223#1229#0" expanded="true" />
+                <element signature="e#1229#1235#0" expanded="true" />
+                <element signature="e#1235#1241#0" expanded="true" />
+                <element signature="e#1147#1153#0" expanded="true" />
+                <element signature="e#1153#1159#0" expanded="true" />
+                <element signature="e#1159#1165#0" expanded="true" />
+                <element signature="e#1165#1171#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+              <folding>
+                <element signature="e#863#869#0" expanded="true" />
+                <element signature="e#870#876#0" expanded="true" />
+                <element signature="e#953#959#0" expanded="true" />
+                <element signature="e#959#965#0" expanded="true" />
+                <element signature="e#965#971#0" expanded="true" />
+                <element signature="e#983#989#0" expanded="true" />
+                <element signature="e#989#995#0" expanded="true" />
+                <element signature="e#971#977#0" expanded="true" />
+                <element signature="e#1150#1156#0" expanded="true" />
+                <element signature="e#1156#1162#0" expanded="true" />
+                <element signature="e#1162#1168#0" expanded="true" />
+                <element signature="e#1168#1174#0" expanded="true" />
+                <element signature="e#1174#1180#0" expanded="true" />
+                <element signature="e#1180#1186#0" expanded="true" />
+                <element signature="e#1186#1192#0" expanded="true" />
+                <element signature="e#1192#1198#0" expanded="true" />
+                <element signature="e#1198#1204#0" expanded="true" />
+                <element signature="e#1204#1210#0" expanded="true" />
+                <element signature="e#1210#1216#0" expanded="true" />
+                <element signature="e#1216#1222#0" expanded="true" />
+                <element signature="e#1222#1228#0" expanded="true" />
+                <element signature="e#1228#1234#0" expanded="true" />
+                <element signature="e#1234#1240#0" expanded="true" />
+                <element signature="e#1240#1246#0" expanded="true" />
+                <element signature="e#1246#1252#0" expanded="true" />
+                <element signature="e#1252#1258#0" expanded="true" />
+                <element signature="e#1258#1264#0" expanded="true" />
+                <element signature="e#1264#1270#0" expanded="true" />
+                <element signature="e#1270#1276#0" expanded="true" />
+                <element signature="e#1276#1282#0" expanded="true" />
+                <element signature="e#1282#1288#0" expanded="true" />
+                <element signature="e#1364#1370#0" expanded="true" />
+                <element signature="e#1370#1376#0" expanded="true" />
+                <element signature="e#1376#1382#0" expanded="true" />
+                <element signature="e#1382#1388#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -123,31 +245,6 @@
             <state>
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="33" selection-start-line="33" selection-end-line="46" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
-              <folding>
-                <element signature="n#style#0;n#!!top" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,11 +265,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sceneryPic</find>
-      <find>hotelId</find>
-      <find>sceneryId</find>
-      <find>酒店</find>
-      <find>btn-s</find>
       <find>btn-search</find>
       <find>Alexander Pierce</find>
       <find>dist/img/user2-160x160.jpg</find>
@@ -197,7 +289,12 @@
       <find>500px</find>
       <find>hover</find>
       <find>500</find>
+      <find>Anything you want京杭v旅游</find>
+      <find>online</find>
+      <find>京杭</find>
+      <find>body</find>
       <find>index_text</find>
+      <find>login</find>
     </findStrings>
     <replaceStrings>
       <replace>food</replace>
@@ -212,6 +309,7 @@
       <replace>'</replace>
       <replace>user_register_login</replace>
       <replace>user-register-login-btn</replace>
+      <replace>register</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -220,8 +318,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_list.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/HotelController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/TicketMapper.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/8b28147c-f048-4930-8dd2-c4706881163a/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/common/entity/TicketEntity.java" />
@@ -244,14 +340,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/FoodController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/service/FoodService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/FoodMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/SceneryMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/TicketMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/HotelMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/FoodMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/food_list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/css/home.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/starter.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/service/OrderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/OrderController.java" />
@@ -267,10 +361,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/SceneryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/TicketServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_edit.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/starter.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/login.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_register.html" />
       </list>
     </option>
   </component>
@@ -367,6 +465,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -435,7 +541,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557928931565" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557932708551" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/mybatis/mappers" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -448,11 +554,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\source\jinghang-travel\src\main\webapp\images" />
       <recent name="E:\source\jinghang-travel\src\main\webapp\pages\home\img" />
       <recent name="D:\jinghang-travel\src\main\resources\mybatis\mappers" />
       <recent name="D:\jinghang-travel\src\main\webapp\images\city_img" />
       <recent name="D:\jinghang-travel\src\main\webapp\images" />
-      <recent name="D:\jinghang-travel\src\main\webapp\pages\sys" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.travel.mapper" />
@@ -664,15 +770,21 @@
       <option name="project" value="LOCAL" />
       <updated>1557926612338</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="2019-05-15-17/54&#10;添加美食预定功能">
+      <created>1557929020548</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1557929020548</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178803000" />
+    <option name="totallyTimeSpent" value="182573000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16693164" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -769,15 +881,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/073e4603-85f3-4532-aa01-94ec60d84208/console.sql" />
-    <entry file="das://073e4603-85f3-4532-aa01-94ec60d84208/schema/travel/table/scenery_info" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="316" column="29" selection-start-line="316" selection-start-column="29" selection-end-line="316" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/ticket_edit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -811,13 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="251" column="36" selection-start-line="251" selection-start-column="36" selection-end-line="251" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -860,16 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/starter.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="219" column="33" selection-start-line="219" selection-start-column="27" selection-end-line="219" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-912">
@@ -908,13 +994,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/img/index01.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="74" selection-end-column="14" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/common/LoginType.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1030,13 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/css/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2641">
@@ -1053,12 +1125,52 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/js/home.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/hotel_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10112">
+          <caret line="316" column="29" selection-start-line="316" selection-start-column="29" selection-end-line="316" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/starter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#li#1;n#ul#0;n#li#2;n#ul#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+        <state>
+          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
           <folding>
-            <element signature="n#style#0;n#!!top" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#!!top" expanded="true" />
@@ -1069,8 +1181,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="33" selection-start-line="33" selection-end-line="46" selection-end-column="5" />
+        <state relative-caret-position="384">
+          <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1083,10 +1195,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/head.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="219" lean-forward="true" selection-start-line="219" selection-end-line="219" />
+        <state relative-caret-position="292">
+          <caret line="221" column="26" selection-start-line="221" selection-start-column="26" selection-end-line="221" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#8;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -1096,8 +1215,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="418">
+          <caret line="34" selection-start-line="34" selection-end-line="43" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1109,13 +1228,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_edit.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
+        <state relative-caret-position="480">
+          <caret line="69" selection-start-line="69" selection-end-line="70" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" />
+            <element signature="e#1079#1085#0" expanded="true" />
+            <element signature="e#1085#1091#0" expanded="true" />
+            <element signature="e#1091#1097#0" expanded="true" />
+            <element signature="e#1123#1129#0" expanded="true" />
+            <element signature="e#1129#1135#0" expanded="true" />
+            <element signature="e#1135#1141#0" expanded="true" />
+            <element signature="e#1141#1147#0" expanded="true" />
+            <element signature="e#1121#1127#0" expanded="true" />
+            <element signature="e#1127#1133#0" expanded="true" />
+            <element signature="e#1133#1139#0" expanded="true" />
+            <element signature="e#1139#1145#0" expanded="true" />
+            <element signature="e#1145#1151#0" expanded="true" />
+            <element signature="e#1151#1157#0" expanded="true" />
+            <element signature="e#1157#1163#0" expanded="true" />
+            <element signature="e#1163#1169#0" expanded="true" />
+            <element signature="e#1193#1199#0" expanded="true" />
+            <element signature="e#1199#1205#0" expanded="true" />
+            <element signature="e#1205#1211#0" expanded="true" />
+            <element signature="e#1211#1217#0" expanded="true" />
+            <element signature="e#1217#1223#0" expanded="true" />
+            <element signature="e#1223#1229#0" expanded="true" />
+            <element signature="e#1229#1235#0" expanded="true" />
+            <element signature="e#1235#1241#0" expanded="true" />
+            <element signature="e#1147#1153#0" expanded="true" />
+            <element signature="e#1153#1159#0" expanded="true" />
+            <element signature="e#1159#1165#0" expanded="true" />
+            <element signature="e#1165#1171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
+          <folding>
+            <element signature="e#863#869#0" expanded="true" />
+            <element signature="e#870#876#0" expanded="true" />
+            <element signature="e#953#959#0" expanded="true" />
+            <element signature="e#959#965#0" expanded="true" />
+            <element signature="e#965#971#0" expanded="true" />
+            <element signature="e#983#989#0" expanded="true" />
+            <element signature="e#989#995#0" expanded="true" />
+            <element signature="e#971#977#0" expanded="true" />
+            <element signature="e#1150#1156#0" expanded="true" />
+            <element signature="e#1156#1162#0" expanded="true" />
+            <element signature="e#1162#1168#0" expanded="true" />
+            <element signature="e#1168#1174#0" expanded="true" />
+            <element signature="e#1174#1180#0" expanded="true" />
+            <element signature="e#1180#1186#0" expanded="true" />
+            <element signature="e#1186#1192#0" expanded="true" />
+            <element signature="e#1192#1198#0" expanded="true" />
+            <element signature="e#1198#1204#0" expanded="true" />
+            <element signature="e#1204#1210#0" expanded="true" />
+            <element signature="e#1210#1216#0" expanded="true" />
+            <element signature="e#1216#1222#0" expanded="true" />
+            <element signature="e#1222#1228#0" expanded="true" />
+            <element signature="e#1228#1234#0" expanded="true" />
+            <element signature="e#1234#1240#0" expanded="true" />
+            <element signature="e#1240#1246#0" expanded="true" />
+            <element signature="e#1246#1252#0" expanded="true" />
+            <element signature="e#1252#1258#0" expanded="true" />
+            <element signature="e#1258#1264#0" expanded="true" />
+            <element signature="e#1264#1270#0" expanded="true" />
+            <element signature="e#1270#1276#0" expanded="true" />
+            <element signature="e#1276#1282#0" expanded="true" />
+            <element signature="e#1282#1288#0" expanded="true" />
+            <element signature="e#1364#1370#0" expanded="true" />
+            <element signature="e#1370#1376#0" expanded="true" />
+            <element signature="e#1376#1382#0" expanded="true" />
+            <element signature="e#1382#1388#0" expanded="true" />
           </folding>
         </state>
       </provider>
