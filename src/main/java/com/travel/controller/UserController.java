@@ -60,6 +60,14 @@ private final String USER_LOGIN_TYPE=LoginType.USER.toString();
         }
         return null;
     }
+    @RequestMapping("/loginPage")
+    public String loginPage(){
+        return "/home/user_login";
+    }
+    @RequestMapping("/registerPage")
+    public String registerPage(){
+        return "/home/user_register";
+    }
 
     @RequestMapping("/login")
     @ResponseBody

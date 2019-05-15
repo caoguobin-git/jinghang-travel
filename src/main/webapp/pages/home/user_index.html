@@ -37,7 +37,7 @@
             left: 0px;
             top: 0px;
             width: 100%;
-            height: 100%;
+            /*height: 100%;*/
             opacity: 0.05;
             z-index: -1;
             background-size: 100% 1200px;
@@ -176,6 +176,8 @@
     $(function () {
         getUserInfo()
         undisplayUserIcon()
+        $('body').height($(window).height());
+
     })
 
 
