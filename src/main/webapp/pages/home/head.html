@@ -177,7 +177,7 @@
             <div class="col-lg-1 head-element" id="yunhe18cheng">运河十八城</div>
             <div class="col-lg-1 head-element">千年运河</div>
             <div class="col-lg-2 head-element"><input placeholder="search" style="width: 50%;">&nbsp;&nbsp;搜索</div>
-            <div class="col-lg-1 head-element"  id="user_register_login">登录/注册</div>
+            <div class="col-lg-1 head-element user-login-logout user-register-login-btn">登录/注册</div>
         </div>
     </div>
 </div>
@@ -190,9 +190,20 @@
         $("#city-select-box").hover(displayCitys, undisplayCitys)
         $(".city-select").click(displayCityInfo)
         $(".index_text").hover(displayText, undisplayText)
-        $("#user_register_login").click(gotoUserLoginPage)
+        $("#head_top .user-register-login-btn").click(gotoUserLoginPage)
+        $("#head_top").on("click",".user-logout-btn",doUserLogout)
 
     })
+    function doUserLogout(){
+        console.log("执行退出操作")
+        $.ajax({
+            url:"/logout.do?t="+Math.random(),
+            type:"get"
+        })
+        $("#main-data-content").data("userInfo",null)
+        window.open('/index.do','_self')
+    }
+
 
 
     $("#city-select-box").hide()

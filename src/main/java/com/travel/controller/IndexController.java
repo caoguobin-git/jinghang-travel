@@ -40,7 +40,7 @@ public class IndexController {
     }
     @RequestMapping("logout")
     public String logout(){
-        return "login";
+        return "home/user_index";
     }
 
 }

@@ -20,7 +20,7 @@
     <link rel="stylesheet"
           href="../plugins/iCheck/square/blue.css">
     <link rel="icon"
-          href="pages/home/img/icon.jpg">
+          href="/pages/home/img/icon.jpg">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -164,23 +164,29 @@
 </html>
 <script>
     $(function () {
-        // setInterval(function () {
-        //     console.log($("#main-data-content").data("cityName"))
-        //     $.ajax({
-        //         url:"/user/getUserInfo.do",
-        //         type:"post",
-        //         dataType:"json",
-        //         success:function (result) {
-        //             console.log(result)
-        //         }
-        //     })
-        // },5000)
+        getUserInfo()
     })
 
     $("#head").load("/pages/home/head.html");
     $("#foot").load("/pages/home/foot.html");
 
 
+    function getUserInfo() {
+        $.ajax({
+            url:"/user/getUserInfo.do",
+            type:"post",
+            dataType:"json",
+            success:function (result) {
+                console.log(result)
+                if ("200"==result.status) {
+                    $("#main-data-content").data("userInfo", result.data)
+                    $("#head_top .user-login-logout").html("退出")
+                    $("#head_top .user-login-logout").removeClass("user-register-login-btn")
+                    $("#head_top .user-login-logout").addClass("user-logout-btn")
+                }
+            }
+        })
+    }
 
 
 </script>

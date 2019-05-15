@@ -61,7 +61,7 @@
             success:function (result) {
                 console.log(result)
                 if (result.status==200){
-                    location.href="/user/index.do?t="+Math.random();
+                    location.href="/index.do?t="+Math.random();
                 }else {
                     $("#user-login-box .user-login-box-msg").html(result.data)
                 }
@@ -74,6 +74,6 @@
     }
 
     function gotoHomePage() {
-        location.href = "/user/index.do?t=" + Math.random();
+        location.href = "/index.do?t=" + Math.random();
     }
 </script>
