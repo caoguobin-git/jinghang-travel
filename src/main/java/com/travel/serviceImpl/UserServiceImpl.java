@@ -64,6 +64,7 @@ public class UserServiceImpl implements UserService {
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
+            login(userEntity.getUsername(), password1, "user");
         }
         return "注册失败！";
     }

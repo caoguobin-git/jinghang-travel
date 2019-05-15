@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        欢迎登录</title>
+        欢迎注册</title>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="/css/buttons.css">
+
     <style>
         body {
             position: relative;
@@ -17,7 +19,7 @@
             top: 0px;
             width: 100%;
             height: 100%;
-            opacity: 0.6;
+            opacity: 0.8;
             background-repeat: no-repeat;
             z-index: -1;
             background-size: 100% 100%;
@@ -25,6 +27,7 @@
         }
         span{
             margin-left: -5%;
+            cursor: pointer;
         }
 
         #user-register-box {
@@ -38,27 +41,27 @@
 <div id="user-register-box">
     <p class="user-register-box-msg">
         欢迎注册</p>
-    用&nbsp;户&nbsp;名：<input
+    用&nbsp;户&nbsp;名: <input
         class="username"
         placeholder="请输入用户名">
     <br/>
     <br/>
-    密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input
+    密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码: <input
         class="password" type="password"
         placeholder="请输入密码">
     <br/>
     <br/>
-    确认密码：<input type="password"
+    确认密码: <input type="password"
         class="confirm-password"
         placeholder="请再次输入密码">
     <br/>
     <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="cancle-user-register-btn">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="cancle-user-register-btn button button-glow button-rounded button-border button-tiny">
         取消
     </button>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="confirm-user-register-btn">
+    <button class="confirm-user-register-btn button button-glow button-rounded button-raised button-tiny">
         注册
     </button>
     <br/>
@@ -113,8 +116,11 @@
             type:"post",
             dataType:"json",
             success:function (result) {
+                console.log(result)
                 if (result.status==200){
                     location.href="/user/index.do?t="+Math.random();
+                }else {
+                    $("#user-register-box .user-register-box-msg").html(result.data);
                 }
             }
         })
