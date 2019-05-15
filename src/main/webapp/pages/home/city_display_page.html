@@ -25,15 +25,13 @@
 
 <div class="container">
     <div class="row">
-    <div class="col-lg-12">
-        <img id="city-info-img"
+        <div class="col-lg-12">
+            <img id="city-info-img"
              style="height: 600px;width: 100%;"/>
-    </div>
+        </div>
     </div>
     <div class="row">
-        <div class="col-lg-12" style="text-align: center" id="city-scenery-list-name">
-
-        </div>
+        <div class="col-lg-12" style="text-align: center" id="city-scenery-list-name"></div>
     </div>
     <br/>
     <div class="row">
@@ -77,7 +75,6 @@
     }
 
     function setHomePagePic() {
-
         var cityName = $("#main-data-content").data("cityName")
         $("#city-info-img").attr("src", "/images/city_img/" + cityName + ".jpg")
         $(".body-style").css("background-image","url("+"/images/city_img/" + cityName + ".jpg"+")")
@@ -114,7 +111,9 @@
             $("#scenery-display-" + index).append(sceneryName)
             cityName=item.cityName;
         })
-        $("#city-scenery-list-name").append("<h2 style='font-family: KaiTi;font-weight: bold;color: rgba(46,157,255,0.78)'>"+cityName+"附近旅游景点</h2>")
+        if (cityName!=null) {
+            $("#city-scenery-list-name").append("<h2 style='font-family: KaiTi;font-weight: bold;color: rgba(46,157,255,0.78)'>" + cityName + "附近旅游景点</h2>")
+        }
     }
 
 </script>
