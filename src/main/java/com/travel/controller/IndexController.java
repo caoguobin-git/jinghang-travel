@@ -15,7 +15,7 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index(){
-        return "index";
+        return "home/user_index";
     }
     @RequestMapping("/login")
     public String login(){
@@ -43,8 +43,4 @@ public class IndexController {
         return "login";
     }
 
-    @RequestMapping("/userIndex")
-    public String userIndex(){
-        return "home/user_index";
-    }
 }

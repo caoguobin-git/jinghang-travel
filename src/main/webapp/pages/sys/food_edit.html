@@ -209,15 +209,19 @@
             $("#foodPic").attr("src", null);
             $("#foodDesc").val("")
         } else {
+
             var datas = $("#mainContentId").data("rowData");
             $("#foodId").val(datas.foodId)
+
             $("#cityName").val(datas.cityName)
+            $("#sceneryName").val(datas.sceneryName)
             $("#foodName").val(datas.foodName)
             $("#foodPrice").val(datas.foodPrice)
             $("#foodPic").attr("src", "http://image.travel.com/" + datas.foodPic);
             $("#foodDesc").val(datas.foodDesc)
-            console.log("http://image.travel.com/" + datas.foodPic)
             getSceneryOptions(datas.cityName);
+
+            console.log("http://image.travel.com/" + datas.foodPic)
         }
 
     }
@@ -243,8 +247,11 @@
         $.each(datas,function (index,item) {
             console.log(index+"  "+item)
             sceneryOptions.append("<option value='" + item + "'>" + item + "</option>")
-
         })
+        var datas1 = $("#mainContentId").data("rowData");
+        $("#sceneryName").val(datas1.sceneryName)
+
+
     }
 
     function doCancel() {
@@ -287,7 +294,7 @@
             async: false,
             success: function (result) {
                 if (result.status == 200) {
-                    alert("景点信息" + type.substring(0, 2) + "成功");
+                    alert("美食信息" + type.substring(0, 2) + "成功");
                     $("#mainContentId").removeData("rowData");
                     $("#mainContentId").load("food/doFoodListUI.do");
                 } else {

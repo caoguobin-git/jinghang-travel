@@ -29,6 +29,8 @@
                  left join city_info ci
                            on si.city_id =
                               ci.city_id
+        order by ci.city_id,
+                 si.scenery_id
 
     </select>
     <select id="doFindObjectById"

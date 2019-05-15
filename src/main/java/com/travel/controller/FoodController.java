@@ -92,6 +92,19 @@ public class FoodController {
         return new JsonResult(scenerys);
     }
 
+    @RequestMapping("/getFoodListBySceneryId")
+    @ResponseBody
+    public JsonResult getFoodListBySceneryId(Integer pageCurrent,Integer pageSize,String sceneryId){
+        if (pageCurrent == null) {
+            pageCurrent = 1;
+        }
+        if (pageSize == null) {
+            pageSize = 20;
+        }
+        PageObject pageObject = foodService.getFoodListBySceneryId(pageCurrent, pageSize,sceneryId);
+        return new JsonResult(pageObject);
+    }
+
     @RequestMapping("/doDeleteObject")
     @ResponseBody
     public JsonResult doDeleteObject(String foodId){

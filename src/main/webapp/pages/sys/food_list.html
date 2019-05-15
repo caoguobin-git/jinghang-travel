@@ -41,9 +41,7 @@
                         <th>
                             ID
                         </th>
-                        <th>
-                            美食ID
-                        </th>
+
                         <th>
                             所在城市
                         </th>
@@ -218,7 +216,7 @@
     function doCreateTds(row) {
         var tds = "<td><input type='radio' name='radioId' value='" + row.foodId + "' ></td>" +
             "<td >" + row.id + "</td>" +
-            "<td class='food-id'>" + row.foodId + "</td>" +
+            "<td class='food-id' style='display: none;'>" + row.foodId + "</td>" +
             "<td>" + row.cityName + "</td>" +
             "<td>" + row.sceneryName + "</td>" +
             "<td> " + row.foodName + "</td>" +

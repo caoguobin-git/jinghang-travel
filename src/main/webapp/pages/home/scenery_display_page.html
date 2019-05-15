@@ -33,7 +33,14 @@
         font-weight: bolder;
         font-family:"KaiTi";
         cursor: pointer;
-    }
+    }.scenery-display-navigation-right>.row{
+         text-align: left;
+         font-size: 20px;
+         margin: 20px;
+         font-weight: bolder;
+         font-family:"KaiTi";
+         cursor: pointer;
+     }
 </style>
 
 <div id="scenery-display-page-data">
@@ -42,7 +49,7 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-lg-2 scenery-display-navigation-left" style="background: red">
+        <div class="col-lg-2 scenery-display-navigation-left">
             <div class="row" id="list-comment-btn">查看评价</div>
             <div class="row" id="list-strategy-btn">查看攻略</div>
             <div class="row" id="list-foot-btn">周边美食</div>
@@ -53,7 +60,6 @@
             <div class="col-lg-6" id="scenery-display-image">
                 <br/>
                 <br/>
-                <br/>
             </div>
             <div class="col-lg-4" id="scenery-display-content">
 <!--                <div class="row scenery-name"></div>-->
@@ -61,8 +67,10 @@
                 <div class="row scenery-desc"></div>
             </div>
         </div>
-        <div class="col-lg-2 scenery-display-navigation-right" style="background: red">
-            <div id="back-to-pre-page">返回上一页</div>
+        <div class="col-lg-2 scenery-display-navigation-right">
+            <div class="row">预定门票</div>
+            <div class="row">预定船票</div>
+            <div class="row" id="back-to-pre-page">返回上一页</div>
         </div>
     </div>
 </div>
@@ -74,7 +82,13 @@
 
         initSceneryDatas()
         $("#back-to-pre-page").click(backToPrePage)
+        $("#list-foot-btn").click(displayFoodInfo)
     })
+
+    function displayFoodInfo() {
+        $("#content").load("/pages/home/food_display_page.html")
+    }
+
     function backToPrePage() {
             $("#content").load("/pages/home/city_display_page.html")
     }

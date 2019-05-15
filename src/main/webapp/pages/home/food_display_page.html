@@ -1,0 +1,72 @@
+
+
+<style>
+#food-infos .food-image{
+    width: 100%;
+}
+
+#food-infos .food-desc{
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+#food-infos .food-desc:hover{
+    overflow-y: scroll;
+}
+.food-desc::-webkit-scrollbar {display:none}
+</style>
+
+<div id="food-display-datas">
+    <div class="container" id="food-infos">
+        <div class="row food-box" >
+            <div class="col-lg-offset-1 col-lg-4">
+                <div class="row food-title"></div>
+                <div class="row"><img class="food-image"/></div>
+            </div>
+            <div class="col-lg-offset-1 col-lg-4">
+                <div class="row">
+                    <div class="col-lg-6 food-price"></div>
+                    <div class="col-lg-6 food-order-btn">立即预定</div>
+                </div>
+                <div class="row food-desc"></div>
+            </div>
+        </div>
+        <div class="row"></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        getFoodListBySceneryId()
+    })
+    function getFoodListBySceneryId() {
+        var sceneryInfo=$("#main-data-content").data("sceneryInfo");
+        var sceneryId=sceneryInfo.sceneryId;
+        var url="/food/getFoodListBySceneryId.do?t="+Math.random();
+        var param={
+            "pageCurrent":1,
+            "pageSize":5,
+            "sceneryId":sceneryId
+        }
+
+        $.ajax({
+            url:url,
+            data:param,
+            type:"post",
+            dataType:"json",
+            success:function (result) {
+                setFoodInfos(result.data.records)
+                console.log(result)
+            }
+        })
+        function setFoodInfos(datas) {
+            $.each(datas,function (index,item) {
+                $("#food-infos .food-title").html(item.foodName)
+                $("#food-infos .food-desc").html(item.foodDesc)
+                $("#food-infos .food-price").html(item.foodPrice)
+                $("#food-infos .food-image").attr("src","http://image.travel.com/"+item.foodPic)
+            })
+        }
+
+    }
+</script>

@@ -163,6 +163,32 @@ public class FoodServiceImpl implements FoodService {
         return null;
     }
 
+    @Override
+    public PageObject getFoodListBySceneryId(Integer pageCurrent, Integer pageSize, String sceneryId) {
+        if (pageSize == null) {
+            pageSize = 20;
+        }
+        int pageCount = getPageCount(pageSize);
+        if (pageCurrent == null || pageCurrent < 1) {
+            pageCurrent = 1;
+        }
+        if (pageCurrent > pageCount) {
+            pageCurrent = pageCount;
+        }
+        PageObject pageObject = new PageObject();
+        pageObject.setTotal(foodMapper.getPageCount());
+        pageObject.setPageCount(pageCount);
+        pageObject.setPageCurrent(pageCurrent);
+        pageObject.setPageSize(pageSize);
+        List<Object> list = foodMapper.getFoodListBySceneryId(pageCurrent,sceneryId, new RowBounds(pageCurrent - 1, pageSize));
+        System.out.println(list.size());
+        for (Object o : list) {
+            System.out.println(o.toString());
+        }
+        pageObject.setRecords(list);
+        return pageObject;
+    }
+
 
     public int getPageCount(int pageSize) {
         return foodMapper.getPageCount() / pageSize + 1;

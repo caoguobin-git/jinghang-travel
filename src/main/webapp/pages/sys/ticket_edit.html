@@ -317,7 +317,7 @@
             async: false,
             success: function (result) {
                 if (result.status == 200) {
-                    alert("景点信息" + type.substring(0, 2) + "成功");
+                    alert("票务信息" + type.substring(0, 2) + "成功");
                     $("#mainContentId").removeData("rowData");
                     $("#mainContentId").load("ticket/doTicketListUI.do");
                 } else {

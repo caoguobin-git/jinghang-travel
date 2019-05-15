@@ -7,6 +7,7 @@
 package com.travel.mapper;
 
 import com.travel.common.entity.FoodEntity;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -27,4 +28,6 @@ public interface FoodMapper {
     int doDeleteObject(String foodId);
 
     int doUpdateObject(FoodEntity foodEntity1);
+
+    List<Object> getFoodListBySceneryId(Integer pageCurrent, @Param("sceneryId") String sceneryId, RowBounds rowBounds);
 }

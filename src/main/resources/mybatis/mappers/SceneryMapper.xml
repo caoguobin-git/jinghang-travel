@@ -23,6 +23,7 @@
                  left join city_info ci
                            on si.city_id =
                               ci.city_id
+        order by ci.city_id
     </select>
 
     <select id="doFindObjectById"
@@ -66,22 +67,28 @@
     <update id="doUpdateObject"
             parameterType="com.travel.common.entity.SceneryEntity">
         update scenery_info si
-        <trim prefix="set" suffixOverrides=",">
-        <if test="cityId!=null">city_id=#{cityId},</if>
-        <if test="sceneryPic!=null">scenery_pic=#{sceneryPic},</if>
-        <if test="sceneryName!=null">scenery_name=#{sceneryName},</if>
-        <if test="sceneryDesc!=null">scenery_desc=#{sceneryDesc},</if>
-        <if test="modifiedTime!=null">modified_time=#{modifiedTime},</if>
+        <trim prefix="set"
+                suffixOverrides=",">
+            <if test="cityId!=null">city_id=#{cityId},</if>
+            <if test="sceneryPic!=null">scenery_pic=#{sceneryPic},</if>
+            <if test="sceneryName!=null">scenery_name=#{sceneryName},</if>
+            <if test="sceneryDesc!=null">scenery_desc=#{sceneryDesc},</if>
+            <if test="modifiedTime!=null">modified_time=#{modifiedTime},</if>
         </trim>
         where scenery_id =
         <if test="sceneryId!=null">#{sceneryId}</if>
     </update>
 
-    <delete id="doDeleteObject" parameterType="java.lang.String">
-        delete from scenery_info where scenery_id=#{sceneryId}
+    <delete id="doDeleteObject"
+            parameterType="java.lang.String">
+        delete
+        from scenery_info
+        where scenery_id =
+              #{sceneryId}
     </delete>
 
-    <select id="getScenerysByCityName" resultType="com.travel.common.entity.SceneryEntity">
+    <select id="getScenerysByCityName"
+            resultType="com.travel.common.entity.SceneryEntity">
         select si.id,
                scenery_id,
                scenery_name,
@@ -95,6 +102,7 @@
                  left join city_info ci
                            on si.city_id =
                               ci.city_id
-                              where ci.city_pinyin=#{cityName}
+        where ci.city_pinyin =
+              #{cityName}
     </select>
 </mapper>

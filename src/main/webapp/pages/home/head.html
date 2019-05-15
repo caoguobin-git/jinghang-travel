@@ -1,9 +1,134 @@
+<style>
+
+    #city-select-box {
+        position: absolute;
+        left: 950px;
+        top: 63px;
+        background-color: rgba(197, 197, 197, 0.34);
+        z-index: 10;
+        border-radius: 5px;
+    }
+
+    .city-select{
+        padding: 2px 15px;
+    }
+
+    .city-select:hover {
+        background: #ff4939;
+        opacity: 100;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .head-element{
+        padding: 30px 0px;
+        text-align: center;
+        border-left: 0.5px solid rgba(126, 126, 126, 0.14);
+        border-radius: 10px;
+    }
+    .head-element:hover{
+        cursor: pointer;
+        background-color: rgba(178, 178, 178, 0.16);
+    }
+
+
+
+
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    .box {
+        width: 100%;
+        height: 615px;
+        border: 1px solid #ccc;
+        margin: 10px auto;
+        padding: 5px;
+
+    }
+
+    .inner {
+        width: 100%;
+        height: 610px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .inner img {
+        width: 1920px;
+        height:600px;
+    }
+
+    ul {
+        width: 1000%;
+        position: absolute;
+        list-style: none;
+        left: 0;
+        top: 0;
+    }
+
+    .inner li {
+        float: left;
+
+    }
+
+    ol {
+        position: absolute;
+        height: 20px;
+        right: 20px;
+        bottom: 20px;
+        text-align: center;
+        padding: 5px;
+    }
+
+    ol li {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        background-color: #b5b5b5;
+        opacity: 0.5;
+        margin: 5px;
+        cursor: pointer;
+
+    }
+
+    ol .current {
+        background-color: #ff6f6f;
+    }
+
+    #arr {
+        display: none;
+    }
+
+    #arr span {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        margin-top: -20px;
+        background: #fff;
+        cursor: pointer;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bold;
+        font-family: '黑体';
+        font-size: 30px;
+        color: #000;
+        opacity: 0.5;
+        border: 1px solid #fff;
+    }
+
+    #arr #right {
+        right: 5px;
+        left: auto;
+
+    }
+</style>
+
 <div id="head_top">
-    <div class="icon"><img src="/pages/home/img/icon.jpg"></div>
-    <div>京杭大运河旅游</div>
-    <div onclick="window.open('/userIndex.do','_self')">首页</div>
-    <div>运河万象</div>
-    <div id="yunhe18cheng">运河十八城</div>
     <table id="city-select-box">
         <tr>
             <td class="city-select" id="city-select-beijing">北京</td>
@@ -42,10 +167,19 @@
             <td class="city-select" id="city-select-hangzhou">杭州</td>
         </tr>
     </table>
-    <div>千年运河</div>
 
-    <div><input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;搜索</div>
-    <div id="user_register_login">登录/注册</div>
+    <div class="container-fluid">
+        <div class="row" style="width: 80%">
+            <div class="col-lg-offset-3 col-lg-1 icon head-element"><img style="width: 60px" src="/pages/home/img/icon.jpg"></div>
+            <div class="col-lg-1 head-element">大运河旅游</div>
+            <div class="col-lg-1 head-element" onclick="window.open('/index.do','_self')">首页</div>
+            <div class="col-lg-1 head-element">运河万象</div>
+            <div class="col-lg-1 head-element" id="yunhe18cheng">运河十八城</div>
+            <div class="col-lg-1 head-element">千年运河</div>
+            <div class="col-lg-2 head-element"><input placeholder="search" style="width: 50%;">&nbsp;&nbsp;搜索</div>
+            <div class="col-lg-1 head-element"  id="user_register_login">登录/注册</div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -59,6 +193,7 @@
         $("#user_register_login").click(gotoUserLoginPage)
 
     })
+
 
     $("#city-select-box").hide()
 
@@ -80,7 +215,7 @@
     function displayCitys() {
         $("#city-select-box").css({
             "left": $("#yunhe18cheng").offset().left,
-            "top": $("#yunhe18cheng").offset().top + 60
+            "top": $("#yunhe18cheng").offset().top + 80
         })
         $("#city-select-box").show()
     }

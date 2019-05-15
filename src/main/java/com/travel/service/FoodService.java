@@ -25,4 +25,6 @@ public interface FoodService {
     List<String> getSceneryOptions(String cityName);
 
     String doSaveObject(String sceneryName, String foodName, String foodDesc, double foodPrice, MultipartFile foodPicFile) throws IOException;
+
+    PageObject getFoodListBySceneryId(Integer pageCurrent, Integer pageSize, String sceneryId);
 }

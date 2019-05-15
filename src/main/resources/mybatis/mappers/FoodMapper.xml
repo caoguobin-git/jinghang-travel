@@ -27,8 +27,35 @@
                  left join city_info ci
                            on si.city_id =
                               ci.city_id
+        order by ci.city_id,
+                 si.scenery_id
 
     </select>
+
+    <select id="getFoodListBySceneryId"
+            resultType="com.travel.common.entity.FoodEntity">
+        select hi.id,
+               hi.food_id,
+               ci.city_name,
+               si.scenery_name,
+               hi.food_name,
+               hi.food_pic,
+               hi.food_price,
+               hi.food_desc,
+               hi.create_time,
+               hi.modified_time
+        from food_info hi
+                 left join scenery_info si
+                           on hi.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where si.scenery_id =
+              #{sceneryId}
+
+    </select>
+
     <select id="doFindObjectById"
             resultType="com.travel.common.entity.FoodEntity">
         select hi.id,
@@ -54,11 +81,11 @@
     <insert id="doSaveObject"
             parameterType="com.travel.common.entity.FoodEntity">
         insert into food_info (food_id,
-                                scenery_id,
-                                food_name,
-                                food_price,
-                                food_pic,
-                                food_desc)
+                               scenery_id,
+                               food_name,
+                               food_price,
+                               food_pic,
+                               food_desc)
         values (#{foodId},
                 #{sceneryId},
                 #{foodName},
@@ -97,12 +124,13 @@
     <update id="doUpdateObject"
             parameterType="com.travel.common.entity.FoodEntity">
         update food_info
-        <trim prefix="set" suffixOverrides=",">
-        <if test="sceneryId != null">scenery_id=#{sceneryId},</if>
-        <if test="foodName != null">food_name=#{foodName},</if>
-        <if test="foodDesc != null">food_desc=#{foodDesc},</if>
-        <if test="foodPrice != null">food_price=#{foodPrice},</if>
-        <if test="foodPic != null">food_pic=#{foodPic},</if>
+        <trim prefix="set"
+                suffixOverrides=",">
+            <if test="sceneryId != null">scenery_id=#{sceneryId},</if>
+            <if test="foodName != null">food_name=#{foodName},</if>
+            <if test="foodDesc != null">food_desc=#{foodDesc},</if>
+            <if test="foodPrice != null">food_price=#{foodPrice},</if>
+            <if test="foodPic != null">food_pic=#{foodPic},</if>
         </trim>
         where food_id =
         <if test="foodId != null">#{foodId}</if>
