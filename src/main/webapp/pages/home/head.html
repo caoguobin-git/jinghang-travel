@@ -195,7 +195,6 @@
         $("#yunhe18cheng").hover(displayCitys, undisplayCitys)
         $("#city-select-box").hover(displayCitys, undisplayCitys)
         $(".city-select").click(displayCityInfo)
-        $(".index_text").hover(displayText, undisplayText)
         $("#head_top .user-register-login-btn").click(gotoUserLoginPage)
         $("#head_top").on("click",".user-logout-btn",doUserLogout)
 
@@ -217,16 +216,6 @@
 
     function gotoUserLoginPage(){
         location.href="/user/loadPage.do?url=user_login&t="+Math.random()
-    }
-
-
-    function displayText() {
-        $(this).css("height", "500")
-    }
-
-    function undisplayText() {
-        $(this).css("height", "200")
-
     }
 
     function displayCitys() {
