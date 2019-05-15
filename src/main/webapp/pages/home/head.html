@@ -1,7 +1,7 @@
 <div id="head_top">
     <div class="icon"><img src="/pages/home/img/icon.jpg"></div>
     <div>京杭大运河旅游</div>
-    <div onclick="window.open('userIndex.do','_self')">首页</div>
+    <div onclick="window.open('/userIndex.do','_self')">首页</div>
     <div>运河万象</div>
     <div id="yunhe18cheng">运河十八城</div>
     <table id="city-select-box">
@@ -60,10 +60,6 @@
 
     })
 
-    function getUserInfo(){
-        console.log("头部加载完成")
-
-    }
     $("#city-select-box").hide()
 
 
@@ -99,8 +95,7 @@
         var city=$(this).attr("id").substring(12)
         console.log(city)
         $("#main-data-content").data("cityName",city)
-        // location.href="/jump2page.do?url=city/"+city;
-        $("#content").load("/jump2page.do?url=city/"+city)
+        $("#content").load("/pages/home/city_display_page.html")
     }
 
     /**

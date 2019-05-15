@@ -1,0 +1,97 @@
+<style>
+    #scenery-display-image img{
+        width: 100%;
+        height: 300px;
+    }
+    #scenery-display-content .scenery-name{
+        text-align: center;
+        font-size: 30px;
+        color: red;
+    }
+    .scenery-name{
+        margin-left: 30%;
+        font-size: 30px;
+        color: red;
+    }
+    #scenery-display-content .scenery-desc{
+        height: 400px;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    #scenery-display-content .scenery-desc:hover{
+        overflow-y: scroll;
+    }
+    .scenery-desc::-webkit-scrollbar {display:none}
+    .scenery-display-navigation-left,.scenery-display-navigation-right{
+        margin-top: 5%;
+    }
+    .scenery-display-navigation-left>.row{
+        text-align: right;
+        font-size: 20px;
+        margin: 20px;
+        font-weight: bolder;
+        font-family:"KaiTi";
+        cursor: pointer;
+    }
+</style>
+
+<div id="scenery-display-page-data">
+    <br/>
+    <br/>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-2 scenery-display-navigation-left" style="background: red">
+            <div class="row" id="list-comment-btn">查看评价</div>
+            <div class="row" id="list-strategy-btn">查看攻略</div>
+            <div class="row" id="list-foot-btn">周边美食</div>
+            <div class="row" id="list-hotel-btn">周边酒店</div>
+        </div>
+        <div class="col-lg-8">
+            <div class="row scenery-name"></div>
+            <div class="col-lg-6" id="scenery-display-image">
+                <br/>
+                <br/>
+                <br/>
+            </div>
+            <div class="col-lg-4" id="scenery-display-content">
+<!--                <div class="row scenery-name"></div>-->
+                <br/>
+                <div class="row scenery-desc"></div>
+            </div>
+        </div>
+        <div class="col-lg-2 scenery-display-navigation-right" style="background: red">
+            <div id="back-to-pre-page">返回上一页</div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    $(function () {
+        //自动定位到页面顶部
+        $("html, body").scrollTop(0);
+
+        initSceneryDatas()
+        $("#back-to-pre-page").click(backToPrePage)
+    })
+    function backToPrePage() {
+            $("#content").load("/pages/home/city_display_page.html")
+    }
+    function initSceneryDatas() {
+        var sceneryInfo=$("#main-data-content").data("sceneryInfo");
+        console.log(sceneryInfo)
+        $("#scenery-display-page-data").data("sceneryInfo",sceneryInfo);
+        var img="<img src='http://image.travel.com/"+sceneryInfo.sceneryPic+"'/>";
+        console.log(img)
+        var sceneryName=sceneryInfo.sceneryName;
+        var sceneryDesc=sceneryInfo.sceneryDesc;
+        console.log(sceneryName)
+        console.log(sceneryDesc)
+        $(".scenery-name").html(sceneryName)
+        $("#scenery-display-content .scenery-desc").html(sceneryDesc)
+
+        $("#scenery-display-image").append(img)
+        console.log()
+    }
+</script>

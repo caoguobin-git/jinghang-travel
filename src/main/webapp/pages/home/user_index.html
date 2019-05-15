@@ -31,8 +31,23 @@
     <script src="/pages/home/js/home.js"></script>
     <link rel="stylesheet"
           href="/pages/home/css/home.css">
+    <style>
+        body{ position: relative;}
+
+        .body-style{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: -1;
+            background-size: 100% 1200px;
+        }
+    </style>
 </head>
-<body style="height: 1600px" id="main-data-content">
+<body id="main-data-content">
+<div class="body-style"></div>
 
 <div id="head"></div>
 <div id="content">
@@ -95,7 +110,6 @@
                     2019年2月，中共中央办公厅、国务院办公厅印发了《大运河文化保护传承利用规划纲要》（以下简称《规划纲要》），并发出通知，要求各地区各部门结合实际认真贯彻落实。
                 </div>
             </div>
-
         </div>
         <div class="container">
             <h3 style="text-align: center">
@@ -136,7 +150,6 @@
                     漕运在促进南北文化交流和区域社会开发等方面也有着不可忽视的作用。漕运是专制集权政治的产物，具有这种体制中的诸多劣根性；更为重要的是，漕运也是封建王朝攫取天下财富的手段之一，耗费了大量人力、物力和财力。因此，当中国步入近代社会后，漕运便在社会的巨变中走向消亡。
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -146,20 +159,21 @@
 </html>
 <script>
     $(function () {
-        setInterval(function () {
-            console.log($("#main-data-content").data("cityName"))
-            $.ajax({
-                url:"/user/getUserInfo.do",
-                type:"post",
-                dataType:"json",
-                success:function (result) {
-                    console.log(result)
-                }
-            })
-        },5000)
+        // setInterval(function () {
+        //     console.log($("#main-data-content").data("cityName"))
+        //     $.ajax({
+        //         url:"/user/getUserInfo.do",
+        //         type:"post",
+        //         dataType:"json",
+        //         success:function (result) {
+        //             console.log(result)
+        //         }
+        //     })
+        // },5000)
     })
 
     $("#head").load("/pages/home/head.html");
+    $("#foot").load("/pages/home/foot.html");
 
 
 
