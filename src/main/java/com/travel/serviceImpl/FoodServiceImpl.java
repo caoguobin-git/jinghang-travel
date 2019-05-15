@@ -7,6 +7,7 @@
 
 package com.travel.serviceImpl;
 
+import com.travel.common.PicPaths;
 import com.travel.common.entity.FoodEntity;
 import com.travel.common.util.FilePathUtil;
 import com.travel.common.util.MD5HashUtils;
@@ -25,8 +26,8 @@ import java.util.List;
 @Service
 public class FoodServiceImpl implements FoodService {
 
-    private final String ROOT_PATH = "e:/travel";
-    private final String CHILD_PATH = "/foodPic";
+    private final String ROOT_PATH = PicPaths.ROOT_PATH;
+    private final String CHILD_PATH = PicPaths.FOOD_PIC_PATH;
 
 
     @Autowired

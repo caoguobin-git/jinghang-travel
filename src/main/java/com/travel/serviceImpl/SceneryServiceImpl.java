@@ -1,5 +1,6 @@
 package com.travel.serviceImpl;
 
+import com.travel.common.PicPaths;
 import com.travel.common.entity.SceneryEntity;
 import com.travel.common.util.FilePathUtil;
 import com.travel.common.util.MD5HashUtils;
@@ -19,8 +20,8 @@ import java.util.List;
 
 @Service
 public class SceneryServiceImpl implements SceneryService {
-    private final String ROOT_PATH = "e:/travel";
-    private final String CHILD_PATH = "/sceneryPic";
+    private final String ROOT_PATH = PicPaths.ROOT_PATH;
+    private final String CHILD_PATH = PicPaths.SCENERY_PIC_PATH;
 
     @Autowired
     private SceneryMapper sceneryMapper;

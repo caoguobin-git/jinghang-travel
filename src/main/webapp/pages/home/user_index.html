@@ -165,11 +165,19 @@
 <script>
     $(function () {
         getUserInfo()
+        undisplayUserIcon()
     })
+
 
     $("#head").load("/pages/home/head.html");
     $("#foot").load("/pages/home/foot.html");
 
+    function displayUserIcon() {
+        $("#head_top .user-icon").show()
+    }
+    function undisplayUserIcon() {
+        $("#head_top .user-icon").hide()
+    }
 
     function getUserInfo() {
         $.ajax({
@@ -183,6 +191,9 @@
                     $("#head_top .user-login-logout").html("退出")
                     $("#head_top .user-login-logout").removeClass("user-register-login-btn")
                     $("#head_top .user-login-logout").addClass("user-logout-btn")
+                    displayUserIcon()
+                }else {
+                    undisplayUserIcon()
                 }
             }
         })

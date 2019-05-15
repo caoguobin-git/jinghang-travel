@@ -23,12 +23,18 @@
     .head-element{
         padding: 30px 0px;
         text-align: center;
-        border-left: 0.5px solid rgba(126, 126, 126, 0.14);
+        border-left: 0.8px solid rgba(126, 126, 126, 0.14);
         border-radius: 10px;
     }
     .head-element:hover{
         cursor: pointer;
         background-color: rgba(178, 178, 178, 0.16);
+    }
+    #head_top .user-icon{
+        padding: 20px 0px;
+        text-align: center;
+        border-left: 0.8px solid rgba(126, 126, 126, 0.14);
+        border-radius: 10px;
     }
 
 
@@ -170,14 +176,15 @@
 
     <div class="container-fluid">
         <div class="row" style="width: 80%">
-            <div class="col-lg-offset-3 col-lg-1 icon head-element"><img style="width: 60px" src="/pages/home/img/icon.jpg"></div>
+            <div class="col-lg-offset-2 col-lg-1 icon head-element"><img style="width: 60px" src="/pages/home/img/icon.jpg"></div>
             <div class="col-lg-1 head-element">大运河旅游</div>
             <div class="col-lg-1 head-element" onclick="window.open('/index.do','_self')">首页</div>
             <div class="col-lg-1 head-element">运河万象</div>
             <div class="col-lg-1 head-element" id="yunhe18cheng">运河十八城</div>
             <div class="col-lg-1 head-element">千年运河</div>
-            <div class="col-lg-2 head-element"><input placeholder="search" style="width: 50%;">&nbsp;&nbsp;搜索</div>
+            <div class="col-lg-2 head-element"><input placeholder="search" style="width: 50%;">&nbsp;&nbsp;&nbsp;&nbsp;搜索</div>
             <div class="col-lg-1 head-element user-login-logout user-register-login-btn">登录/注册</div>
+            <div class="col-lg-1 head-element user-icon"><img style="width: 40px" src="/pages/home/img/usericon.jpg"/> </div>
         </div>
     </div>
 </div>
@@ -185,7 +192,6 @@
 <script type="text/javascript">
 
     $(function () {
-        $("img").click(displayCityInfo)
         $("#yunhe18cheng").hover(displayCitys, undisplayCitys)
         $("#city-select-box").hover(displayCitys, undisplayCitys)
         $(".city-select").click(displayCityInfo)
