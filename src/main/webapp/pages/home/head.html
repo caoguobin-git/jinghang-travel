@@ -10,14 +10,15 @@
     }
 
     .city-select{
-        padding: 2px 15px;
+        padding: 4px 15px;
     }
 
     .city-select:hover {
-        background: #ff4939;
+        background: rgba(255, 6, 0, 0.73);
         opacity: 100;
         border-radius: 5px;
         cursor: pointer;
+        font-weight: 900;
     }
 
     .head-element{
@@ -31,6 +32,12 @@
         background-color: rgba(178, 178, 178, 0.16);
     }
     #head_top .user-icon{
+        padding: 20px 0px;
+        text-align: center;
+        border-left: 0.8px solid rgba(126, 126, 126, 0.14);
+        border-radius: 10px;
+    }
+    #head_top .icon{
         padding: 20px 0px;
         text-align: center;
         border-left: 0.8px solid rgba(126, 126, 126, 0.14);
@@ -220,7 +227,7 @@
 
     function displayCitys() {
         $("#city-select-box").css({
-            "left": $("#yunhe18cheng").offset().left,
+            "left": $("#yunhe18cheng").offset().left+10,
             "top": $("#yunhe18cheng").offset().top + 80
         })
         $("#city-select-box").show()
