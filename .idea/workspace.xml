@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c4d045a-adc9-4bb8-8339-8cdcc3b54c7b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/mapper/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/OrderMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/travel/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/travel/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/starter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/starter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -66,11 +56,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1581">
-              <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
+            <state relative-caret-position="253">
+              <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="74" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -130,7 +129,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mappers/OrderMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
@@ -144,15 +143,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-120">
               <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2256">
-              <caret line="184" column="75" selection-start-line="184" selection-start-column="75" selection-end-line="184" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -277,7 +267,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/FoodMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/food_list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/css/home.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/starter.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/service/OrderService.java" />
@@ -286,10 +275,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/OrderController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/OrderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/mapper/OrderMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/mappers/OrderMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html" />
       </list>
     </option>
   </component>
@@ -787,17 +777,24 @@
       <option name="project" value="LOCAL" />
       <updated>1557903297046</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="2019-05-15-17/54&#10;添加美食预定功能">
+      <created>1557914103363</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1557914103363</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171561000" />
+    <option name="totallyTimeSpent" value="172111000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1696905" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1696905" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -805,7 +802,7 @@
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Image Layers" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="0" sideWeight="0.4994664" visible="true" weight="0.33081895" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4994664" visible="true" weight="0.33081895" />
       <window_info anchor="bottom" id="Spring" order="1" weight="0.3297414" />
       <window_info anchor="bottom" id="Database Console" order="2" weight="0.28095976" />
       <window_info anchor="bottom" id="Terminal" order="3" />
@@ -848,7 +845,8 @@
     <MESSAGE value="2019-05-14-15-27&#10;添加酒店信息的增删改查" />
     <MESSAGE value="2019-05-14-15-27&#10;添加美食信息的增删改查" />
     <MESSAGE value="2019-05-15-12-20" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019-05-15-12-20" />
+    <MESSAGE value="2019-05-15-17/54&#10;添加美食预定功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019-05-15-17/54&#10;添加美食预定功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1122,13 +1120,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="21" selection-start-line="21" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1228,13 +1219,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1581">
-          <caret line="172" column="36" selection-start-line="172" selection-start-column="36" selection-end-line="172" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-120">
@@ -1263,6 +1247,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="70" column="8" selection-start-line="70" selection-start-column="8" selection-end-line="74" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/food_display_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
         </state>
       </provider>
     </entry>

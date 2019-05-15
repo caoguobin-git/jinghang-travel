@@ -72,6 +72,15 @@
     #confirm-food-order-btn{
         margin-left: 30%;
     }
+
+    .food-display-navigation-right>.row{
+        text-align: left;
+        font-size: 20px;
+        margin: 20px;
+        font-weight: bolder;
+        font-family:"KaiTi";
+        cursor: pointer;
+    }
 </style>
 
 <div id="food-display-datas">
@@ -79,7 +88,15 @@
         <div class="row" id="foot-scenery-title"></div>
     </div>
     <div class="container"
-         id="food-infos">
+         >
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2" id="food-infos"></div>
+            <div class="col-lg-2 food-display-navigation-right">
+                <div class="row">预定门票</div>
+                <div class="row">预定船票</div>
+                <div class="row" id="back-to-pre-page">返回上一页</div>
+            </div>
+        </div>
     </div>
 </div>
 <div id="food-order-box">
@@ -114,23 +131,6 @@
 </div>
 
 
-
-<!--<div class='row food-box  food-id' id="">-->
-<!--    <div class='col-lg-offset-1 col-lg-4'>-->
-<!--        <div class='row food-title'></div>-->
-<!--        <div class='row'><img class='food-image' src=''/>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class='col-lg-offset-1 col-lg-4'>-->
-<!--        <div class='row'>-->
-<!--            <div class='col-lg-6 food-price'></div>-->
-<!--            <div class='col-lg-6 food-order-btn'></div>-->
-<!--        </div>-->
-<!--        <div class='row food-desc'></div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
 <script>
     $(function () {
         getFoodListBySceneryId()
@@ -138,8 +138,13 @@
         $("#food-infos").on("click", ".food-order-btn", showFoodOrderBox)
         $("#cancle-food-order-btn").click(undisplayFoodOrderBox)
         $("#confirm-food-order-btn").click(createOrder)
+        $("#back-to-pre-page").click(backToPrePage)
 
     })
+
+    function backToPrePage() {
+        $("#content").load("/pages/home/scenery_display_page.html")
+    }
 
     function createOrder() {
         var userInfo=$("#main-data-content").data("userInfo");
