@@ -92,6 +92,7 @@ public class UserServiceImpl implements UserService {
             String s = null;
             try {
                 s = new ObjectMapper().writeValueAsString(userEntity);
+                userMapper.updateLoginTime(userEntity.getUserId());
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }

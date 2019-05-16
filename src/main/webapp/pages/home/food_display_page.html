@@ -150,7 +150,7 @@
         var userInfo=$("#main-data-content").data("userInfo");
         if (userInfo==null){
             alert("请先登录");
-            location.href="/user/loadPage.do?url=user_login&t="+Math.random()
+            location.href="/user/loginPage.do?t="+Math.random()
         }else {
             var url="/order/createOrder.do?t="+Math.random();
             var userId=userInfo.userId;

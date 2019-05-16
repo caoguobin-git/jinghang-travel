@@ -4,7 +4,108 @@
 <mapper namespace="com.travel.mapper.OrderMapper">
 
     <insert id="createOrder">
-        insert into order_info (order_id,user_id, order_type, product_id, order_amount, order_guest, order_tel) VALUES
-        (#{orderId},#{userId},#{orderType},#{productId},#{orderAmount},#{guest},#{tel})
+        insert into order_info (order_id,
+                                user_id,
+                                order_type,
+                                product_id,
+                                order_amount,
+                                order_guest,
+                                order_tel)
+        VALUES (#{orderId},
+                #{userId},
+                #{orderType},
+                #{productId},
+                #{orderAmount},
+                #{guest},
+                #{tel})
     </insert>
+    <select id="getPageCount"
+            resultType="int">
+        select count(
+                       *)
+        from order_info oi
+        where order_type =
+              #{orderType}
+    </select>
+
+    <select id="doFindFoodOrderPageObjects"
+            resultType="com.travel.common.entity.FoodOrderEntity">
+        select oi.order_id,
+               ui.user_id,
+               ui.username,
+               fi.food_name,
+               fi.food_price,
+               oi.order_amount,
+               oi.order_guest,
+               oi.order_tel,
+               oi.create_time
+        from order_info oi
+                 left join user_info ui
+                           on oi.user_id =
+                              ui.user_id
+                 left join food_info fi
+                           on oi.product_id =
+                              fi.food_id
+        where oi.order_type =
+              'food'
+
+    </select>
+
+    <select id="doFindHotelOrderPageObjects"
+            resultType="com.travel.common.entity.HotelOrderEntity">
+        select oi.order_id,
+               ui.user_id,
+               ui.username,
+               hi.hotel_name,
+               hi.hotel_price,
+               oi.order_amount,
+               oi.order_guest,
+               oi.order_tel,
+               oi.create_time
+        from order_info oi
+                 left join user_info ui
+                           on oi.user_id =
+                              ui.user_id
+                 left join hotel_info hi
+                           on oi.product_id =
+                              hi.hotel_id
+        where oi.order_type =
+              'hotel'
+
+    </select>
+
+    <select id="doFindTicketOrderPageObjects"
+            resultType="com.travel.common.entity.TicketOrderEntity">
+        select oi.order_id,
+               ui.user_id,
+               si.scenery_name,
+               ui.username,
+               ti.ticket_name,
+               ti.ticket_type,
+               ti.ticket_price,
+               oi.order_amount,
+               oi.order_guest,
+               oi.order_tel,
+               oi.create_time
+        from order_info oi
+                 left join user_info ui
+                           on oi.user_id =
+                              ui.user_id
+                 left join ticket_info ti
+                           on oi.product_id =
+                              ti.ticket_id
+                 left join scenery_info si
+                           on ti.scenery_id =
+                              si.scenery_id
+        where oi.order_type =
+              #{orderType}
+
+    </select>
+
+    <delete id="doDeleteObject">
+        delete
+        from order_info
+        where order_id =
+              #{orderId}
+    </delete>
 </mapper>

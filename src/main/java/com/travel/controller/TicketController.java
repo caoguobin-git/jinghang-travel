@@ -11,6 +11,7 @@ import com.sun.media.sound.SoftTuning;
 import com.travel.common.entity.TicketEntity;
 import com.travel.common.vo.JsonResult;
 import com.travel.common.vo.PageObject;
+import com.travel.mapper.TicketMapper;
 import com.travel.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,21 +49,21 @@ public class TicketController {
 
     @RequestMapping("/doFindObjectById")
     @ResponseBody
-    public JsonResult doFindObjectById(String id){
-        TicketEntity ticketEntity=ticketService.doFindObjectById(id);
+    public JsonResult doFindObjectById(String id) {
+        TicketEntity ticketEntity = ticketService.doFindObjectById(id);
         return new JsonResult(ticketEntity);
     }
 
     @RequestMapping("/doTicketEditUI")
-    public String doSceneryEditUI(){
+    public String doSceneryEditUI() {
         return "sys/ticket_edit";
     }
 
     @RequestMapping("/doSaveObject")
     @ResponseBody
-    public JsonResult doSaveObject(String sceneryName, String ticketName,String ticketDesc,double ticketPrice,String ticketType,String ticketTel, MultipartFile ticketPicFile) throws IOException {
+    public JsonResult doSaveObject(String sceneryName, String ticketName, String ticketDesc, double ticketPrice, String ticketType, String ticketTel, MultipartFile ticketPicFile) throws IOException {
 
-        String result=ticketService.doSaveObject(sceneryName,ticketName,ticketDesc,ticketPrice,ticketType,ticketTel,ticketPicFile);
+        String result = ticketService.doSaveObject(sceneryName, ticketName, ticketDesc, ticketPrice, ticketType, ticketTel, ticketPicFile);
         System.out.println(sceneryName);
         System.out.println(ticketName);
         System.out.println(ticketDesc);
@@ -70,39 +71,53 @@ public class TicketController {
         System.out.println(ticketPicFile);
         System.out.println(ticketType);
         System.out.println(ticketTel);
-        if ("ok".equals(result)){
+        if ("ok".equals(result)) {
             return new JsonResult("OK");
-        }else {
-            return new JsonResult("201","操作失败","请重试");
+        } else {
+            return new JsonResult("201", "操作失败", "请重试");
         }
     }
+
     @RequestMapping("/doUpdateObject")
     @ResponseBody
-    public JsonResult doUpdateObject(String ticketId,String sceneryName, String ticketName,String ticketDesc,double ticketPrice,String ticketType,String ticketTel, MultipartFile ticketPicFile) throws IOException {
-        String result=ticketService.doUpdateObject(ticketId,sceneryName,ticketName,ticketDesc,ticketPrice,ticketType,ticketTel,ticketPicFile);
+    public JsonResult doUpdateObject(String ticketId, String sceneryName, String ticketName, String ticketDesc, double ticketPrice, String ticketType, String ticketTel, MultipartFile ticketPicFile) throws IOException {
+        String result = ticketService.doUpdateObject(ticketId, sceneryName, ticketName, ticketDesc, ticketPrice, ticketType, ticketTel, ticketPicFile);
 
-        if ("ok".equals(result)){
+        if ("ok".equals(result)) {
             return new JsonResult("OK");
-        }else {
-            return new JsonResult("201","操作失败","请重试");
+        } else {
+            return new JsonResult("201", "操作失败", "请重试");
         }
     }
 
     @RequestMapping("/getSceneryOptions")
     @ResponseBody
-    public JsonResult getSceneryOptions(String cityName){
-        List<String> scenerys=ticketService.getSceneryOptions(cityName);
+    public JsonResult getSceneryOptions(String cityName) {
+        List<String> scenerys = ticketService.getSceneryOptions(cityName);
         return new JsonResult(scenerys);
     }
 
     @RequestMapping("/doDeleteObject")
     @ResponseBody
-    public JsonResult doDeleteObject(String ticketId){
+    public JsonResult doDeleteObject(String ticketId) {
         String result = ticketService.doDeleteObject(ticketId);
-        if ("ok".equals(result)){
+        if ("ok".equals(result)) {
             return new JsonResult("OK");
-        }else {
-            return new JsonResult("201","操作失败","删除失败，记录可能已经不存在");
+        } else {
+            return new JsonResult("201", "操作失败", "删除失败，记录可能已经不存在");
         }
+    }
+
+    @RequestMapping("/getTicketInfoInfoBySceneryId")
+    @ResponseBody
+    public JsonResult getTicketInfoInfoBySceneryId(String sceneryId, String ticketType) {
+        System.out.println(sceneryId);
+        System.out.println(ticketType);
+        TicketEntity ticketEntity = ticketService.getTicketInfoInfoBySceneryId(sceneryId, ticketType);
+        if (ticketEntity==null){
+            return new JsonResult("402","请求失败","当前景点没有此种票务");
+        }
+        return new JsonResult(ticketEntity);
+
     }
 }

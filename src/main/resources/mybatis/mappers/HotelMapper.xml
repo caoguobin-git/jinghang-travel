@@ -8,6 +8,33 @@
                        *)
         from hotel_info;
     </select>
+    <select id="getHotelListBySceneryId"
+            resultType="com.travel.common.entity.HotelEntity">
+        select hi.id,
+               hi.hotel_id,
+               ci.city_name,
+               si.scenery_name,
+               hi.hotel_name,
+               hi.hotel_pic,
+               hi.hotel_price,
+               hi.hotel_desc,
+               hi.hotel_addr,
+               hi.hotel_tel,
+               hi.create_time,
+               hi.modified_time
+        from hotel_info hi
+                 left join scenery_info si
+                           on hi.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where si.scenery_id=#{sceneryId}
+        order by ci.city_id,
+                 si.scenery_id
+
+
+    </select>
     <select id="doFindPageObjects"
             resultType="com.travel.common.entity.HotelEntity">
         select hi.id,
@@ -33,6 +60,7 @@
                  si.scenery_id
 
     </select>
+
     <select id="doFindObjectById"
             resultType="com.travel.common.entity.HotelEntity">
         select hi.id,

@@ -169,6 +169,12 @@ public class TicketServiceImpl implements TicketService {
         return null;
     }
 
+    @Override
+    public TicketEntity getTicketInfoInfoBySceneryId(String sceneryId, String ticketType) {
+        TicketEntity ticketEntity = ticketMapper.getTicketInfoInfoBySceneryId(sceneryId,ticketType);
+        return ticketEntity;
+    }
+
 
     public int getPageCount(int pageSize) {
         return ticketMapper.getPageCount() / pageSize + 1;

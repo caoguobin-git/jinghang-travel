@@ -1,0 +1,268 @@
+<style>
+    #ticket-order-image {
+        width: 70%;
+        height: 150px;
+    }
+
+    .ticket-order-info {
+        border: 3px solid red;
+        border-radius: 20px;
+    }
+
+    .ticket-order-info > .row {
+        margin: 5px 10px;
+    }
+
+    .ticket-order-info .col-lg-3 {
+        text-align: center;
+    }
+
+    #confirm-ticket-order-btn {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: KaiTi;
+        border: 1px solid black;
+        cursor: pointer;
+
+    }
+
+    #cancle-ticket-order-btn {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: KaiTi;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+
+    #confirm-ticket-order-btn:hover {
+        font-weight: bolder;
+    }
+
+    #cancle-ticket-order-btn:hover {
+        font-weight: bolder;
+    }
+
+    #ticket-order-desc {
+        height: 150px;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        border-radius: 3px;
+        border: 0.5px solid #7bf5ff;
+    }
+
+    #ticket-order-desc:hover {
+        overflow-y: scroll;
+    }
+
+    #ticket-order-desc::-webkit-scrollbar {
+        display: none
+    }
+
+
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2  ticket-order-info">
+            <br/>
+            <div class="row">
+                <div class="col-lg-3">
+                    城市名称：
+                </div>
+                <div class="col-lg-9"
+                     id="ticket-order-city"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    景点名称：
+                </div>
+                <div class="col-lg-9"
+                     id="ticket-order-scenery"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    票务图片：
+                </div>
+                <div class="col-lg-9">
+                    <img id="ticket-order-image"
+                         src="#"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    票务描述：
+                </div>
+                <div class="col-lg-9"
+                     id="ticket-order-desc"/>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    票务名称：
+                </div>
+                <div class="col-lg-9"
+                     id="ticket-order-name"/>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    票务价格：
+                </div>
+                <div class="col-lg-9"
+                     id="ticket-order-price"/>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    购票数量：
+                </div>
+                <div class="col-lg-9">
+                    <input
+                            type="number"
+                            id="ticket-order-amount">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    购票用户：
+                </div>
+
+                <div class="col-lg-9">
+                    <input
+                            type="text"
+                            id="ticket-order-user"
+                            placeholder="请输入联系人">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    联系方式：
+                </div>
+                <div class="col-lg-9">
+                    <input
+                            type="text"
+                            id="ticket-order-tel"
+                            placeholder="请输入联系电话">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-lg-offset-3"
+                     id="cancle-ticket-order-btn">
+                    取消
+                </div>
+                <div class="col-lg-2 col-lg-offset-2"
+                     id="confirm-ticket-order-btn">
+                    确定
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        getTicketInfoInfoBySceneryId()
+        $("#cancle-ticket-order-btn").click(backToPrePage)
+        $("#confirm-ticket-order-btn").click(createTicketOrder)
+
+    })
+
+    function createTicketOrder() {
+        var userInfo=$("#main-data-content").data("userInfo");
+        if (userInfo==null){
+            alert("请先登录");
+            location.href="/user/loginPage.do?t="+Math.random()
+        }else {
+            var url="/order/createOrder.do?t="+Math.random();
+            var userId=userInfo.userId;
+            var orderType=$("#main-data-content").data("ticketType");
+            var productId=$(".ticket-order-info").attr("id")
+            var amount=$("#ticket-order-amount").val()
+            if (amount<=0){
+                alert("请输入正确数量！")
+                return;
+            }
+            var orderGuest=$("#ticket-order-user").val()
+            if (orderGuest==null||orderGuest==""){
+                orderGuest=userInfo.username
+            }
+            var orderTel=$("#ticket-order-tel").val()
+            var test=/^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+            if ( !test.test(orderTel)){
+                alert("请输入正确手机号码")
+                return
+            }
+            var param ={
+                "userId":userId,
+                "orderType":orderType,
+                "productId":productId,
+                "amount":amount,
+                "guest":orderGuest,
+                "tel":orderTel
+            }
+
+            $.ajax({
+                url:url,
+                data:param,
+                dataType:"json",
+                type:"post",
+                success:function (result) {
+                    alert(result.data)
+                    if (result.status==200){
+                        backToPrePage()
+                    }
+                }
+            })
+        }
+    }
+    
+    function backToPrePage() {
+        $("#content").load("/pages/home/scenery_display_page.html")
+    }
+
+    function getTicketInfoInfoBySceneryId() {
+        var url = "/ticket/getTicketInfoInfoBySceneryId.do?t=" + Math.random();
+        var sceneryInfo = $("#main-data-content").data("sceneryInfo")
+        var sceneryId = sceneryInfo.sceneryId;
+        var ticketType = $("#main-data-content").data("ticketType")
+
+        var param = {
+            "ticketType": ticketType,
+            "sceneryId": sceneryId
+        }
+        $.ajax({
+            url: url,
+            data: param,
+            dataType: "json",
+            type: "post",
+            success: function (result) {
+                // console.log(result)
+                if (result.status == 200) {
+                    setTicketOrderBoxInfo(result.data)
+                } else {
+                    alert(result.data)
+                    backToPrePage()
+                }
+            }
+        })
+    }
+
+    function setTicketOrderBoxInfo(datas) {
+        var userInfo = $("#main-data-content").data("userInfo")
+
+        $(".ticket-order-info").attr("id", datas.ticketId)
+        $("#ticket-order-city").html(datas.cityName)
+        $("#ticket-order-scenery").html(datas.sceneryName)
+        $("#ticket-order-image").attr("src", "http://image.travel.com/" + datas.ticketPic)
+        $("#ticket-order-desc").html(datas.ticketDesc)
+        $("#ticket-order-name").html(datas.ticketName)
+        $("#ticket-order-price").html(datas.ticketPrice + "元/张")
+        $("#ticket-order-amount").val(1)
+        $("#ticket-order-total-price").html(1*datas.ticketPrice)
+        if (userInfo != null) {
+            $("#ticket-order-user").val(userInfo.username)
+        }
+    }
+</script>

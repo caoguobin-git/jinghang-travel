@@ -12,4 +12,6 @@ public interface UserMapper {
     int register(UserEntity userEntity);
 
     UserEntity findByUsername(String username);
+
+    void updateLoginTime(String userId);
 }

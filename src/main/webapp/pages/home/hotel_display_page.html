@@ -1,0 +1,305 @@
+<style>
+    #hotel-infos .hotel-image {
+        width: 100%;
+        height: 300px;
+        border-radius: 15px;
+        border: 3px solid rgba(189, 142, 62, 0.45);
+    }
+
+    #hotel-infos .hotel-title {
+        text-align: center;
+        margin: 15px 0px;
+        font-size: 20px;
+        font-family: KaiTi;
+        font-weight: bolder;
+    }
+    #hotel-infos .hotel-name{
+        margin-left: 5%;
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: red;
+        font-family: KaiTi;
+    }
+
+
+    #hotel-infos .hotel-price {
+        text-align: center;
+        margin: 20px 0px;
+        font-size: 15px;
+        font-family: KaiTi;
+    }
+
+    #hotel-infos .hotel-order-btn {
+        width: 40%;
+        text-align: center;
+        margin: 20px 0px;
+        font-size: 15px;
+        font-weight: 800;
+        border: 2px solid black;
+        cursor: pointer;
+    }
+
+
+    #hotel-infos .hotel-desc {
+        height: 300px;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    #hotel-infos .hotel-desc:hover {
+        overflow-y: scroll;
+    }
+
+    .hotel-desc::-webkit-scrollbar {
+        display: none
+    }
+    #foot-scenery-title{
+        text-align: center;
+        font-size: 30px;
+        color: red;
+
+    }
+    #hotel-order-box{width:100%; height:1050px; background:rgba(0,0,0,0.80); position:absolute; z-index:10; top:0px; left:0px;}
+    #hotel-order-box .container{ width:480px; height:360px; padding:20px; background:#FFFFFF; font-size:14px; position:absolute; top:300px; left:50%; margin-left:-240px; z-index:11;}
+    #hotel-order-box .hotel-order-title{
+        text-align: center;
+        font-size: 30px;
+        color: red;
+    }
+    #hotel-order-box .col-lg-4{
+        text-align: left;
+        padding: 15px;
+    }
+    #hotel-order-box .col-lg-offset-1{
+        text-align: right;
+        padding: 15px;
+    }
+    #cancle-hotel-order-btn{
+        margin-left: 30%;
+    }
+    #confirm-hotel-order-btn{
+        margin-left: 30%;
+    }
+
+    .hotel-display-navigation-right>.row{
+        text-align: left;
+        font-size: 20px;
+        margin: 20px;
+        font-weight: bolder;
+        font-family:"KaiTi";
+        cursor: pointer;
+    }
+    .hotel-display-one{
+        margin-bottom: 10px;
+    }
+    #hotel-infos div{
+        margin-bottom: 5px;
+    }
+
+</style>
+
+<div id="hotel-display-datas">
+    <div class="container">
+        <div class="row" id="foot-scenery-title"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10  col-lg-offset-1" id="hotel-infos">
+<!--                <div class="row hotel-display-one">-->
+<!--                    <div class="row hotel-name">汉庭连锁酒店</div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-4 col-lg-offset-2 hotel-addr">酒店地址：水上西路200号</div>-->
+<!--                        <div class="col-lg-4 hotel-tel">联系电话：022-58585658</div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-6 "><img class=" hotel-image" src="/images/city_img/tianjin.jpg"/></div>-->
+<!--                        <div class="col-lg-4 hotel-desc">qwerqwer</div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-4 hotel-price">标准间价格：123元/日</div>-->
+<!--                        <div class="col-lg-offset-1 col-lg-6 hotel-order-btn">立即预定</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                
+            </div>
+            <div class="col-lg-1 hotel-display-navigation-right">
+                <div class="row">预定门票</div>
+                <div class="row">预定船票</div>
+                <div class="row" id="back-to-pre-page">返回上一页</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="hotel-order-box">
+    <div class="hotel-order-param">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 hotel-order-title" ></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-offset-1 col-lg-3">酒店名称：</div>
+                <div class="col-lg-4"><input disabled="disabled" class="hotel-order-name"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-offset-1 col-lg-3">酒店地址：</div>
+                <div class="col-lg-4"><input disabled="disabled" class="hotel-order-addr"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-offset-1 col-lg-3">预定数量：</div>
+                <div class="col-lg-4"><input type="number" class="hotel-order-amount"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-offset-1 col-lg-3">联系人：</div>
+                <div class="col-lg-4"><input class="hotel-order-user"></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-offset-1 col-lg-3">联系电话：</div>
+                <div class="col-lg-4"><input  class="hotel-order-tel"></div>
+            </div>
+
+            <div class="row">
+                <button id="cancle-hotel-order-btn">取消</button>
+                <button id="confirm-hotel-order-btn">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        getHotelListBySceneryId()
+        undisplayHotelOrderBox();
+        $("#hotel-infos").on("click", ".hotel-order-btn", showHotelOrderBox)
+        $("#cancle-hotel-order-btn").click(undisplayHotelOrderBox)
+        $("#confirm-hotel-order-btn").click(createOrder)
+        $("#back-to-pre-page").click(backToPrePage)
+
+    })
+
+    function backToPrePage() {
+        $("#content").load("/pages/home/scenery_display_page.html")
+    }
+
+    function createOrder() {
+        var userInfo=$("#main-data-content").data("userInfo");
+        if (userInfo==null){
+            alert("请先登录");
+            location.href="/user/loadPage.do?url=user_login&t="+Math.random()
+        }else {
+            var url="/order/createOrder.do?t="+Math.random();
+            var userId=userInfo.userId;
+            var orderType="hotel";
+            var productId=$("#hotel-order-box .hotel-order-title").attr("id")
+            var amount=$("#hotel-order-box .hotel-order-amount").val()
+            if (amount<=0){
+                alert("请输入正确数量！")
+                return;
+            }
+            var orderGuest=$("#hotel-order-box .hotel-order-user").val()
+            if (orderGuest==null||orderGuest==""){
+                orderGuest=userInfo.username
+            }
+            var orderTel=$("#hotel-order-box .hotel-order-tel").val()
+            var test=/^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+            if ( !test.test(orderTel)){
+                alert("请输入正确手机号码")
+                return
+            }
+            var param ={
+                "userId":userId,
+                "orderType":orderType,
+                "productId":productId,
+                "amount":amount,
+                "guest":orderGuest,
+                "tel":orderTel
+            }
+            console.log(param)
+            undisplayHotelOrderBox();
+            $.ajax({
+                url:url,
+                data:param,
+                dataType:"json",
+                type:"post",
+                success:function (result) {
+                    alert(result.data)
+                }
+            })
+            console.log(param)
+            console.log(userInfo)
+        }
+
+    }
+
+
+    function displayHotelOrderBox() {
+        $("#hotel-order-box").show()
+    }
+    function undisplayHotelOrderBox() {
+        $("#hotel-order-box").hide()
+    }
+
+    function showHotelOrderBox() {
+        var hotelInfo=$(this).parents(".hotel-display-one");
+        var hotelId=hotelInfo.attr("id")
+        var hotelName=hotelInfo.children(".hotel-name").text()
+        var hotelAddr=hotelInfo.children(".row").children(".hotel-addr").text()
+        console.log(hotelId)
+        console.log(hotelName)
+        console.log(hotelAddr)
+        $("#hotel-order-box .hotel-order-title").attr("id",hotelId)
+        $("#hotel-order-box .hotel-order-title").html("预定酒店："+hotelName)
+        $("#hotel-order-box .hotel-order-name").val(hotelName)
+        $("#hotel-order-box .hotel-order-addr").val(hotelAddr)
+        $("#hotel-order-box .hotel-order-amount").val(1)
+        displayHotelOrderBox();
+    }
+
+    function getHotelListBySceneryId() {
+        var sceneryInfo = $("#main-data-content").data("sceneryInfo");
+        var sceneryId = sceneryInfo.sceneryId;
+        var url = "/hotel/getHotelListBySceneryId.do?t=" + Math.random();
+        var param = {
+            "pageCurrent": 1,
+            "pageSize": 5,
+            "sceneryId": sceneryId
+        }
+
+        $.ajax({
+            url: url,
+            data: param,
+            type: "post",
+            dataType: "json",
+            success: function (result) {
+                setHotelInfos(result.data.records)
+                console.log(result)
+            }
+        })
+
+        function setHotelInfos(datas) {
+            $.each(datas, function (index, item) {
+                var divRow =
+                    "<div class='row hotel-display-one' id='"+item.hotelId+"'>" +
+                    "                    <div class='row hotel-name'>"+item.hotelName+"</div>" +
+                    "                    <div class='row'>" +
+                    "                        <div class='col-lg-4 col-lg-offset-2 hotel-addr'>酒店地址："+item.hotelAddr+"</div>" +
+                    "                        <div class='col-lg-4 hotel-tel'>联系电话："+item.hotelTel+"</div>" +
+                    "                    </div>" +
+                    "                    <div class='row'>" +
+                    "                        <div class='col-lg-6 '><img class=' hotel-image' src='http://image.travel.com/"+item.hotelPic+"'/></div>" +
+                    "                        <div class='col-lg-4 hotel-desc'>"+item.hotelDesc+"</div>" +
+                    "                    </div>" +
+                    "                    <div class='row'>" +
+                    "                        <div class='col-lg-4 hotel-price'>标准间价格："+item.hotelPrice+"元/日</div>" +
+                    "                        <div class='col-lg-offset-1 col-lg-6 hotel-order-btn'>立即预定</div>" +
+                    "                    </div>" +
+                    "                </div>"
+                $("#hotel-infos").append(divRow)
+                $("#foot-scenery-title").html(item.sceneryName+"附近酒店")
+            })
+        }
+
+    }
+</script>

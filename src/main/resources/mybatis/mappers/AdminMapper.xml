@@ -11,11 +11,11 @@
     <select id="getPageCount" resultType="int">
         select count(*) from admin_info
     </select>
-    <select id="doFindPageObjects" resultType="com.travel.common.entity.AdminEntity">
-        select * from admin_info order by id
+    <select id="doFindPageObjects" resultType="com.travel.common.entity.UserEntity">
+        select * from user_info order by id
     </select>
     <update id="doValidById">
-        update admin_info set valid=#{valid} where admin_id=#{userId}
+        update user_info set ifuse=#{valid} where user_id=#{userId}
     </update>
 
 </mapper>

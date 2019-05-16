@@ -7,6 +7,7 @@
 package com.travel.mapper;
 
 import com.travel.common.entity.TicketEntity;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -27,4 +28,6 @@ public interface TicketMapper {
     int doDeleteObject(String ticketId);
 
     int doUpdateObject(TicketEntity ticketEntity1);
+
+    TicketEntity getTicketInfoInfoBySceneryId(@Param("sceneryId") String sceneryId,@Param("ticketType") String ticketType);
 }

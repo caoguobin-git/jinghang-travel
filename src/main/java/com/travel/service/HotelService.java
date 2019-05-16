@@ -25,4 +25,6 @@ public interface HotelService {
     List<String> getSceneryOptions(String cityName);
 
     String doSaveObject(String sceneryName, String hotelName, String hotelDesc, double hotelPrice, String hotelAddr, String hotelTel, MultipartFile hotelPicFile) throws IOException;
+
+    PageObject getHotelListBySceneryId(Integer pageCurrent, Integer pageSize, String sceneryId);
 }

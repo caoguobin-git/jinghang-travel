@@ -7,6 +7,7 @@
 package com.travel.mapper;
 
 import com.travel.common.entity.HotelEntity;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
@@ -27,4 +28,6 @@ public interface HotelMapper {
     int doDeleteObject(String hotelId);
 
     int doUpdateObject(HotelEntity hotelEntity1);
+
+    List<Object> getHotelListBySceneryId(Integer pageCurrent, @Param("sceneryId") String sceneryId, RowBounds rowBounds);
 }

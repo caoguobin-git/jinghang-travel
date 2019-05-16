@@ -1,0 +1,149 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">
+                    酒店订单管理</h3>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>
+                            订单ID
+                        </th>
+                        <th>
+                            用户名称
+                        </th>
+                        <th>
+                            酒店名称
+                        </th>
+                        <th>
+                            房间单价
+                        </th>
+                        <th>
+                            订单数量
+                        </th>
+                        <th>
+                            订单总价
+                        </th>
+                        <th>
+                            联系人
+                        </th>
+                        <th>
+                            联系电话
+                        </th>
+
+                        <th>
+                            下单时间
+                        </th>
+
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbodyId"></tbody>
+                </table>
+            </div>
+            <div id="pageId"
+                 class="box-footer clearfix">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#pageId").load("doPageUI.do", function () {
+            doGetObjects();
+        });
+        $("#tbodyId").on("click",".order-delete-btn",doDeleteObject)
+    });
+
+
+    function doDeleteObject() {
+        var id=$(this).siblings(".order-id").text()
+        if (confirm("确定删除ID为"+id+"的信息吗？")) {
+            var url="order/doDeleteObject.do";
+            var param={
+                "orderId":id
+            }
+            $.ajax({
+                url:url,
+                data:param,
+                type:"post",
+                dataType:"json",
+                success:function (result) {
+                    console.log(result)
+                    if (result.status==200){
+                        alert("信息删除成功");
+                        $("#mainContentId").load("order/doHotelOrderListUI.do");
+                    } else {
+                        alert(result.data)
+                    }
+                }
+            })
+        }
+    }
+
+
+
+    //页面加载完成异步加载当前页数据
+    function doGetObjects() {
+        var url = "order/doFindHotelOrderPageObjects.do";
+        var pageCurrent = $("#pageId").data("pageCurrent");
+        if (!pageCurrent) pageCurrent = 1;
+        var params = {"pageCurrent": pageCurrent}
+        console.log(params);
+        $.getJSON(url, params, function (result) {
+            console.log(result);
+            doHandleResponseResult(result);
+        });
+    }
+
+    function doHandleResponseResult(result) {
+        if (result.status == 200) {
+            doSetTableBodyRows(result.data.records);
+            doSetPagination(result.data);
+        } else {
+            alert(result.message);
+        }
+    }
+
+    //通过服务端返回的数据初始化页面
+    function doSetTableBodyRows(data) {
+        //1.获取tbody对象，并清空内容
+        var tBody = $("#tbodyId");
+        tBody.empty();
+        //2.迭代data内容将数据追加到tbody中
+        for (var i in data) {
+            var tr = $("<tr></tr>");
+            tr.data("rowData", data[i]);
+            var tds = doCreateTds(data[i]);
+            tr.append(tds);
+            tBody.append(tr);
+        }
+    }
+
+    function doCreateTds(row) {
+        var tds = "<td><input type='radio' name='radioId' value='" + row.orderId + "' ></td>" +
+            "<td class='order-id'>" + row.orderId + "</td>" +
+            "<td>" + row.username + "</td>" +
+            "<td>" + row.hotelName + "</td>" +
+            "<td> " + row.hotelPrice + "元</td>" +
+            "<td> " + row.orderAmount + "</td>" +
+            "<td> " + row.priceTotal + "元</td>" +
+            "<td> " + row.orderGuest + "</td>" +
+            "<td> " + row.orderTel + "</td>" +
+            "<td>" + new Date(row.createTime).toLocaleString() + "</td>" +
+            "<td class='order-delete-btn' style='cursor: pointer;'>删除</td>";
+        return tds;
+    }
+</script>
+
+
+
+

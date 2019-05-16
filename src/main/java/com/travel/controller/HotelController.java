@@ -64,11 +64,6 @@ public class HotelController {
     public JsonResult doSaveObject(String sceneryName, String hotelName,String hotelDesc,double hotelPrice,String hotelAddr,String hotelTel, MultipartFile hotelPicFile) throws IOException {
 
         String result=hotelService.doSaveObject(sceneryName,hotelName,hotelDesc,hotelPrice,hotelAddr,hotelTel,hotelPicFile);
-        System.out.println(sceneryName);
-        System.out.println(hotelName);
-        System.out.println(hotelDesc);
-        System.out.println(hotelPrice);
-        System.out.println(hotelPicFile);
         if ("ok".equals(result)){
             return new JsonResult("OK");
         }else {
@@ -103,5 +98,18 @@ public class HotelController {
         }else {
             return new JsonResult("201","操作失败","删除失败，记录可能已经不存在");
         }
+    }
+
+    @RequestMapping("/getHotelListBySceneryId")
+    @ResponseBody
+    public JsonResult getHotelListBySceneryId(Integer pageCurrent,Integer pageSize,String sceneryId){
+        if (pageCurrent == null) {
+            pageCurrent = 1;
+        }
+        if (pageSize == null) {
+            pageSize = 20;
+        }
+        PageObject pageObject = hotelService.getHotelListBySceneryId(pageCurrent, pageSize,sceneryId);
+        return new JsonResult(pageObject);
     }
 }

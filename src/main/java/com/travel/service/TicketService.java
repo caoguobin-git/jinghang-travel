@@ -25,4 +25,6 @@ public interface TicketService {
     List<String> getSceneryOptions(String cityName);
 
     String doSaveObject(String sceneryName, String ticketName, String ticketDesc, double ticketPrice, String ticketType, String ticketTel, MultipartFile ticketPicFile) throws IOException;
+
+    TicketEntity getTicketInfoInfoBySceneryId(String sceneryId, String ticketType);
 }

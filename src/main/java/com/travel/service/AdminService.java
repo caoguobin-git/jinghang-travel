@@ -16,7 +16,7 @@ public interface AdminService {
 
     PageObject doFindPageObjects(Integer pageCurrent, Integer pageSize);
 
-    void doValidById(String userId, Integer valid);
+    String doValidById(String userId, Integer valid);
 
     AdminEntity findByUsername(String username);
 

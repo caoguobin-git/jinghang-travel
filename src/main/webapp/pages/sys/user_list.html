@@ -57,9 +57,6 @@
                             创建时间
                         </th>
                         <th>
-                            修改时间
-                        </th>
-                        <th>
                             状态
                         </th>
                         <th>
@@ -86,7 +83,7 @@
         $(".input-group-btn")
             .on("click", ".btn-search", doQueryObjects)
             .on("click", ".btn-add,.btn-update", doLoadEditUI);
-        $("tbody").on("click", ".btn-valid", doValidById);
+        $("tbody").on("click", ".btn-ifuse", doValidById);
     });
 
     function doLoadEditUI() {
@@ -139,14 +136,14 @@
     function doValidById() {
         //params
         var id = $(this).parents("tr").children(".user-id").text();
-        var valid=$(this).parents("tr").children(".user-valid").text();
-        var newValid = (valid=="启用" ? 0 : 1);
-        $(this).parents("tr").children(".user-valid").text((newValid==1?"启用":"禁用"));
+        var ifuse=$(this).parents("tr").children(".user-ifuse").text();
+        var newValid = (ifuse=="启用" ? 0 : 1);
+        $(this).parents("tr").children(".user-ifuse").text((newValid==1?"启用":"禁用"));
         $(this).text(($(this).text()=="禁用")?"启用":"禁用")
 
         var params = {
             "userId": id,
-            "valid": newValid
+            "ifuse": newValid
         };
         //url
         console.log(params)
@@ -160,17 +157,6 @@
         })
     }
 
-    function doEditRow(obj, valid) {
-        //1.修改按钮上的内容
-        $(obj).html(valid ? "启用" : "禁用");
-        //2.修改tr中第5个td中的内容(查询API文档)
-        var tr = $(obj).parents("tr");
-        tr.children(".user-valid").text(valid ? "禁用" : "启用");
-        //3.获取当前行tr对象，然后重新绑定新的值
-        var rowData = tr.data("rowData")
-        rowData.valid = valid ? 0 : 1;
-        tr.data("rowData", rowData);
-    }
 
     //处理查询按钮事件
     function doQueryObjects() {
@@ -220,13 +206,12 @@
         var tds = "<td><input type='radio' name='radioId' value='" + row.userId + "' ></td>" +
             "<td class='user-id'>" + row.userId + "</td>" +
             "<td>" + row.username + "</td>" +
-            "<td>" + row.userRole + "</td>" +
-            "<td>" + row.lastIp + "</td>" +
-            "<td>" + new Date(row.lastLoginTime).toLocaleString() + "</td>" +
-            "<td>" + new Date(row.createTime).toLocaleString() + "</td>" +
-            "<td>" + new Date(row.modifiedTime).toLocaleString() + "</td>" +
-            "<td class='user-valid'>" + (row.valid?"启用":"禁用") + "</td>" +
-            "<td><div  class='btn-valid'>" + (row.valid ? "禁用" : "启用") + "</div></td>";
+            "<td>" + "用户" + "</td>" +
+            "<td>" + row.loginIp + "</td>" +
+            "<td>" + new Date(row.loginTime).toLocaleString() + "</td>" +
+            "<td>" + new Date(row.regTime).toLocaleString() + "</td>" +
+            "<td class='user-ifuse'>" + (row.ifuse?"启用":"禁用") + "</td>" +
+            "<td><div  class='btn-ifuse'  style='cursor: pointer;'>" + (row.ifuse ? "禁用" : "启用") + "</div></td>";
         return tds;
     }
 </script>

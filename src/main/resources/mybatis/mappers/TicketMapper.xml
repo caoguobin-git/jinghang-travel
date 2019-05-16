@@ -33,28 +33,57 @@
                  si.scenery_id
 
     </select>
-    <select id="doFindObjectById"
+
+    <select id="getTicketInfoInfoBySceneryId"
             resultType="com.travel.common.entity.TicketEntity">
-        select hi.id,
-               hi.ticket_id,
+        select ti.id,
+               ti.ticket_id,
                ci.city_name,
                si.scenery_name,
-               hi.ticket_name,
-               hi.ticket_pic,
-               hi.ticket_price,
-               hi.ticket_desc,
-               hi.ticket_type,
-               hi.ticket_tel,
-               hi.create_time,
-               hi.modified_time
-        from ticket_info hi
+               ti.ticket_name,
+               ti.ticket_pic,
+               ti.ticket_price,
+               ti.ticket_desc,
+               ti.ticket_type,
+               ti.ticket_tel,
+               ti.create_time,
+               ti.modified_time
+        from ticket_info ti
                  left join scenery_info si
-                           on hi.scenery_id =
+                           on ti.scenery_id =
                               si.scenery_id
                  left join city_info ci
                            on si.city_id =
                               ci.city_id
-        where hi.ticket_id =
+        where ti.scenery_id =
+              #{sceneryId}
+          and ti.ticket_type =
+              #{ticketType}
+        limit 1
+    </select>
+
+    <select id="doFindObjectById"
+            resultType="com.travel.common.entity.TicketEntity">
+        select ti.id,
+               ti.ticket_id,
+               ci.city_name,
+               si.scenery_name,
+               ti.ticket_name,
+               ti.ticket_pic,
+               ti.ticket_price,
+               ti.ticket_desc,
+               ti.ticket_type,
+               ti.ticket_tel,
+               ti.create_time,
+               ti.modified_time
+        from ticket_info ti
+                 left join scenery_info si
+                           on ti.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where ti.ticket_id =
               #{id}
     </select>
     <insert id="doSaveObject"

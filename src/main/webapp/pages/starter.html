@@ -276,10 +276,10 @@ desired effect
               </span>
               </a>
               <ul class="treeview-menu">
-                  <li><a >美食订单管理</a></li>
-                  <li><a>船票订单管理</a></li>
-                  <li><a>门票订单管理</a></li>
-                  <li><a>酒店订单管理</a></li>
+                  <li><a id="load-food-order-id">美食订单管理</a></li>
+                  <li><a id="load-steamer-order-id">船票订单管理</a></li>
+                  <li><a id="load-admission-order-id">门票订单管理</a></li>
+                  <li><a id="load-hotel-order-id">酒店订单管理</a></li>
               </ul>
           </li>
           <li class="treeview">
@@ -464,7 +464,13 @@ desired effect
     	 doLoadUI("load-hotel-id","hotel/doHotelListUI.do");
     	 doLoadUI("load-food-id","food/doFoodListUI.do");
     	 doLoadUI("load-ticket-id","ticket/doTicketListUI.do");
+    	 doLoadUI("load-food-order-id","order/doFoodOrderListUI.do");
+    	 doLoadUI("load-steamer-order-id","order/doSteamerOrderListUI.do");
+    	 doLoadUI("load-admission-order-id","order/doAdmissionOrderListUI.do");
+    	 doLoadUI("load-hotel-order-id","order/doHotelOrderListUI.do");
+
       })
+
       function doLoadUI(id,url){
     	  $("#"+id).click(function(){
     	    $("#page-header").html(

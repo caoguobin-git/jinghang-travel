@@ -69,8 +69,8 @@
             </div>
         </div>
         <div class="col-lg-2 scenery-display-navigation-right">
-            <div class="row">预定门票</div>
-            <div class="row">预定船票</div>
+            <div class="row ticket-order-page" name="admission">预定门票</div>
+            <div class="row ticket-order-page" name="steamer">预定船票</div>
             <div class="row" id="back-to-pre-page">返回上一页</div>
         </div>
     </div>
@@ -84,7 +84,19 @@
         initSceneryDatas()
         $("#back-to-pre-page").click(backToPrePage)
         $("#list-foot-btn").click(displayFoodInfo)
+        $("#list-hotel-btn").click(displayHotelnfo)
+        $(".ticket-order-page").click(toTicketOrderPage)
     })
+
+    function toTicketOrderPage() {
+        var ticketType=$(this).attr("name");
+        $("#main-data-content").data("ticketType",ticketType);
+        $("#content").load("/pages/home/ticket_order_page.html")
+    }
+    function displayHotelnfo() {
+        $("#content").load("/pages/home/hotel_display_page.html")
+
+    }
 
     function displayFoodInfo() {
         $("#content").load("/pages/home/food_display_page.html")
@@ -95,18 +107,13 @@
     }
     function initSceneryDatas() {
         var sceneryInfo=$("#main-data-content").data("sceneryInfo");
-        console.log(sceneryInfo)
         $("#scenery-display-page-data").data("sceneryInfo",sceneryInfo);
         var img="<img src='http://image.travel.com/"+sceneryInfo.sceneryPic+"'/>";
-        console.log(img)
         var sceneryName=sceneryInfo.sceneryName;
         var sceneryDesc=sceneryInfo.sceneryDesc;
-        console.log(sceneryName)
-        console.log(sceneryDesc)
         $(".scenery-name").html(sceneryName)
         $("#scenery-display-content .scenery-desc").html(sceneryDesc)
 
         $("#scenery-display-image").append(img)
-        console.log()
     }
 </script>

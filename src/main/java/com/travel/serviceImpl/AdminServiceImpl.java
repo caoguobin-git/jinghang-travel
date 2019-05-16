@@ -19,7 +19,6 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.subject.Subject;
@@ -131,8 +130,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void doValidById(String userId, Integer valid) {
-        adminMapper.doValidById(userId,valid);
+    public String doValidById(String userId, Integer valid) {
+    int a =         adminMapper.doValidById(userId,valid);
+    if (a>0){
+        return "ok";
+    }else {
+        return "failed";
+    }
     }
 
     @Override

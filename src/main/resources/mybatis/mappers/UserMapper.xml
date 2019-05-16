@@ -8,5 +8,8 @@
     <insert id="register" parameterType="com.travel.common.entity.UserEntity">
         insert into user_info (user_id,username,password,salt,login_ip) values (#{userId},#{username},#{password},#{salt},#{loginIp})
     </insert>
+    <update id="updateLoginTime">
+        update user_info ui set login_time=current_timestamp where user_id=#{userId}
+    </update>
 
 </mapper>

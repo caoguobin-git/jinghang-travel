@@ -268,8 +268,9 @@
         $.each(datas,function (index,item) {
             console.log(index+"  "+item)
             sceneryOptions.append("<option value='" + item + "'>" + item + "</option>")
-
         })
+        var datas1 = $("#mainContentId").data("rowData");
+        $("#sceneryName").val(datas1.sceneryName)
     }
 
     function doCancel() {

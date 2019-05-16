@@ -110,10 +110,10 @@ public class AdminController {
 
     @RequestMapping("doValidById")
     @ResponseBody
-    public JsonResult doValidById(String userId, Integer valid) {
+    public JsonResult doValidById(String userId, Integer ifuse) {
         System.out.println(userId);
-        System.out.println(valid);
-        adminService.doValidById(userId,valid);
+        System.out.println(ifuse);
+        adminService.doValidById(userId,ifuse);
         return new JsonResult("update ok");
     }
 

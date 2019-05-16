@@ -21,6 +21,6 @@ public interface AdminMapper {
 
     List<Object> doFindPageObjects(Integer pageCurrent, RowBounds rowBounds);
 
-    void doValidById(@Param("userId") String userId,@Param("valid") Integer valid);
+    int doValidById(@Param("userId") String userId, @Param("valid") Integer valid);
 
 }
