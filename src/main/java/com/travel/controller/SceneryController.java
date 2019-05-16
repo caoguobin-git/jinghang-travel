@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-
+@SuppressWarnings("ALL")
 @Controller
 @RequestMapping("/scenery")
 public class SceneryController {

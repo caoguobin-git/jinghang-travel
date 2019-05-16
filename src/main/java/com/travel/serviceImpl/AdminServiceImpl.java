@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
-
+@SuppressWarnings("ALL")
 @Service
 public class AdminServiceImpl implements AdminService {
 

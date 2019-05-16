@@ -25,7 +25,7 @@
 		<!-- shiro的核心安全接口 -->
 		<property name="securityManager" ref="securityManager"></property>
 		<!-- 要求登录时的连接 -->
-		<property name="loginUrl" value="/login.do"></property>
+		<property name="loginUrl" value="/index.do"></property>
 		<!-- 登录成功后要跳转的连接 -->
 		 <property name="successUrl" value="/index.do"></property>
 		<!-- 未认证时要跳转的连接 -->

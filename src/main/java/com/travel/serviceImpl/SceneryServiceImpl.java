@@ -18,6 +18,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 @Service
 public class SceneryServiceImpl implements SceneryService {
     private final String ROOT_PATH = PicPaths.ROOT_PATH;

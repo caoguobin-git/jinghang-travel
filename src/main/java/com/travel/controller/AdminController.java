@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-
+@SuppressWarnings("ALL")
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
