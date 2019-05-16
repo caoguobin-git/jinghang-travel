@@ -57,7 +57,6 @@ public class UserServiceImpl implements UserService {
         System.out.println(userEntity);
         int result = userMapper.register(userEntity);
         if (result>0) {
-//            login(adminEntity.getUsername(), password1);
             UserEntity byUsername1 = userMapper.findByUsername(userEntity.getUsername());
             try {
                 return new ObjectMapper().writeValueAsString(byUsername1);

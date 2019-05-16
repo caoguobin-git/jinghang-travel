@@ -44,12 +44,16 @@ private final String USER_LOGIN_TYPE=LoginType.USER.toString();
     @RequestMapping("/register")
     @ResponseBody
     public JsonResult register(HttpServletRequest request,UserEntity userEntity){
+        String username=userEntity.getUsername();
+        String password=userEntity.getPassword();
+
         String ipAddress = IPUtils.getIpAddress(request);
         userEntity.setLoginIp(ipAddress);
         String result = userService.register(userEntity);
         if (result.contains("username")) {
             try {
                 UserEntity adminEntity1 = new ObjectMapper().readValue(result, userEntity.getClass());
+                login(request, username, password);
                 return new JsonResult(adminEntity1);
 
             } catch (IOException e) {

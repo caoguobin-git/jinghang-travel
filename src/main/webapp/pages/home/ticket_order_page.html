@@ -173,7 +173,7 @@
         getUserInfo();
         var userInfo=$("#main-data-content").data("userInfo");
         if (userInfo==null){
-            alert("请先登录");
+            alert("尚未登录，请登录后重试");
             location.href="/user/loginPage.do?t="+Math.random()
         }else {
             var url="/order/createOrder.do?t="+Math.random();
