@@ -48,13 +48,23 @@
 				/css/** = anon
 				/dist/** = anon
 				/plugins/** = anon
+				/pages/home/**=anon
 				<!-- 可匿名访问路径，例如：验证码、登录连接、退出连接等 -->
-				/user/login* = anon
-				/user/doUserRegister* = anon
+				/user/**=anon
 				/login*=anon
+				/food/get*=anon
+				/hotel/get*=anon
+				/scenery/getScenerysByCityName*=anon
+				/ticket/get*=anon
+				/user/**=anon
 				/register*=anon
+				/admin/login*=anon
+				/index.do=anon
+				/city/**=anon
+
+
 				<!-- 剩余其他路径，必须认证通过才可以访问 -->
-				/** = anon
+				/** = authc
 			</value>
 		</property>
 	</bean>

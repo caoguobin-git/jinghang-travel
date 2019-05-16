@@ -170,6 +170,7 @@
     })
 
     function createTicketOrder() {
+        getUserInfo();
         var userInfo=$("#main-data-content").data("userInfo");
         if (userInfo==null){
             alert("请先登录");
@@ -264,5 +265,26 @@
         if (userInfo != null) {
             $("#ticket-order-user").val(userInfo.username)
         }
+    }
+
+    function getUserInfo() {
+        $.ajax({
+            url:"/user/getUserInfo.do",
+            type:"post",
+            dataType:"json",
+            success:function (result) {
+                console.log(result)
+                if ("200"==result.status) {
+                    $("#main-data-content").data("userInfo", result.data)
+                    $("#head_top .user-login-logout").html("退出")
+                    $("#head_top .user-login-logout").removeClass("user-register-login-btn")
+                    $("#head_top .user-login-logout").addClass("user-logout-btn")
+                    displayUserIcon()
+                }else {
+                    $("#main-data-content").data("userInfo",null)
+                    undisplayUserIcon()
+                }
+            }
+        })
     }
 </script>

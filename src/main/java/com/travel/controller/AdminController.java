@@ -36,18 +36,6 @@ public class AdminController {
         return "sys/user_list";
     }
 
-//    @ResponseBody
-//    @RequestMapping("/register")
-//    public JsonResult register(HttpServletRequest request, AdminEntity adminEntity) {
-//        String ipAddress = IPUtils.getIpAddress(request);
-//        adminEntity.setLastIp(ipAddress);
-//        String result = adminService.register(adminEntity);
-//        if ("ok".equalsIgnoreCase(result)) {
-//            return new JsonResult("注册成功");
-//        } else {
-//            return new JsonResult("401", "注册失败", result);
-//        }
-//    }
     @ResponseBody
     @RequestMapping("/doUserRegister")
     public JsonResult doUserRegister(HttpServletRequest request, AdminEntity adminEntity) {
@@ -68,21 +56,6 @@ public class AdminController {
         return null;
     }
 
-//    @ResponseBody
-//    @RequestMapping("/login")
-//    public JsonResult login(HttpServletRequest request, HttpServletResponse response, String username, String password) throws IOException {
-//        Map<String, Object> login = adminService.login(username, password);
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        if ("ok".equalsIgnoreCase((String) login.get("code"))) {
-//            String message = objectMapper.writeValueAsString(login.get("message"));
-//            message = StringEscapeUtils.escapeJava(message);
-//            CookieUtils.setCookie(request, response, "userToken", message, 5000000);
-//            response.setHeader("refresh", "3;url=/index.do");
-//            return new JsonResult(login);
-//        } else {
-//            return new JsonResult("403", "登录失败", login.get("message"));
-//        }
-//    }
 
     @ResponseBody
     @RequestMapping("/login")

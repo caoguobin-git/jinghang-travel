@@ -147,6 +147,7 @@
     }
 
     function createOrder() {
+        getUserInfo();
         var userInfo=$("#main-data-content").data("userInfo");
         if (userInfo==null){
             alert("请先登录");
@@ -207,11 +208,17 @@
     function showFoodOrderBox() {
         var foodBox=$(this).parents(".food-box");
         console.log()
+        var userInfo=$("#main-data-content").data("userInfo")
+        var username;
+        if (userInfo!=null){
+            username=userInfo.username;
+        }
         var foodName=foodBox.children(".food-left").children(".food-title").text();
         var foodId=foodBox.attr("id")
         $("#food-order-box .food-order-title").attr("id",foodId)
         $("#food-order-box .food-order-title").html("预定美食："+foodName)
         $("#food-order-box .food-order-name").val(foodName)
+        $("#food-order-box .food-order-user").val(username)
         $("#food-order-box .food-order-amount").val(1)
         displayFoodOrderBox();
     }
@@ -262,5 +269,27 @@
             })
         }
 
+    }
+
+
+    function getUserInfo() {
+        $.ajax({
+            url:"/user/getUserInfo.do",
+            type:"post",
+            dataType:"json",
+            success:function (result) {
+                console.log(result)
+                if ("200"==result.status) {
+                    $("#main-data-content").data("userInfo", result.data)
+                    $("#head_top .user-login-logout").html("退出")
+                    $("#head_top .user-login-logout").removeClass("user-register-login-btn")
+                    $("#head_top .user-login-logout").addClass("user-logout-btn")
+                    displayUserIcon()
+                }else {
+                    $("#main-data-content").data("userInfo",null)
+                    undisplayUserIcon()
+                }
+            }
+        })
     }
 </script>
