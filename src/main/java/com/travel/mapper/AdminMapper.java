@@ -19,7 +19,7 @@ public interface AdminMapper {
 
     int getPageCount();
 
-    List<Object> doFindPageObjects(Integer pageCurrent, RowBounds rowBounds);
+    List<Object> doFindPageObjects(RowBounds rowBounds);
 
     int doValidById(@Param("userId") String userId, @Param("valid") Integer valid);
 
