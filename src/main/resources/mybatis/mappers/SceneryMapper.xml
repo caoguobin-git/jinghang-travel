@@ -8,6 +8,12 @@
                        *)
         from scenery_info si;
     </select>
+
+    <select id="getPageCountByCityId"
+            resultType="int">
+        select count(*)
+        from scenery_info si where si.city_id=#{cityId};
+    </select>
     <select id="doFindPageObjects"
             resultType="com.travel.common.entity.SceneryEntity">
         select si.id,
@@ -49,6 +55,13 @@
         select city_id
         from city_info ci
         where city_name =
+              #{cityName}
+    </select>
+    <select id="getCityIdByCityPY"
+            resultType="int">
+        select city_id
+        from city_info ci
+        where city_pinyin =
               #{cityName}
     </select>
     <insert id="doSaveObject"

@@ -28,6 +28,14 @@
     .scenery-info-box {
         text-align: center;
     }
+
+    #page-controls div{
+        text-align: center;
+    }
+    #page-controls button{
+        margin: 0px 3px;
+    }
+
 </style>
 
 <div class="container">
@@ -64,6 +72,16 @@
         </div>
     </div>
     <br/>
+    <div class="row" id="page-controls">
+        <div class="col-lg-6 col-lg-offset-3">
+            <button class="page-control-btn" value="first">第一页</button>
+            <button class="page-control-btn" value="pre">上一页</button>
+            <button class="page-control-btn" value="next">下一页</button>
+            <button class="page-control-btn" value="last">最后页</button>
+        </div>
+
+    </div>
+
 
 </div>
 
@@ -72,7 +90,40 @@
         getScenerysByCityName()
         setHomePagePic()
         $(".scenery-info-box").click(displaySceneryInfo)
+        $(".page-control-btn").click(getPages)
+
     })
+    function getPages() {
+        var val=$(this).val()
+        console.log(val)
+        console.log("pagecurrent:  " +$("#main-data-content").data("pageCurrent"));
+        console.log("pagecount:  "+$("#main-data-content").data("pageCount"));
+        if ("first"==val){
+            $("#main-data-content").data("pageCurrent",1)
+        }
+        if ("last"==val){
+            $("#main-data-content").data("pageCurrent",$("#main-data-content").data("pageCount"))
+        }
+        if ("pre"==val){
+            var pageCurrent=$("#main-data-content").data("pageCurrent");
+            pageCurrent=pageCurrent-1;
+            if (pageCurrent<1){
+                pageCurrent=1;
+            }
+            $("#main-data-content").data("pageCurrent",pageCurrent)
+        }
+        if ("next"==val){
+            var pageCurrent=$("#main-data-content").data("pageCurrent");
+            pageCurrent=pageCurrent+1;
+            if (pageCurrent>$("#main-data-content").data("pageCount")){
+                pageCurrent=$("#main-data-content").data("pageCount");
+            }
+            $("#main-data-content").data("pageCurrent",pageCurrent)
+        }
+        getScenerysByCityName();
+    }
+
+
 
     function displaySceneryInfo() {
         $("#main-data-content").data("sceneryInfo", $(this).data("sceneryInfo"))
@@ -90,7 +141,9 @@
         var cityName = $("#main-data-content").data("cityName")
         cityName = cityName.trim();
         var url = "/scenery/getScenerysByCityName.do?t=" + Math.random();
+        var pageCurrent=$("#main-data-content").data("pageCurrent")
         var param = {
+            "pageCurrent":pageCurrent,
             "pageSize": 6,
             "cityName": cityName
         }
@@ -100,16 +153,25 @@
             type: "post",
             dataType: "json",
             success: function (result) {
+                console.log(result)
                 $("#main-data-content").data("scenerys", result.data)
+                $("#main-data-content").data("pageCurrent",result.data.pageCurrent)
+                $("#main-data-content").data("pageCount",result.data.pageCount)
                 setSceneryContent(result.data.records)
             }
         })
     }
 
     function setSceneryContent(datas) {
-        var cityName;
+        var cityName="";
+        for(var i=1;i<=6;i++){
+            $("#scenery-display-" + i).empty()
+        }
+
+        console.log(datas)
         $.each(datas, function (index, item) {
             index = index + 1;
+            console.log("当前index"+index)
             var img = "<img class='scenery-image' src='http://image.travel.com/" + item.sceneryPic + "'/>"
             var sceneryName = "<h4 class=scenery-name' style='font-family:'Microsoft YaHei';font-weight: bold;'>" + item.sceneryName + "</h3>"
             $("#scenery-display-" + index).data("sceneryInfo", item)
@@ -118,6 +180,7 @@
             cityName=item.cityName;
         })
         if (cityName!=null) {
+            $("#city-scenery-list-name").empty()
             $("#city-scenery-list-name").append("<h2 style='font-family: KaiTi;font-weight: bold;color: rgba(46,157,255,0.78)'>" + cityName + "附近旅游景点</h2>")
         }
     }

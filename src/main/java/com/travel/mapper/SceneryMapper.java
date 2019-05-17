@@ -22,4 +22,8 @@ public interface SceneryMapper {
     int doDeleteObject(String sceneryId);
 
     List<Object> getScenerysByCityName(Integer pageCurrent, @Param("cityName") String cityName, RowBounds rowBounds);
+
+    int getPageCountByCityId(@Param("cityId") int cityId);
+
+    int getCityIdByCityPY(@Param("cityName") String cityName);
 }

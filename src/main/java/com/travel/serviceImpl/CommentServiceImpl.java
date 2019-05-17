@@ -136,7 +136,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public PageObject getCommentListBySceneryId(Integer pageCurrent, Integer pageSize, String sceneryId) {
         if (pageSize == null) {
-            pageSize = 20;
+            pageSize = 5;
         }
         int pageCount = getPageCount(pageSize);
         if (pageCurrent == null || pageCurrent < 1) {
@@ -150,7 +150,9 @@ public class CommentServiceImpl implements CommentService {
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
-        List<Object> list = commentMapper.getCommentListBySceneryId(sceneryId, new RowBounds(pageCurrent - 1, pageSize));
+        System.out.println("后台pageCUrrent"+pageCurrent);
+        System.out.println("pagesize"+pageSize);
+        List<Object> list = commentMapper.getCommentListBySceneryId(sceneryId, new RowBounds((pageCurrent - 1)*pageSize, pageSize));
         System.out.println(list.size());
         for (Object o : list) {
             System.out.println(o.toString());

@@ -100,7 +100,7 @@ public class CommentController {
             pageCurrent = 1;
         }
         if (pageSize == null) {
-            pageSize = 20;
+            pageSize = 5;
         }
         PageObject pageObject = commentService.getCommentListBySceneryId(pageCurrent, pageSize,sceneryId);
         return new JsonResult(pageObject);

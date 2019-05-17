@@ -30,7 +30,7 @@ public class SceneryServiceImpl implements SceneryService {
     @Override
     public PageObject doFindPageObjects(Integer pageCurrent, Integer pageSize) {
         if (pageSize == null) {
-            pageSize = 20;
+            pageSize = 6;
         }
         int pageCount = getPageCount(pageSize);
         if (pageCurrent == null || pageCurrent < 1) {
@@ -44,7 +44,7 @@ public class SceneryServiceImpl implements SceneryService {
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
-        List<Object> list = sceneryMapper.doFindPageObjects(pageCurrent, new RowBounds(pageCurrent - 1, pageSize));
+        List<Object> list = sceneryMapper.doFindPageObjects(pageCurrent, new RowBounds((pageCurrent - 1) * pageSize, pageSize));
         System.out.println(list.size());
         for (Object o : list) {
             System.out.println(o.toString());
@@ -61,16 +61,16 @@ public class SceneryServiceImpl implements SceneryService {
 
     @Override
     public String doSaveObject(String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
-        String sceneryPicPath=null;
-        if (sceneryPicFile!=null){
-        String fileName = sceneryPicFile.getOriginalFilename();
-        String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
-        String s = FilePathUtil.uploadFile(ROOT_PATH + CHILD_PATH, fileType);
-        System.out.println(s);
-        File file = new File(ROOT_PATH + CHILD_PATH + s);
-        System.out.println(CHILD_PATH + s);
+        String sceneryPicPath = null;
+        if (sceneryPicFile != null) {
+            String fileName = sceneryPicFile.getOriginalFilename();
+            String fileType = fileName.substring(fileName.lastIndexOf(".") + 1);
+            String s = FilePathUtil.uploadFile(ROOT_PATH + CHILD_PATH, fileType);
+            System.out.println(s);
+            File file = new File(ROOT_PATH + CHILD_PATH + s);
+            System.out.println(CHILD_PATH + s);
             sceneryPicPath = CHILD_PATH + s;
-        sceneryPicFile.transferTo(file);
+            sceneryPicFile.transferTo(file);
         }
         int cityId = sceneryMapper.getCityId(cityName);
         System.out.println(cityId);
@@ -82,7 +82,7 @@ public class SceneryServiceImpl implements SceneryService {
         sceneryEntity.setSceneryName(sceneryName);
         sceneryEntity.setSceneryPic(sceneryPicPath);
         int a = sceneryMapper.doSaveObject(sceneryEntity);
-        if (a>0){
+        if (a > 0) {
             return "ok";
         }
         return null;
@@ -92,7 +92,7 @@ public class SceneryServiceImpl implements SceneryService {
     public String doUpdateObject(String sceneryId, String cityName, String sceneryName, String sceneryDesc, MultipartFile sceneryPicFile) throws IOException {
         //查找原来的图片进行删除操作，节省磁盘空间
         SceneryEntity sceneryEntity1 = sceneryMapper.doFindObjectById(sceneryId);
-        if (sceneryPicFile!=null){
+        if (sceneryPicFile != null) {
             String sceneryPic = sceneryEntity1.getSceneryPic();
             String prePicPath = ROOT_PATH + sceneryPic;
             File preFile = new File(prePicPath);
@@ -114,8 +114,8 @@ public class SceneryServiceImpl implements SceneryService {
         int cityId = sceneryMapper.getCityId(cityName);
         System.out.println(cityId);
         SceneryEntity sceneryEntity = new SceneryEntity();
-        Date date=new Date();
-        Timestamp timestamp=new Timestamp(date.getTime());
+        Date date = new Date();
+        Timestamp timestamp = new Timestamp(date.getTime());
         sceneryEntity.setModifiedTime(timestamp);
         sceneryEntity.setCityId(cityId);
         sceneryEntity.setSceneryId(sceneryId);
@@ -123,7 +123,7 @@ public class SceneryServiceImpl implements SceneryService {
         sceneryEntity.setSceneryName(sceneryName);
         sceneryEntity.setSceneryPic(sceneryPicPath);
         int a = sceneryMapper.doUpdateObject(sceneryEntity);
-        if (a>0){
+        if (a > 0) {
             return "ok";
         }
         return "修改失败";
@@ -132,7 +132,7 @@ public class SceneryServiceImpl implements SceneryService {
     @Override
     public String doDeleteObject(String sceneryId) {
         SceneryEntity sceneryEntity = sceneryMapper.doFindObjectById(sceneryId);
-        if (sceneryEntity==null){
+        if (sceneryEntity == null) {
             return "记录不存在";
         }
         //删除图片
@@ -144,7 +144,7 @@ public class SceneryServiceImpl implements SceneryService {
         }
 
         int a = sceneryMapper.doDeleteObject(sceneryId);
-        if (a>0){
+        if (a > 0) {
             return "ok";
         }
         return "删除失败，没有权限或记录不存在";
@@ -155,7 +155,9 @@ public class SceneryServiceImpl implements SceneryService {
         if (pageSize == null) {
             pageSize = 20;
         }
-        int pageCount = getPageCount(pageSize);
+        int cityId=sceneryMapper.getCityIdByCityPY(cityName);
+        int total=sceneryMapper.getPageCountByCityId(cityId);
+        int pageCount = getPageCountByCityName(total,pageSize);
         if (pageCurrent == null || pageCurrent < 1) {
             pageCurrent = 1;
         }
@@ -163,17 +165,21 @@ public class SceneryServiceImpl implements SceneryService {
             pageCurrent = pageCount;
         }
         PageObject pageObject = new PageObject();
-        pageObject.setTotal(sceneryMapper.getPageCount());
+        pageObject.setTotal(total);
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
-        List<Object> list = sceneryMapper.getScenerysByCityName(pageCurrent,cityName, new RowBounds(pageCurrent - 1, pageSize));
+        List<Object> list = sceneryMapper.getScenerysByCityName(pageCurrent, cityName, new RowBounds((pageCurrent - 1)*pageSize, pageSize));
         System.out.println(list.size());
         for (Object o : list) {
             System.out.println(o.toString());
         }
         pageObject.setRecords(list);
         return pageObject;
+    }
+
+    private int getPageCountByCityName(int total, Integer pageSize) {
+        return total/pageSize+1;
     }
 
 

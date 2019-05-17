@@ -28,7 +28,7 @@
         width: 30px;
     }
 
-    #comment-display-datas {
+    #main-data-content {
         margin-top: 3%;
     }
 
@@ -108,7 +108,7 @@
         margin: 0px 3px;
     }
 </style>
-<div id="comment-display-datas">
+<div id="comment-display-data">
     <div class="container">
         <div class="row"
              id="comment-display-title">
@@ -229,37 +229,31 @@
     function getPages() {
         var val=$(this).val()
         console.log(val)
-        console.log("pagecurrent:  " +$("#comment-display-datas").data("pageCurrent"));
-        console.log("pagecount:  "+$("#comment-display-datas").data("pageCount"));
+        console.log("pagecurrent:  " +$("#main-data-content").data("pageCurrent"));
+        console.log("pagecount:  "+$("#main-data-content").data("pageCount"));
         if ("first"==val){
-            $("#comment-display-datas").data("pageCurrent",1)
-            getCommentListBySceneryId();
+            $("#main-data-content").data("pageCurrent",1)
         }
         if ("last"==val){
-            $("#comment-display-datas").data("pageCurrent",$("#comment-display-datas").data("pageCount"))
-            getCommentListBySceneryId()
+            $("#main-data-content").data("pageCurrent",$("#main-data-content").data("pageCount"))
         }
         if ("pre"==val){
-            var pageCurrent=$("#comment-display-datas").data("pageCurrent");
+            var pageCurrent=$("#main-data-content").data("pageCurrent");
             pageCurrent=pageCurrent-1;
             if (pageCurrent<1){
                 pageCurrent=1;
             }
-            $("#comment-display-datas").data("pageCurrent",pageCurrent)
-            getCommentListBySceneryId();
+            $("#main-data-content").data("pageCurrent",pageCurrent)
         }
         if ("next"==val){
-            var pageCurrent=$("#comment-display-datas").data("pageCurrent");
+            var pageCurrent=$("#main-data-content").data("pageCurrent");
             pageCurrent=pageCurrent+1;
-            if (pageCurrent>$("#comment-display-datas").data("pageCount")){
-                pageCurrent=$("#comment-display-datas").data("pageCount");
+            if (pageCurrent>$("#main-data-content").data("pageCount")){
+                pageCurrent=$("#main-data-content").data("pageCount");
             }
-            $("#comment-display-datas").data("pageCurrent",pageCurrent)
-            getCommentListBySceneryId();
+            $("#main-data-content").data("pageCurrent",pageCurrent)
         }
-
-
-
+        getCommentListBySceneryId();
     }
 
     function initDatas() {
@@ -354,7 +348,7 @@
         var sceneryInfo = $("#main-data-content").data("sceneryInfo");
         var sceneryId = sceneryInfo.sceneryId;
         var url = "/comment/getCommentListBySceneryId.do?t=" + Math.random();
-        var pageCurrent=$("#comment-display-datas").data("pageCurrent")
+        var pageCurrent=$("#main-data-content").data("pageCurrent")
         console.log("开始获取，页码：："+pageCurrent)
         var param = {
             "pageCurrent": pageCurrent,
@@ -372,8 +366,8 @@
                 console.log(result)
                 setCommentInfos(result.data.records)
                 console.log(result.data.pageCount)
-                $("#comment-display-datas").data("pageCurrent",result.data.pageCurrent)
-                $("#comment-display-datas").data("pageCount",result.data.pageCount)
+                $("#main-data-content").data("pageCurrent",result.data.pageCurrent)
+                $("#main-data-content").data("pageCount",result.data.pageCount)
 
 
             }

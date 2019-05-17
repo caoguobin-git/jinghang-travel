@@ -33,11 +33,10 @@ public class SceneryController {
             pageCurrent = 1;
         }
         if (pageSize == null) {
-            pageSize = 20;
+            pageSize = 6;
         }
         PageObject pageObject = sceneryService.doFindPageObjects(pageCurrent, pageSize);
         return new JsonResult(pageObject);
-
     }
 
     @RequestMapping("/doFindObjectById")
