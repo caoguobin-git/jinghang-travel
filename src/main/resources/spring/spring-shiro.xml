@@ -56,6 +56,7 @@
 				/hotel/get*=anon
 				/scenery/getScenerysByCityName*=anon
 				/ticket/get*=anon
+				/comment/get*=anon
 				/user/**=anon
 				/register*=anon
 				/admin/login*=anon

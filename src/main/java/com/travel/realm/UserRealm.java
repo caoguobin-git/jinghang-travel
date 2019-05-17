@@ -55,7 +55,6 @@ public class UserRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
 
-        System.out.println("开始user身份认证...");
         MyToken userToken = (MyToken) token;
         String adminName =  userToken.getUsername();//获取用户名，默认和login.html中的adminName对应。
         UserEntity admin = userService.findByUsername(adminName);
@@ -65,26 +64,12 @@ public class UserRealm extends AuthorizingRealm {
             throw new UnknownAccountException("用户不存在！");
         }
 
-
         String username=admin.getUsername();
         String password=admin.getPassword();
         ByteSource salt = ByteSource.Util.bytes(admin.getSalt());
         //验证通过返回一个封装了用户信息的AuthenticationInfo实例即可。
         SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(username,password,salt,getName());
-        logger.info("返回Admin认证信息：" + authenticationInfo);
         return authenticationInfo;
-
-//        String username = (String) authenticationToken.getPrincipal();
-//        System.out.println("user realm");
-//
-//        UserEntity userEntity = userService.findByUsername(username);
-//        if (userEntity == null) {
-//            throw new UnknownAccountException("该用户不存在");
-//        }
-//        ByteSource salt = ByteSource.Util.bytes(userEntity.getSalt());
-//        String password = userEntity.getPassword();
-//       SimpleAuthenticationInfo a = new SimpleAuthenticationInfo(username, password, salt, getName());
-//       return a;
     }
 
 }

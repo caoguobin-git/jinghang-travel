@@ -52,7 +52,6 @@ public class AdminRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
-        System.out.println("开始Admin身份认证...");
         MyToken userToken = (MyToken) token;
         String adminName =  userToken.getUsername();//获取用户名，默认和login.html中的adminName对应。
         AdminEntity admin = adminService.findByUsername(adminName);
@@ -68,21 +67,8 @@ public class AdminRealm extends AuthorizingRealm {
          ByteSource salt = ByteSource.Util.bytes(admin.getSalt());
         //验证通过返回一个封装了用户信息的AuthenticationInfo实例即可。
         SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(username,password,salt,getName());
-        logger.info("返回Admin认证信息：" + authenticationInfo);
         return authenticationInfo;
 
-
-
-//        String username = (String) authenticationToken.getPrincipal();
-//        System.out.println("admin realm");
-//        AdminEntity adminEntity = adminService.findByUsername(username);
-//        if (adminEntity == null) {
-//            throw new UnknownAccountException("该用户不存在");
-//        }
-//        ByteSource salt = ByteSource.Util.bytes(adminEntity.getSalt());
-//        String password = adminEntity.getPassword();
-//       SimpleAuthenticationInfo a = new SimpleAuthenticationInfo(username, password, salt, getName());
-//       return a;
     }
 
 }

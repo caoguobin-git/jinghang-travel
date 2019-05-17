@@ -6,5 +6,6 @@ public class PicPaths {
     public final static String SCENERY_PIC_PATH="/sceneryPic";
     public final static String HOTEL_PIC_PATH="/hotelPic";
     public final static String  TICKET_PIC_PATH="/ticketPic";
+    public final static String COMMENT_PIC_PATH="/commentPic";
 
 }

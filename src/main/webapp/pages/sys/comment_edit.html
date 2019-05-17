@@ -1,0 +1,169 @@
+<!-- Horizontal Form -->
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">
+            </h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form class="form-horizontal">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="commentId"
+                       class="col-sm-2 control-label"
+                >id</label>
+                <div class="col-sm-10">
+                    <input type="text"
+                           class="form-control"
+                           readonly="readonly"
+                           id="commentId">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cityName"
+                       class="col-sm-2 control-label">所属城市</label>
+                <div class="col-sm-10">
+                    <span id="cityName"
+                            class="form-control" readonly="readonly">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sceneryName"
+                       class="col-sm-2 control-label">所属景点</label>
+
+                <div class="col-sm-10">
+                    <span id="sceneryName"
+                            class="form-control" readonly="readonly">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="userId"
+                       class="col-sm-2 control-label">用户ID</label>
+
+                <div class="col-sm-10">
+                    <span id="userId"
+                          class="form-control" readonly="readonly">
+                    </span>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="commentPic"
+                       class="col-sm-2 control-label">评价图片</label>
+                <div class="col-sm-10">
+
+                    <img src="#"
+                         style="width: 100px"
+                         id="commentPic">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="commentTitle"
+                       class="col-sm-2 control-label">评论标题</label>
+                <div class="col-sm-10">
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="commentTitle" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="commentContent"
+                       class="col-sm-2 control-label">评价内容</label>
+                <div class="col-sm-10">
+                    <textarea type="text"
+                           class="form-control load-sys-dept"
+                           id="commentContent" readonly="readonly"/>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button type="button"
+                    class="btn btn-default btn-cancel">
+                Cancel
+            </button>
+            <button type="button"
+                    class="btn btn-info pull-right btn-danger">
+                Delete
+            </button>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+</div>
+<script type="text/javascript"
+        src="/bower_components/ztree/jquery.ztree.all.min.js"></script>
+<script type="text/javascript"
+        src="/bower_components/layer/layer.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $(".box-footer")
+            .on("click", ".btn-cancel", doCancel)
+            .on("click", ".btn-danger", doDeleteObject);
+        initDatas();
+
+    })
+
+    function doDeleteObject() {
+        var id=$("#commentId").val()
+        var url="comment/doDeleteObject.do?t="+Math.random();
+        var param={
+            "commentId":id
+        }
+        if (confirm("确定删除ID为"+id+"的信息吗？")) {
+            $.ajax({
+                url: url,
+                data: param,
+                type: "post",
+                dataType: "json",
+                success: function (result) {
+                    console.log(result)
+                    if (result.status == 200) {
+                        alert("删除成功！")
+                        doCancel()
+                    } else {
+                        alert(result.data)
+                        doCancel()
+                    }
+                }
+            })
+        }
+    }
+
+    //初始化数据
+    function initDatas() {
+
+            var datas = $("#mainContentId").data("rowData");
+            $("#commentId").val(datas.commentId)
+
+            $("#cityName").html(datas.cityName)
+            $("#sceneryName").html(datas.sceneryName)
+            $("#commentTitle").val(datas.commentTitle)
+            $("#userId").html(datas.userId)
+            $("#commentContent").val(datas.commentContent)
+            $("#commentPic").attr("src", "http://image.travel.com/" + datas.commentPic);
+            console.log("http://image.travel.com/" + datas.commentPic)
+    }
+
+    function doCancel() {
+        $("#mainContentId").removeData("rowData");
+        $("#mainContentId").load("comment/doCommentListUI.do");
+    }
+
+
+</script>
+    
+    
+    
+    
+    
+    
+    

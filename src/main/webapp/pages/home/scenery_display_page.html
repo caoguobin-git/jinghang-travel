@@ -103,7 +103,8 @@
         initSceneryDatas()
         $("#back-to-pre-page").click(backToPrePage)
         $("#list-foot-btn").click(displayFoodInfo)
-        $("#list-hotel-btn").click(displayHotelnfo)
+        $("#list-hotel-btn").click(displayHotelInfo)
+        $("#list-comment-btn").click(displayCommentInfo)
         $(".ticket-order-page").click(toTicketOrderPage)
     })
 
@@ -112,8 +113,13 @@
         $("#main-data-content").data("ticketType",ticketType);
         $("#content").load("/pages/home/ticket_order_page.html")
     }
-    function displayHotelnfo() {
+    function displayHotelInfo() {
         $("#content").load("/pages/home/hotel_display_page.html")
+    }
+
+
+    function displayCommentInfo() {
+        $("#content").load("/pages/home/comment_display_page.html")
 
     }
 

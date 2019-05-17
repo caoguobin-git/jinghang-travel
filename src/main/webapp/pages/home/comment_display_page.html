@@ -1,0 +1,426 @@
+<style>
+
+    .comment-display-navigation-right > .row {
+        text-align: left;
+        font-size: 20px;
+        margin: 20px;
+        font-weight: bolder;
+        font-family: "KaiTi";
+        cursor: pointer;
+    }
+
+    #comment-infos .comment-box {
+        border-bottom: 1px solid #bcbcbc;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    #comment-infos .comment-box:hover {
+        background: rgba(243, 249, 247, 0.98);
+    }
+
+    .comment-user-name, .comment-title {
+        text-align: center;
+        padding: 3px;
+    }
+
+    #comment-infos .comment-user-icon {
+        width: 30px;
+    }
+
+    #comment-display-datas {
+        margin-top: 3%;
+    }
+
+    .comment-time {
+        float: right;
+    }
+
+    .comment-pic img {
+        width: 180px;
+    }
+
+    .comment-pic {
+        text-align: center;
+    }
+
+    .comment-user-name {
+        padding-top: 1%;
+    }
+
+    .save-comment-box .row {
+        padding: 3px 5px;
+    }
+
+    .save-comment-box {
+        background: #e3e9e7;
+
+    }
+
+    .save-comment-box textarea {
+        width: 80%;
+        height: 150px;
+        resize: none;
+    }
+
+    .save-comment-btn {
+        border: 1px solid black;
+        cursor: pointer;
+        font-size: 15px;
+        text-align: center;
+        font-family: KaiTi;
+
+    }
+
+    .save-comment-btn:hover {
+        text-shadow: blue 2px 2px 4px;
+        font-family: KaiTi;
+        font-weight: bolder;
+    }
+
+    .comment-title {
+        width: 100%;
+        height: 20px;
+        font-weight: bold;
+    }
+    .comment-title,.comment-content{
+        padding: 5px 8px;
+    }
+
+    #comment-display-title .comment-display-scenery-name {
+        font-size: 40px;
+        font-weight: bolder;
+        font-family: KaiTi;
+        text-align: center;
+        padding: 3px;
+        text-shadow: #737373 2px 2px 5px;
+    }
+
+    #comment-display-scenery-pic {
+        width: 100%;
+        height: 250px;
+        margin: 10px 0px;
+    }
+    #page-controls div{
+        text-align: center;
+    }
+    #page-controls button{
+        margin: 0px 3px;
+    }
+</style>
+<div id="comment-display-datas">
+    <div class="container">
+        <div class="row"
+             id="comment-display-title">
+            <div class="row comment-display-scenery-name"></div>
+            <div class="row ">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <img src="#"
+                         id="comment-display-scenery-pic"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="row"
+                     id="comment-infos">
+
+                </div>
+                <div class="row" id="page-controls">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <button class="page-control-btn" value="first">第一页</button>
+                        <button class="page-control-btn" value="pre">上一页</button>
+                        <button class="page-control-btn" value="next">下一页</button>
+                        <button class="page-control-btn" value="last">最后页</button>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class='row save-comment-box'>
+                        <div class='row'>
+                            <div class='col-lg-2'>
+                                <b>发表回复</b>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-lg-2'>
+                                评论标题：
+                            </div>
+                            <div class='col-lg-10'>
+                                <input type='text'
+                                       id='save-comment-title'>
+                            </div>
+
+                        </div>
+                        <div class='row'>
+                            <div class='col-lg-2'>
+                                评论图片：
+                            </div>
+                            <div class='col-lg-10'>
+                                <form enctype='multipart/form-data'
+                                      method='post'>
+                                    <input type='file'
+                                           multiple
+                                           value='选择图片'
+                                           id='save-comment-pic'>
+                                </form>
+                            </div>
+
+                        </div>
+                        <div class='row'>
+                            <div class='col-lg-10 col-lg-offset-2'>
+                                <img src='#'
+                                     style='width: 150px;display: none;'
+                                     id='commentPic'>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-lg-2'>
+                                评论内容：
+                            </div>
+                            <div class='col-lg-10'>
+                            <textarea
+                                    id='save-comment-content'/>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-lg-2 col-lg-offset-2 save-comment-btn do-save-comment-btn'
+                                 id='save-comment-btn'>
+                                发表评论
+                            </div>
+                            <div class='col-lg-2 col-lg-offset-4 save-comment-btn do-clear-comment-btn'
+                                 id="clear-comment-btn">
+                                清空
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 comment-display-navigation-right">
+                <div class="row">
+                    预定门票
+                </div>
+                <div class="row">
+                    预定船票
+                </div>
+                <div class="row"
+                     id="back-to-pre-page">
+                    返回上一页
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        getCommentListBySceneryId()
+        $("#back-to-pre-page").click(backToPrePage)
+        $("#save-comment-pic").change(previewPic)
+        $("#save-comment-btn").click(doSaveComment)
+        $("#clear-comment-btn").click(clearCommentInfo)
+        initDatas()
+        $(".page-control-btn").click(getPages)
+    })
+
+    function getPages() {
+        var val=$(this).val()
+        console.log(val)
+        console.log("pagecurrent:  " +$("#comment-display-datas").data("pageCurrent"));
+        console.log("pagecount:  "+$("#comment-display-datas").data("pageCount"));
+        if ("first"==val){
+            $("#comment-display-datas").data("pageCurrent",1)
+            getCommentListBySceneryId();
+        }
+        if ("last"==val){
+            $("#comment-display-datas").data("pageCurrent",$("#comment-display-datas").data("pageCount"))
+            getCommentListBySceneryId()
+        }
+        if ("pre"==val){
+            var pageCurrent=$("#comment-display-datas").data("pageCurrent");
+            pageCurrent=pageCurrent-1;
+            if (pageCurrent<1){
+                pageCurrent=1;
+            }
+            $("#comment-display-datas").data("pageCurrent",pageCurrent)
+            getCommentListBySceneryId();
+        }
+        if ("next"==val){
+            var pageCurrent=$("#comment-display-datas").data("pageCurrent");
+            pageCurrent=pageCurrent+1;
+            if (pageCurrent>$("#comment-display-datas").data("pageCount")){
+                pageCurrent=$("#comment-display-datas").data("pageCount");
+            }
+            $("#comment-display-datas").data("pageCurrent",pageCurrent)
+            getCommentListBySceneryId();
+        }
+
+
+
+    }
+
+    function initDatas() {
+        var sceneryInfo = $("#main-data-content").data("sceneryInfo")
+        $("#comment-display-title .comment-display-scenery-name").html(sceneryInfo.sceneryName)
+        $("#comment-display-scenery-pic").attr("src", "http://image.travel.com/" + sceneryInfo.sceneryPic)
+
+    }
+
+    function doSaveComment() {
+        getUserInfo();
+        var userInfo = $("#main-data-content").data("userInfo");
+        if (userInfo == null) {
+            alert("尚未登录，请登录后重试")
+            location.href = "/user/loginPage.do?t=" + Math.random()
+        }
+        var userId = userInfo.userId;
+        var params = new FormData();
+        var sceneryInfo = $("#main-data-content").data("sceneryInfo")
+        if (sceneryInfo == null) {
+            return;
+        }
+
+        var sceneryId = sceneryInfo.sceneryId;
+        params.append("sceneryId", sceneryId)
+        params.append("userId", userId)
+        params.append("commentTitle", $("#save-comment-title").val())
+        params.append("commentContent", $("#save-comment-content").val().replace("/\n/g", "<br/>"))
+        params.append("commentPic", $("#save-comment-pic")[0].files[0])
+        if (params.get("commentTitle") == null && params.get("commentContent") == null && params.get("commentPic") == null) {
+            alert("不能发送空评论")
+            return;
+        }
+        var url = "/comment/doSaveObject.do?t=" + Math.random();
+        $.ajax({
+            url: url,
+            data: params,
+            type: "post",
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            async: false,
+            success: function (result) {
+                if (result.status == 200) {
+                    alert("评论成功");
+                    $("#mainContentId").removeData("rowData");
+                    $("#content").load("/pages/home/comment_display_page.html")
+                } else {
+                    return;
+                }
+            }
+        })
+    }
+
+    function clearCommentInfo() {
+        $("#save-comment-title").val(null)
+        $("#save-comment-content").val(null)
+        $("#save-comment-pic").val(null)
+        $("#commentPic").attr("src", "#")
+        $("#commentPic").css("display", "none")
+
+    }
+
+    function backToPrePage() {
+        $("#content").load("/pages/home/scenery_display_page.html")
+    }
+
+    //图片预览
+    function previewPic(e) {
+        var imgBox = e.target;
+        uploadImg($("#save-comment-pic"), imgBox)
+    }
+
+    function uploadImg(element, tag) {
+        var file = tag.files[0];
+        var imgSrc;
+        if (!/image\/\w+/.test(file.type)) {
+            alert("看清楚，这个需要图片！");
+            return false;
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            imgSrc = this.result;
+            $("#commentPic").css("display", "inline-block")
+            $("#commentPic").attr("src", imgSrc);
+        };
+    }
+
+
+    function getCommentListBySceneryId() {
+        var sceneryInfo = $("#main-data-content").data("sceneryInfo");
+        var sceneryId = sceneryInfo.sceneryId;
+        var url = "/comment/getCommentListBySceneryId.do?t=" + Math.random();
+        var pageCurrent=$("#comment-display-datas").data("pageCurrent")
+        console.log("开始获取，页码：："+pageCurrent)
+        var param = {
+            "pageCurrent": pageCurrent,
+            "pageSize": 5,
+            "sceneryId": sceneryId
+        }
+
+        console.log(param)
+        $.ajax({
+            url: url,
+            data: param,
+            type: "post",
+            dataType: "json",
+            success: function (result) {
+                console.log(result)
+                setCommentInfos(result.data.records)
+                console.log(result.data.pageCount)
+                $("#comment-display-datas").data("pageCurrent",result.data.pageCurrent)
+                $("#comment-display-datas").data("pageCount",result.data.pageCount)
+
+
+            }
+        })
+
+        function setCommentInfos(datas) {
+            $("#comment-infos").empty()
+            $.each(datas, function (index, item) {
+                var divRow =
+                    "<div class='row comment-box'>" +
+                    "<div class='col-lg-2 comment-user-name'>" +
+                    "<div class='row'>" + item.username + "</div>" +
+                    "<div class='row'><img class='comment-user-icon' src='/pages/home/img/icon.jpg'/> </div>" +
+                    "</div>" +
+                    "<div class='col-lg-10 comment-info-box'>" +
+                    "<div class='row comment-title'>" + (item.commentTitle == null ? "  \n" : item.commentTitle) + "</div>" +
+                    "<div class='row comment-content'>" + (item.commentContent == null ? "  \n" : item.commentContent) + "</div>" +
+                    "<div class='row comment-pic'>" + (item.commentPic == null ? "" : "<img src='http://image.travel.com/" + item.commentPic + "'/>") + "</div>" +
+                    "                        <div class='row comment-time'>" + new Date(item.createTime).toLocaleString() + "</div>" +
+                    "                    </div>" +
+                    "                </div>";
+                $("#comment-infos").append(divRow)
+                $("#foot-scenery-title").html(item.sceneryName + "评论列表")
+            })
+        }
+
+    }
+
+
+    function getUserInfo() {
+        $.ajax({
+            url: "/user/getUserInfo.do",
+            type: "post",
+            dataType: "json",
+            success: function (result) {
+                console.log(result)
+                if ("200" == result.status) {
+                    $("#main-data-content").data("userInfo", result.data)
+                    $("#head_top .user-login-logout").html("退出")
+                    $("#head_top .user-login-logout").removeClass("user-register-login-btn")
+                    $("#head_top .user-login-logout").addClass("user-logout-btn")
+                    displayUserIcon()
+                } else {
+                    $("#main-data-content").data("userInfo", null)
+                    undisplayUserIcon()
+                }
+            }
+        })
+    }
+</script>

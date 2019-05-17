@@ -32,7 +32,6 @@ public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
 
         assertRealmsConfigured();
 
-        logger.info("执行到验证登录方法啦 啊啊啊啊啊 ");
         // 判断getRealms()是否返回为空
         // 强制转换回自定义的CustomizedToken
         MyToken token = (MyToken) authenticationToken;
@@ -48,7 +47,6 @@ public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
                 typeRealms.add(realm);
         }
 
-        System.out.println("h**************************************");
         // 判断是单Realm还是多Realm
         if (typeRealms.size() == 1)
             return doSingleRealmAuthentication(typeRealms.iterator().next(), token);

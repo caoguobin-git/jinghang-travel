@@ -207,22 +207,12 @@
         }
         var params = new FormData();
         if ($("#sceneryId").val() != null & $("#sceneryId").val() != "") {
-
             params.append("sceneryId", $("#sceneryId").val())
         }
-
-
         params.append("cityName", $("#cityName").val())
         params.append("sceneryName", $("#sceneryName").val())
         params.append("sceneryDesc", $("#sceneryDesc").val())
         params.append("sceneryPicFile", $("#sceneryPicFile")[0].files[0])
-        console.log(params.get("sceneryId"))
-
-        console.log(params.get("cityName"))
-        console.log(params.get("sceneryName"))
-        console.log(params.get("sceneryDesc"))
-        console.log(params.get("sceneryPicFile"))
-        console.log(params)
 
 
         //2.发起异步请求

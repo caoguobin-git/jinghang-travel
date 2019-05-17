@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.travel.mapper.CommentMapper">
+    <select id="getPageCount"
+            resultType="int">
+        select count(
+                       *)
+        from comment_info;
+    </select>
+    <select id="doFindPageObjects"
+            resultType="com.travel.common.entity.CommentEntity">
+        select c.id,
+               c.comment_id,
+               c.user_id,
+               si.scenery_id,
+               si.scenery_name,
+               ci.city_name,
+               ci.city_id,
+               c.comment_title,
+               c.comment_content,
+               c.comment_pic,
+               c.create_time,
+               c.modified_time
+        from comment_info c
+                 left join scenery_info si
+                           on c.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        order by c.create_time desc
+
+    </select>
+
+    <select id="getCommentListBySceneryId"
+            resultType="com.travel.common.entity.CommentEntity">
+        select c.id,
+               c.comment_id,
+               c.user_id,
+               ui.username,
+               si.scenery_id,
+               si.scenery_name,
+               ci.city_name,
+               ci.city_id,
+               c.comment_title,
+               c.comment_content,
+               c.comment_pic,
+               c.create_time,
+               c.modified_time
+        from comment_info c
+                 left join scenery_info si
+                           on c.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+                 left join user_info ui
+                           on c.user_id =
+                              ui.user_id
+        where si.scenery_id =
+              #{sceneryId}
+        order by c.create_time
+
+
+    </select>
+
+    <select id="doFindObjectById"
+            resultType="com.travel.common.entity.CommentEntity">
+        select c.id,
+               c.comment_id,
+               c.user_id,
+
+               si.scenery_id,
+               si.scenery_name,
+               ci.city_name,
+               ci.city_id,
+               c.comment_title,
+               c.comment_content,
+               c.comment_pic,
+               c.create_time,
+               c.modified_time
+        from comment_info c
+                 left join scenery_info si
+                           on c.scenery_id =
+                              si.scenery_id
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where c.comment_id =
+              #{id}
+    </select>
+    <insert id="doSaveObject"
+            parameterType="com.travel.common.entity.CommentEntity">
+        insert into comment_info (comment_id,
+                                  scenery_id,
+                                  user_id,
+                                  comment_title,
+                                  comment_content,
+                                  comment_pic)
+        values (#{commentId},
+                #{sceneryId},
+                #{userId},
+                #{commentTitle},
+                #{commentContent},
+                #{commentPic})
+    </insert>
+
+
+    <select id="getSceneryOptions"
+            resultType="java.lang.String">
+        select scenery_name
+        from scenery_info si
+        where si.city_id =
+              (select city_id
+               from city_info ci
+               where city_name =
+                     #{cityName})
+    </select>
+
+    <select id="getSceneryId"
+            resultType="java.lang.String">
+        select scenery_id
+        from scenery_info
+        where scenery_name =
+              #{sceneryName}
+    </select>
+
+    <delete id="doDeleteObject"
+            parameterType="java.lang.String">
+        delete
+        from comment_info
+        where comment_id =
+              #{commentId}
+    </delete>
+
+    <update id="doUpdateObject"
+            parameterType="com.travel.common.entity.CommentEntity">
+        update comment_info
+        <trim prefix="set"
+                suffixOverrides=",">
+            <if test="sceneryId != null">scenery_id=#{sceneryId},</if>
+            <if test="commentName != null">comment_name=#{commentName},</if>
+            <if test="commentDesc != null">comment_desc=#{commentDesc},</if>
+            <if test="commentPrice != null">comment_price=#{commentPrice},</if>
+            <if test="commentPic != null">comment_pic=#{commentPic},</if>
+        </trim>
+        where comment_id =
+        <if test="commentId != null">#{commentId}</if>
+    </update>
+
+</mapper>

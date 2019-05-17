@@ -1,41 +1,34 @@
-<style>
-    .scenery-delete-btn:hover{
-        font-weight: bolder;
-        color: red;
-    }
-</style>
-
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">
-                    景点信息管理</h3>
-                <div class="box-tools">
-                    <div class="input-group input-group-sm"
-                         style="width: 350px;">
-                        <input type="text"
-                               name="table_search"
-                               id="searchNameId"
-                               class="form-control pull-right"
-                               placeholder="景点名">
+                    评价信息管理</h3>
+<!--                <div class="box-tools">-->
+<!--                    <div class="input-group input-group-sm"-->
+<!--                         style="width: 350px;">-->
+<!--                        <input type="text"-->
+<!--                               name="table_search"-->
+<!--                               id="searchNameId"-->
+<!--                               class="form-control pull-right"-->
+<!--                               placeholder="评价名称">-->
 
-                        <div class="input-group-btn">
-                            <button type="button"
-                                    class="btn btn-default btn-search">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            <button type="button"
-                                    class="btn btn-default btn-add">
-                                添加
-                            </button>
-                            <button type="button"
-                                    class="btn btn-default btn-update">
-                                修改
-                            </button>
-                        </div>
-                    </div>
-                </div>
+<!--                        <div class="input-group-btn">-->
+<!--                            <button type="button"-->
+<!--                                    class="btn btn-default btn-search">-->
+<!--                                <i class="fa fa-search"></i>-->
+<!--                            </button>-->
+<!--                            <button type="button"-->
+<!--                                    class="btn btn-default btn-add">-->
+<!--                                添加-->
+<!--                            </button>-->
+<!--                            <button type="button"-->
+<!--                                    class="btn btn-default btn-update">-->
+<!--                                修改-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -48,26 +41,29 @@
                         <th>
                             ID
                         </th>
-                        <!--<th>-->
-                            <!--景点ID-->
-                        <!--</th>-->
+                        <th>
+                            用户ID
+                        </th>
                         <th>
                             所在城市
                         </th>
                         <th>
-                            景点名称
+                            所在景点
                         </th>
                         <th>
-                            景点图片
+                            评价图片
                         </th>
                         <th>
-                            景点描述
+                            评论标题
                         </th>
                         <th>
-                            创建时间
+                            评论内容
                         </th>
                         <th>
-                            修改时间
+                            评论时间
+                        </th>
+                        <th>
+                            查看详细
                         </th>
                         <th>
                             操作
@@ -94,16 +90,17 @@
             .on("click", ".btn-search", doQueryObjects)
             .on("click", ".btn-add,.btn-update", doLoadEditUI);
         // $(".scenery-delete-btn").click(doDeleteObject)
-        $("#tbodyId").on("click",".scenery-delete-btn",doDeleteObject)
+        $("#tbodyId").on("click",".object-delete-btn",doDeleteObject)
+        $("#tbodyId").on("click",".comment-info-btn",doLoadEditUI)
     });
 
 
     function doDeleteObject() {
-        var id=$(this).siblings(".scenery-id").text()
-        if (confirm("警告:\n确定删除ID为"+id+"的信息吗？\n数据删除后将不可恢复！")) {
-            var url="scenery/doDeleteObject.do";
+        var id=$(this).siblings(".comment-id").text()
+        if (confirm("确定删除ID为"+id+"的信息吗？")) {
+            var url="comment/doDeleteObject.do";
             var param={
-                "sceneryId":id
+                "commentId":id
             }
             $.ajax({
                 url:url,
@@ -114,7 +111,7 @@
                     console.log(result)
                     if (result.status==200){
                         alert("信息删除成功");
-                        $("#mainContentId").load("scenery/doSceneryListUI.do");
+                        $("#mainContentId").load("comment/doCommentListUI.do");
                     } else {
                         alert(result.data)
                     }
@@ -124,32 +121,24 @@
     }
 
     function doLoadEditUI() {
-        //1.判定点击的对象
-        var title;
-        if ($(this).hasClass("btn-add")) {
-            title = "添加景点";
-            doLoadPage(title);
-        } else if ($(this).hasClass("btn-update")) {
-            title = "修改景点";
-            var id = doGetCheckedId();
-            console.log("id=" + id)
-            if (!id) {
-                alert("请先选择");
-                return;
-            }
-            //基于id进行查询并加载编辑页面
+        var id=$(this).siblings(".comment-id").text()
+        var title="评论详细信息";
+        console.log(id+"   "+title)
+        //     //基于id进行查询并加载编辑页面
             doFindObjectById(id, title);
-        }
+
     }
 
     function doFindObjectById(id, title) {
         //1.params
         var params = {"id": id};
         //2.url
-        var url = "scenery/doFindObjectById.do";
+        var url = "comment/doFindObjectById.do";
         //3.ajax request
-        $.getJSON(url, params, function (result) {//JsonResult
+        $.getJSON(url, params, function (result) {
+            console.log(result)
             if (result.status == 200) {
+                console.log(result)
                 $("#mainContentId").data("rowData", result.data);
                 doLoadPage(title);
             } else {
@@ -158,12 +147,9 @@
         });
     }
 
-    function doGetCheckedId() {
-        return $("tbody input[name='radioId']:checked").val();
-    }
 
     function doLoadPage(title) {
-        var url = "scenery/doSceneryEditUI.do"
+        var url = "comment/doCommentEditUI.do"
         $("#mainContentId").load(url, function () {
             $(".box-title").html(title);
         })
@@ -179,11 +165,10 @@
 
     //页面加载完成异步加载当前页数据
     function doGetObjects() {
-        var url = "scenery/doFindPageObjects.do";
+        var url = "comment/doFindPageObjects.do";
         var pageCurrent = $("#pageId").data("pageCurrent");
         if (!pageCurrent) pageCurrent = 1;
         var params = {"pageCurrent": pageCurrent}
-        params.sceneryName = $("#searchNameId").val().trim();
         console.log(params);
         $.getJSON(url, params, function (result) {
             console.log(result);
@@ -216,16 +201,19 @@
     }
 
     function doCreateTds(row) {
-        var tds = "<td><input type='radio' name='radioId' value='" + row.sceneryId + "' ></td>" +
+        var tds = "<td><input type='radio' name='radioId' value='" + row.commentId + "' ></td>" +
             "<td >" + row.id + "</td>" +
-            "<td class='scenery-id' style='display: none'>" + row.sceneryId + "</td>" +
+            "<td >" + row.userId + "</td>" +
+            "<td class='comment-id' style='display: none;'>" + row.commentId + "</td>" +
             "<td>" + row.cityName + "</td>" +
-            "<td> " + row.sceneryName + "</td>" +
-            "<td><img style='width: 40px' src='http://image.travel.com/" + row.sceneryPic + "'/></td>" +
-            "<td ><div style='word-break: break-all ;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width: 120px;'>" + row.sceneryDesc + "</div></td>" +
+            "<td>" + row.sceneryName + "</td>" +
+            "<td><img style='width: 40px' src='http://image.travel.com/" + row.commentPic + "'/></td>" +
+            "<td> " + row.commentTitle + "</td>" +
+            "<td><div style='word-break: break-all ;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;width: 120px;'>" + row.commentContent + "</div></td>" +
             "<td>" + new Date(row.createTime).toLocaleString() + "</td>" +
-            "<td>" + new Date(row.modifiedTime).toLocaleString() + "</td>" +
-            "<td class='scenery-delete-btn'  style='cursor: pointer;'>删除</td>";
+            "<td class='comment-info-btn' style='cursor: pointer;'>查看详细</td>"+
+            "<td class='object-delete-btn' style='cursor: pointer;'>删除</td>";
+
         return tds;
     }
 </script>
