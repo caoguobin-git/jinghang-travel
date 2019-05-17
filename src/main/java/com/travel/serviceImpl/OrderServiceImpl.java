@@ -50,7 +50,7 @@ public class OrderServiceImpl implements OrderService {
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
-        List<Object> list = orderMapper.doFindFoodOrderPageObjects(pageCurrent,"food", new RowBounds(pageCurrent - 1, pageSize));
+        List<Object> list = orderMapper.doFindFoodOrderPageObjects(pageCurrent,"food", new RowBounds((pageCurrent-1)*pageSize, pageSize));
 
         pageObject.setRecords(list);
         return pageObject;
@@ -82,7 +82,7 @@ public class OrderServiceImpl implements OrderService {
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
-        List<Object> list = orderMapper.doFindHotelOrderPageObjects(pageCurrent,"hotel", new RowBounds(pageCurrent - 1, pageSize));
+        List<Object> list = orderMapper.doFindHotelOrderPageObjects(pageCurrent,"hotel", new RowBounds((pageCurrent-1)*pageSize, pageSize));
 
         pageObject.setRecords(list);
         return pageObject;
@@ -105,7 +105,7 @@ public class OrderServiceImpl implements OrderService {
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
-        List<Object> list = orderMapper.doFindTicketOrderPageObjects(pageCurrent,ticketType, new RowBounds(pageCurrent - 1, pageSize));
+        List<Object> list = orderMapper.doFindTicketOrderPageObjects(pageCurrent,ticketType, new RowBounds((pageCurrent-1)*pageSize, pageSize));
 
         pageObject.setRecords(list);
         return pageObject;

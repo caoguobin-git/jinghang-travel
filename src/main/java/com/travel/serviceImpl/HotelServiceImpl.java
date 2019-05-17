@@ -50,7 +50,7 @@ public class HotelServiceImpl implements HotelService {
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
-        List<Object> list = hotelMapper.doFindPageObjects(pageCurrent, new RowBounds(pageCurrent - 1, pageSize));
+        List<Object> list = hotelMapper.doFindPageObjects(pageCurrent, new RowBounds((pageCurrent-1)*pageSize, pageSize));
         System.out.println(list.size());
         for (Object o : list) {
             System.out.println(o.toString());
