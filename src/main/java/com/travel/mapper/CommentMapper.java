@@ -30,4 +30,6 @@ public interface CommentMapper {
     int doUpdateObject(CommentEntity commentEntity1);
 
     List<Object> getCommentListBySceneryId(@Param("sceneryId") String sceneryId, RowBounds rowBounds);
+
+    int getPageCountBySceneryId(@Param("sceneryId") String sceneryId);
 }

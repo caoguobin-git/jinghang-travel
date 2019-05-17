@@ -8,6 +8,12 @@
                        *)
         from comment_info;
     </select>
+
+    <select id="getPageCountBySceneryId" resultType="int">
+        select count(
+                       *)
+        from comment_info where scenery_id=#{sceneryId}
+    </select>
     <select id="doFindPageObjects"
             resultType="com.travel.common.entity.CommentEntity">
         select c.id,

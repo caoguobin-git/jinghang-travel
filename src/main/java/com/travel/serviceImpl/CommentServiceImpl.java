@@ -131,14 +131,12 @@ public class CommentServiceImpl implements CommentService {
         return result;
     }
 
-
-
     @Override
     public PageObject getCommentListBySceneryId(Integer pageCurrent, Integer pageSize, String sceneryId) {
         if (pageSize == null) {
             pageSize = 5;
         }
-        int pageCount = getPageCount(pageSize);
+        int pageCount = getPageCountBySceneryId(pageSize,sceneryId);
         if (pageCurrent == null || pageCurrent < 1) {
             pageCurrent = 1;
         }
@@ -146,7 +144,7 @@ public class CommentServiceImpl implements CommentService {
             pageCurrent = pageCount;
         }
         PageObject pageObject = new PageObject();
-        pageObject.setTotal(commentMapper.getPageCount());
+        pageObject.setTotal(commentMapper.getPageCountBySceneryId(sceneryId));
         pageObject.setPageCount(pageCount);
         pageObject.setPageCurrent(pageCurrent);
         pageObject.setPageSize(pageSize);
@@ -159,6 +157,11 @@ public class CommentServiceImpl implements CommentService {
         }
         pageObject.setRecords(list);
         return pageObject;
+    }
+
+    private int getPageCountBySceneryId(Integer pageSize, String sceneryId) {
+        int total=commentMapper.getPageCountBySceneryId(sceneryId);
+        return total/pageSize+1;
     }
 
     @Override
