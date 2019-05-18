@@ -1,0 +1,73 @@
+
+<style>
+    #strategy-detail .strategy-title{
+        text-align: center;
+        font-size: 30px;
+        font-weight: bolder;
+        color: #fe0c00;
+        text-shadow: #000000 3px 3px 5px;
+    }
+    #strategy-detail .strategy-pic{
+        text-align: center;
+    }
+    #strategy-detail img{
+        border-radius: 3px;
+        margin: 15px;
+        text-shadow: black 5px 5px 5px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2" id="strategy-detail">
+            <div class="row strategy-title"></div>
+            <div class="row strategy-pic"></div>
+            <div class="row strategy-content"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        getStrategyById()
+    })
+    function getStrategyById() {
+        var strategyId=$("#main-data-content").data("strategyId")
+        console.log(strategyId)
+        var url="strategy/doFindObjectById.do?t="+Math.random();
+        var param={
+            "id":strategyId
+        }
+        $.ajax({
+            url:url,
+            dataType:"json",
+            data:param,
+            type:"post",
+            success:function (result) {
+                console.log("获取到的数据：")
+                console.log(result)
+                setStrategyDatas(result.data)
+            }
+        })
+    }
+
+    function setStrategyDatas(data) {
+        $("#strategy-detail .strategy-title").html(data.strategyTitle)
+        $("#strategy-detail .strategy-pic").append(getPics(data.strategyPic))
+        $("#strategy-detail .strategy-content").html(data.strategyContent)
+
+    }
+
+
+    function getPics(pics) {
+        var imgs="";
+        var picPath = pics.split(",")
+        console.log(picPath)
+        for (var i=0;i<picPath.length;i++) {
+            console.log("index "+picPath[i])
+            if (picPath[i]!=null && picPath[i]!="") {
+                imgs = imgs + "<img src='http://image.travel.com/" + picPath[i] + "' style='width: 80%;'/>&nbsp;&nbsp;&nbsp;"
+            }
+        }
+        return imgs;
+    }
+</script>

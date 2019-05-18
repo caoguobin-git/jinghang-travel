@@ -95,9 +95,6 @@
     })
     function getPages() {
         var val=$(this).val()
-        console.log(val)
-        console.log("pagecurrent:  " +$("#main-data-content").data("pageCurrent"));
-        console.log("pagecount:  "+$("#main-data-content").data("pageCount"));
         if ("first"==val){
             $("#main-data-content").data("pageCurrent",1)
         }
@@ -153,7 +150,6 @@
             type: "post",
             dataType: "json",
             success: function (result) {
-                console.log(result)
                 $("#main-data-content").data("scenerys", result.data)
                 $("#main-data-content").data("pageCurrent",result.data.pageCurrent)
                 $("#main-data-content").data("pageCount",result.data.pageCount)
@@ -168,10 +164,8 @@
             $("#scenery-display-" + i).empty()
         }
 
-        console.log(datas)
         $.each(datas, function (index, item) {
             index = index + 1;
-            console.log("当前index"+index)
             var img = "<img class='scenery-image' src='http://image.travel.com/" + item.sceneryPic + "'/>"
             var sceneryName = "<h4 class=scenery-name' style='font-family:'Microsoft YaHei';font-weight: bold;'>" + item.sceneryName + "</h3>"
             $("#scenery-display-" + index).data("sceneryInfo", item)

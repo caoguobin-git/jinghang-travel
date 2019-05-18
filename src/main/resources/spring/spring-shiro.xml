@@ -57,6 +57,8 @@
 				/scenery/getScenerysByCityName*=anon
 				/ticket/get*=anon
 				/comment/get*=anon
+				/strategy/get*=anon
+				/strategy/doFind*=anon
 				/user/**=anon
 				/register*=anon
 				/admin/login*=anon

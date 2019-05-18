@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.travel.mapper.StrategyMapper">
+    <select id="getPageCount"
+            resultType="int">
+        select count(
+                       *)
+        from strategy_info si;
+    </select>
+
+    <select id="getPageCountByCityId"
+            resultType="int">
+        select count(
+                       *)
+        from strategy_info si
+        where si.city_id =
+              #{cityId};
+    </select>
+    <select id="doFindPageObjects"
+            resultType="com.travel.common.entity.StrategyEntity">
+        select si.id, strategy_id, si.scenery_id, s.scenery_name, ci.city_id, ci.city_name, si.strategy_title, si.strategy_pic, si.strategy_content, si.create_time, si.modified_time from strategy_info si left join scenery_info s on si.scenery_id = s.scenery_id left join city_info ci on s.city_id = ci.city_id
+        <if test="sceneryName != null">
+            where s.scenery_name like "%"#{sceneryName}"%"
+        </if>
+        order by si.create_time desc
+    </select>
+
+    <select id="doFindObjectById"
+            resultType="com.travel.common.entity.StrategyEntity">
+        select si.id,
+               strategy_id,
+               si.scenery_id,
+               s.scenery_name,
+               ci.city_id,
+               ci.city_name,
+               si.strategy_title,
+               si.strategy_pic,
+               si.strategy_content,
+               si.create_time,
+               si.modified_time
+        from strategy_info si
+                 left join scenery_info s
+                           on si.scenery_id =
+                              s.scenery_id
+                 left join city_info ci
+                           on s.city_id =
+                              ci.city_id
+
+        where strategy_id =
+              #{id}
+    </select>
+    <select id="getCityId"
+            resultType="int">
+        select city_id
+        from city_info ci
+        where city_name =
+              #{cityName}
+    </select>
+    <select id="getCityIdByCityPY"
+            resultType="int">
+        select city_id
+        from city_info ci
+        where city_pinyin =
+              #{cityName}
+    </select>
+    <insert id="doSaveObject"
+            parameterType="com.travel.common.entity.StrategyEntity">
+        insert into strategy_info (strategy_id,
+                                   scenery_id,
+                                   strategy_title,
+                                   strategy_pic,
+                                   strategy_content)
+        values (#{strategyId},
+                #{sceneryId},
+                #{strategyTitle},
+                #{strategyPic},
+                #{strategyContent})
+    </insert>
+
+    <select id="getSceneryOptions"
+            resultType="java.lang.String">
+        select scenery_name
+        from scenery_info si
+        where si.city_id =
+              (select city_id
+               from city_info ci
+               where city_name =
+                     #{cityName})
+    </select>
+
+    <update id="doUpdateObject"
+            parameterType="com.travel.common.entity.StrategyEntity">
+        update strategy_info si
+        <trim prefix="set"
+                suffixOverrides=",">
+            <if test="sceneryId != null">scenery_id=#{sceneryId},</if>
+            <if test="strategyTitle!=null">strategy_title=#{strategyTitle},</if>
+            <if test="strategyPic!=null">strategy_pic=#{strategyPic},</if>
+            <if test="strategyContent!=null">strategy_content=#{strategyContent},</if>
+        </trim>
+        where strategy_id =
+        <if test="strategyId!=null">#{strategyId}</if>
+    </update>
+
+    <delete id="doDeleteObject"
+            parameterType="java.lang.String">
+        delete
+        from strategy_info
+        where strategy_id =
+              #{strategyId}
+    </delete>
+
+    <select id="getSceneryId"
+            resultType="java.lang.String">
+        select scenery_id
+        from scenery_info
+        where scenery_name =
+              #{sceneryName}
+    </select>
+
+    <select id="getTotalCount"
+            resultType="int">
+        select count(*) from strategy_info si where scenery_id in (select s.scenery_id from scenery_info s
+        <if test="sceneryName != null">
+            where s.scenery_name like "%"#{sceneryName}"%"
+        </if>
+        )
+    </select>
+
+    <select id="getStrategysByCityName"
+            resultType="com.travel.common.entity.StrategyEntity">
+        select si.id,
+               strategy_id,
+               strategy_pic,
+               ci.city_id,
+               ci.city_name,
+               si.create_time,
+               si.modified_time
+        from strategy_info si
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where ci.city_pinyin =
+              #{cityName}
+    </select>
+</mapper>

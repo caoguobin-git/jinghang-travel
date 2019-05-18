@@ -2,21 +2,21 @@
 <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title">
-            添加美食</h3>
+            添加用户</h3>
     </div>
     <!-- /.box-header -->
     <!-- form start -->
     <form class="form-horizontal">
         <div class="box-body">
-            <div class="form-group">
-                <label for="foodId"
+            <div class="form-group" style="display: none;">
+                <label for="strategyId"
                        class="col-sm-2 control-label"
                 >id</label>
                 <div class="col-sm-10">
                     <input type="text"
                            class="form-control"
                            readonly="readonly"
-                           id="foodId">
+                           id="strategyId">
                 </div>
             </div>
             <div class="form-group">
@@ -80,6 +80,8 @@
                         <option>
                             杭州
                         </option>
+
+
                     </select>
                 </div>
             </div>
@@ -90,58 +92,39 @@
                 <div class="col-sm-10">
                     <select id="sceneryName"
                             class="form-control">
-
                     </select>
                 </div>
             </div>
+            <div class="form-group">
+                <label for="strategy-title"
+                       class="col-sm-2 control-label">攻略标题</label>
 
-            <div class="form-group">
-                <label for="foodName"
-                       class="col-sm-2 control-label">美食名称</label>
                 <div class="col-sm-10">
-                    <input type="text"
-                           class="form-control load-sys-dept"
-                           id="foodName"
-                           placeholder="美食名称">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="foodPrice"
-                       class="col-sm-2 control-label">美食价格</label>
-                <div class="col-sm-10">
-                    <input type="number"
-                           class="form-control load-sys-dept"
-                           id="foodPrice"
-                           placeholder="美食价格">
+                    <input id="strategy-title"
+                            class="form-control">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="foodPic"
-                       class="col-sm-2 control-label">美食图片</label>
+                <label for="strategyPicFile"
+                       class="col-sm-2 control-label">攻略图片</label>
                 <form enctype="multipart/form-data"
                       method="post">
                     <input type="file"
                            multiple
-                           id="foodPicFile"
-                           placeholder="美食图片">
+                           id="strategyPicFile"
+                           placeholder="攻略图片">
                 </form>
-                <div class="col-sm-10">
-
-                    <img src="#"
-                         style="width: 60px"
-                         id="foodPic">
+                <div class="col-sm-10" id="strategy-pic">
 
                 </div>
             </div>
             <div class="form-group">
-                <label for="foodDesc"
-                       class="col-sm-2 control-label">美食描述</label>
+                <label for="strategy-content"
+                       class="col-sm-2 control-label">攻略内容</label>
                 <div class="col-sm-10">
-                    <textarea
-                            type="text"
-                            class="form-control"
-                            id="foodDesc"></textarea>
+                    <textarea type="text" class="form-control"
+                              id="strategy-content"></textarea>
                 </div>
             </div>
 
@@ -171,62 +154,42 @@
             .on("click", ".btn-cancel", doCancel)
             .on("click", ".btn-save", doSaveOrUpdate);
         initDatas();
-        $("#foodPicFile").change(previewPic)
+        $("#strategyPicFile").change(previewPic)
         $("#cityName").change(getSceneryOptions)
+        getSceneryOptions()
+
 
     })
 
     //图片预览
     function previewPic(e) {
-        var imgBox = e.target;
-        uploadImg($("#foodPicFile"), imgBox)
+        var imgBox=e.target;
+        uploadImg($("#strategyPicFile"),imgBox)
     }
-
     function uploadImg(element, tag) {
-        var file = tag.files[0];
-        var imgSrc;
-        if (!/image\/\w+/.test(file.type)) {
-            alert("看清楚，这个需要图片！");
-            return false;
-        }
-        var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = function () {
-            imgSrc = this.result;
-            $("#foodPic").attr("src", imgSrc);
-        };
-    }
-
-    //初始化数据
-    function initDatas() {
-        var type = $(".box-title").html();
-        if ("添加" == type.substring(0, 2)) {
-            $("#foodId").val("")
-            $("#cityName").val("")
-            $("#foodName").val("")
-            $("#foodPic").attr("src", null);
-            $("#foodDesc").val("")
-        } else {
-
-            var datas = $("#mainContentId").data("rowData");
-            $("#foodId").val(datas.foodId)
-
-            $("#cityName").val(datas.cityName)
-            $("#sceneryName").val(datas.sceneryName)
-            $("#foodName").val(datas.foodName)
-            $("#foodPrice").val(datas.foodPrice)
-            $("#foodPic").attr("src", "http://image.travel.com/" + datas.foodPic);
-            $("#foodDesc").val(datas.foodDesc)
-            getSceneryOptions(datas.cityName);
-
-            console.log("http://image.travel.com/" + datas.foodPic)
-        }
+        var files =tag.files;
+        console.log(files)
+        $("#strategy-pic").empty()
+        $.each(files,function (index,item) {
+            var imgSrc;
+            if (!/image\/\w+/.test(item.type)) {
+                alert("看清楚，这个需要图片！");
+                return false;
+            }
+            var reader = new FileReader();
+            reader.readAsDataURL(item);
+            reader.onload = function() {
+                imgSrc = this.result;
+                var img="<img src='"+imgSrc+"' style='width: 80px;height:60px;'/img>&nbsp;&nbsp;";
+                $("#strategy-pic").append(img)
+            };
+        })
 
     }
 
     function getSceneryOptions() {
         var city= $("#cityName").val()
-        var url = "food/getSceneryOptions.do";
+        var url = "strategy/getSceneryOptions.do";
         var param = {"cityName": city};
         $.ajax({
             url:url,
@@ -246,41 +209,67 @@
             console.log(index+"  "+item)
             sceneryOptions.append("<option value='" + item + "'>" + item + "</option>")
         })
-        var datas1 = $("#mainContentId").data("rowData");
-        $("#sceneryName").val(datas1.sceneryName)
+        $("#sceneryName").val($("#mainContentId").data("rowData").sceneryName)
 
+    }
+
+    //初始化数据
+    function initDatas() {
+        var type = $(".box-title").html();
+        if ("添加" == type.substring(0, 2)) {
+            $("#cityName").val("")
+            $("#sceneryName").val("")
+            $("#strategy-title").val("")
+            $("#strategyPicFile").val("")
+            $("#strategy-content").val("")
+        }else {
+            var datas = $("#mainContentId").data("rowData");
+            $("#strategyId").val(datas.strategyId)
+            $("#cityName").val(datas.cityName)
+            $("#sceneryName").val(datas.sceneryName)
+            $("#strategy-title").val(datas.strategyTitle)
+            var pics =getPics(datas.strategyPic)
+            $("#strategy-pic").append(pics)
+            $("#strategy-content").val(datas.strategyContent)
+            console.log("http://image.travel.com/"+datas.sceneryPic)
+        }
 
     }
 
     function doCancel() {
         $("#mainContentId").removeData("rowData");
-        $("#mainContentId").load("food/doFoodListUI.do");
+        $("#mainContentId").load("strategy/doStrategyListUI.do");
     }
 
     function doSaveOrUpdate() {
         var type = $(".box-title").html();
-        if ("添加" == type.substring(0, 2)) {
-
-        }
         var params = new FormData();
-        if ($("#foodId").val() != null & $("#foodId").val() != "") {
-            params.append("foodId", $("#foodId").val())
+        var sceneryName=$("#sceneryName").val()
+        var strategyTitle=$("#strategy-title").val()
+        var strategyPicFile=$("#strategyPicFile")[0].files;
+        var strategyContent=$("#strategy-content").val()
+        if (sceneryName==null){
+            alert("请选择景点")
+            return
         }
 
-        params.append("sceneryName", $("#sceneryName").val())
-        params.append("foodName", $("#foodName").val())
-        params.append("foodDesc", $("#foodDesc").val())
-        params.append("foodPrice", $("#foodPrice").val())
-        params.append("foodPicFile",$("#foodPicFile")[0].files[0])
+        if ($("#strategyId").val() != null & $("#strategyId").val() != "") {
+            params.append("strategyId", $("#strategyId").val())
+        }
 
-        console.log(params)
+        for (var i=0;i<strategyPicFile.length;i++){
+            params.append("strategyPicFile",strategyPicFile[i])
+        }
+        params.append("sceneryName", sceneryName)
+        params.append("strategyTitle", strategyTitle)
+        params.append("strategyContent", strategyContent)
 
 
         //2.发起异步请求
-        var insertUrl = "food/doSaveObject.do";
-        var updateUrl = "food/doUpdateObject.do";
+        var insertUrl = "strategy/doSaveObject.do";
+        var updateUrl = "strategy/doUpdateObject.do";
         var url = "添加" == type.substring(0, 2) ? insertUrl : updateUrl;
-        console.log(params);
+        console.log(url)
         $.ajax({
             url: url,
             data: params,
@@ -290,17 +279,29 @@
             contentType: false,
             async: false,
             success: function (result) {
-                if (result.status == 200) {
-                    alert("美食信息" + type.substring(0, 2) + "成功");
+                if (result.status==200) {
+                    alert("攻略信息" + type.substring(0, 2) + "成功");
                     $("#mainContentId").removeData("rowData");
-                    $("#mainContentId").load("food/doFoodListUI.do");
-                } else {
+                    $("#mainContentId").load("strategy/doStrategyListUI.do");
+                }else {
                     return;
                 }
             }
         })
     }
 
+    function getPics(pics) {
+        var imgs="";
+        var picPath = pics.split(",")
+        console.log(picPath)
+        for (var i=0;i<picPath.length;i++) {
+            console.log("index "+picPath[i])
+            if (picPath[i]!=null && picPath[i]!="") {
+                imgs = imgs + "<img src='http://image.travel.com/" + picPath[i] + "' style='width: 40px;height: 30px;'/>&nbsp;&nbsp;&nbsp;"
+            }
+        }
+        return imgs;
+    }
 
 </script>
     

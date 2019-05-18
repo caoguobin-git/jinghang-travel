@@ -1,0 +1,255 @@
+<style>
+
+    .strategy-display-navigation-right > .row {
+        text-align: left;
+        font-size: 20px;
+        margin: 20px;
+        font-weight: bolder;
+        font-family: 'KaiTi';
+        cursor: pointer;
+    }
+
+    #strategy-infos .strategy-box {
+        border-bottom: 1px solid #bcbcbc;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    #strategy-infos .strategy-box:hover {
+        background: rgba(243, 249, 247, 0.98);
+    }
+
+    .strategy-user-name, .strategy-title {
+        text-align: center;
+        padding: 3px;
+    }
+
+    #strategy-infos .strategy-user-icon {
+        width: 30px;
+    }
+
+
+    .strategy-time {
+        float: right;
+    }
+
+    .strategy-pic img {
+        width: 180px;
+    }
+
+    .strategy-pic {
+        text-align: center;
+    }
+
+    .strategy-user-name {
+        padding-top: 1%;
+    }
+
+    .save-strategy-box .row {
+        padding: 3px 5px;
+    }
+
+    .save-strategy-box {
+        background: #e3e9e7;
+
+    }
+
+    .save-strategy-box textarea {
+        width: 80%;
+        height: 150px;
+        resize: none;
+    }
+
+    .save-strategy-btn {
+        border: 1px solid black;
+        cursor: pointer;
+        font-size: 15px;
+        text-align: center;
+        font-family: KaiTi;
+
+    }
+
+    .save-strategy-btn:hover {
+        text-shadow: blue 2px 2px 4px;
+        font-family: KaiTi;
+        font-weight: bolder;
+    }
+
+    .strategy-title {
+        width: 100%;
+        height: 20px;
+        font-weight: bold;
+    }
+    .strategy-title,.strategy-content{
+        padding: 5px 8px;
+    }
+
+    #strategy-display-title .strategy-display-scenery-name {
+        font-size: 40px;
+        font-weight: bolder;
+        font-family: KaiTi;
+        text-align: center;
+        padding: 3px;
+        text-shadow: #737373 2px 2px 5px;
+    }
+
+    #strategy-display-scenery-pic {
+        width: 100%;
+        height: 250px;
+        margin: 10px 0px;
+    }
+    #page-controls div{
+        text-align: center;
+    }
+    #page-controls button{
+        margin: 0px 3px;
+    }
+
+    #strategy-infos .display-strategy-details{
+        margin-left: 5%;
+        font-weight: bolder;
+        font-family: KaiTi;
+        font-size: 20px;
+        color: blue;
+    }
+</style>
+<div id='strategy-display-data'>
+    <div class='container'>
+        <div class='row'
+             id='strategy-display-title'>
+            <div class='row strategy-display-scenery-name'></div>
+            <div class='row '>
+                <div class='col-lg-8 col-lg-offset-2'>
+                    <img src='#'
+                         id='strategy-display-scenery-pic'/>
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-lg-8 col-lg-offset-2'>
+                <div class='row'
+                     id='strategy-infos'>
+
+                </div>
+                <div class='row' id='page-controls'>
+                    <div class='col-lg-6 col-lg-offset-3'>
+                        <button class='page-control-btn' value='first'>第一页</button>
+                        <button class='page-control-btn' value='pre'>上一页</button>
+                        <button class='page-control-btn' value='next'>下一页</button>
+                        <button class='page-control-btn' value='last'>最后页</button>
+                    </div>
+                </div>
+            </div>
+            <div class='col-lg-2 strategy-display-navigation-right'>
+                <div class='row'>
+                    预定门票
+                </div>
+                <div class='row'>
+                    预定船票
+                </div>
+                <div class='row'
+                     id='back-to-pre-page'>
+                    返回上一页
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        getStrategyTitlesBySceneryId()
+        $('#back-to-pre-page').click(backToPrePage)
+        initDatas()
+        $('.page-control-btn').click(getPages)
+        $("#strategy-infos").on("click",".display-strategy-details",displayStrategyDetails)
+    })
+
+    function displayStrategyDetails() {
+        $(this).css({"color":"red","font-weight":"normal"})
+        $("#main-data-content").data("strategyId",$(this).attr("id"))
+        console.log($(this).attr("id"))
+        $("#content").load("/pages/home/strategy_details_page.html")
+    }
+
+    function getPages() {
+        var val=$(this).val()
+        console.log(val)
+        console.log('pagecurrent:  ' +$('#main-data-content').data('pageCurrent'));
+        console.log('pagecount:  '+$('#main-data-content').data('pageCount'));
+        if ('first'==val){
+            $('#main-data-content').data('pageCurrent',1)
+        }
+        if ('last'==val){
+            $('#main-data-content').data('pageCurrent',$('#main-data-content').data('pageCount'))
+        }
+        if ('pre'==val){
+            var pageCurrent=$('#main-data-content').data('pageCurrent');
+            pageCurrent=pageCurrent-1;
+            if (pageCurrent<1){
+                pageCurrent=1;
+            }
+            $('#main-data-content').data('pageCurrent',pageCurrent)
+        }
+        if ('next'==val){
+            var pageCurrent=$('#main-data-content').data('pageCurrent');
+            pageCurrent=pageCurrent+1;
+            if (pageCurrent>$('#main-data-content').data('pageCount')){
+                pageCurrent=$('#main-data-content').data('pageCount');
+            }
+            $('#main-data-content').data('pageCurrent',pageCurrent)
+        }
+        getStrategyTitlesBySceneryId()
+    }
+
+    function initDatas() {
+        var sceneryInfo = $('#main-data-content').data('sceneryInfo')
+        $('#strategy-display-title .strategy-display-scenery-name').html(sceneryInfo.sceneryName)
+        $('#strategy-display-scenery-pic').attr('src', 'http://image.travel.com/' + sceneryInfo.sceneryPic)
+
+    }
+
+
+    function backToPrePage() {
+        $('#content').load('/pages/home/scenery_display_page.html')
+    }
+    
+    function getStrategyTitlesBySceneryId() {
+        var url='strategy/doFindPageObjects.do?t='+Math.random();
+        var pageCurrent=$('#main-data-content').data('pageCurrent')
+        var pageSize=6;
+        var sceneryInfo=$('#main-data-content').data('sceneryInfo')
+        var sceneryName;
+        if (sceneryInfo!=null) {
+            sceneryName=sceneryInfo.sceneryName;
+        }
+        var param={
+            'pageCurrent':pageCurrent,
+            'pageSize':pageSize,
+            'sceneryName':sceneryName,
+        }
+        console.log(param)
+        $.ajax({
+            url:url,
+            data:param,
+            type:'post',
+            dataType:'json',
+            success:function (result) {
+                console.log(result)
+                setStrategyTitles(result.data.records)
+                $("#main-data-content").data("pageCurrent",result.data.pageCurrent)
+            }
+        })
+    }
+    function setStrategyTitles(records) {
+        $("#strategy-infos").empty()
+        $.each(records,function (index,item) {
+       var row= "<div class='row display-strategy-details' id='"+item.strategyId+"'>"+item.strategyTitle+"</div>"
+            $("#strategy-infos").append(row)
+        })
+    }
+    
+</script>
