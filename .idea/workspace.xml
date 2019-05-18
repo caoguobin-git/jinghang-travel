@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c4d045a-adc9-4bb8-8339-8cdcc3b54c7b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/common/entity/StrategyEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/controller/StrategyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/mapper/StrategyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/service/StrategyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/StrategyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mappers/StrategyMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/strategy_details_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/strategy_display_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/strategy_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/strategy_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/user_display_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/travel/common/PicPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/travel/common/PicPaths.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/starter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/starter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sys/food_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -95,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_details_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="168">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
                 <element signature="e#72#78#0" expanded="true" />
@@ -107,7 +92,34 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/head.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="211" column="32" selection-start-line="211" selection-start-column="32" selection-end-line="211" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_display_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="355">
+              <caret line="17" column="43" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/OrderController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-600">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_display_page.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="239">
@@ -133,17 +145,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
               <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/strategy_info">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true">
-                <filter text="" />
-              </filtering>
             </state>
           </provider>
         </entry>
@@ -252,9 +253,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/controller/TicketController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_login.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_register.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/realm/AdminRealm.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/realm/MyModularRealmAuthenticator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/travel/realm/UserRealm.java" />
@@ -301,8 +299,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/strategy_details_page.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/strategy_display_page.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/strategy_details_page.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user-display-page.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_display_page.html" />
       </list>
     </option>
   </component>
@@ -875,15 +876,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558095964377</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="2019-05-17-16/55&#10;评价管理和发送">
+      <created>1558156652486</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1558156652486</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269941000" />
+    <option name="totallyTimeSpent" value="271776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19690502" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -893,7 +900,7 @@
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49893278" visible="true" weight="0.38685346" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49893278" visible="true" weight="0.2510776" />
       <window_info anchor="bottom" id="Spring" order="1" weight="0.32972136" />
       <window_info anchor="bottom" id="Database Console" order="2" weight="0.28663793" />
       <window_info anchor="bottom" id="Terminal" order="3" />
@@ -1000,9 +1007,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://0670575a-2e33-4508-8fa4-1471ab78196f/schema/travel/table/user_info" />
-    <entry file="das://e8a0a40b-7034-42b9-a2bf-10d1c05b79fb/schema/travel/table/scenery_info" />
-    <entry file="das://0670575a-2e33-4508-8fa4-1471ab78196f/schema/travel/table/scenery_info" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/mapper/CommentMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -1374,10 +1378,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_display_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="242" column="82" selection-start-line="242" selection-start-column="82" selection-end-line="242" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_details_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="168">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
             <element signature="e#72#78#0" expanded="true" />
@@ -1387,10 +1398,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_display_page.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/head.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="242" column="82" selection-start-line="242" selection-start-column="82" selection-end-line="242" selection-end-column="82" />
+        <state relative-caret-position="384">
+          <caret line="211" column="32" selection-start-line="211" selection-start-column="32" selection-end-line="211" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_display_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>

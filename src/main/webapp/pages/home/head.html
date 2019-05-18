@@ -191,7 +191,7 @@
             <div class="col-lg-1 head-element">千年运河</div>
             <div class="col-lg-2 head-element"><input placeholder="search" style="width: 50%;">&nbsp;&nbsp;&nbsp;&nbsp;搜索</div>
             <div class="col-lg-1 head-element user-login-logout user-register-login-btn">登录/注册</div>
-            <div class="col-lg-1 head-element user-icon"><img style="width: 40px" src="/pages/home/img/usericon.jpg"/> </div>
+            <div class="col-lg-1 head-element user-icon"><img id="login-user-icon" style="width: 40px" src="/pages/home/img/usericon.jpg"/> </div>
         </div>
     </div>
 </div>
@@ -204,8 +204,15 @@
         $(".city-select").click(displayCityInfo)
         $("#head_top .user-register-login-btn").click(gotoUserLoginPage)
         $("#head_top").on("click",".user-logout-btn",doUserLogout)
+        $("#login-user-icon").click(listUserInfo)
 
     })
+
+    function listUserInfo() {
+        console.log("获取userxinxi")
+        $("#content").load("/pages/home/user_display_page.html")
+
+    }
     function doUserLogout(){
         console.log("执行退出操作")
         $.ajax({

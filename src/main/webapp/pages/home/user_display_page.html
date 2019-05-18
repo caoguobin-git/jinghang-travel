@@ -1,0 +1,37 @@
+
+<div class="container">
+    <div class="row">
+       <div class="col-lg-8 col-lg-offset-2">
+           <div class="row" id="user-orders"></div>
+           <div class="row" id="user-comments"></div>
+       </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        getUserOrders()
+        getUserComments()
+    })
+    function getUserOrders() {
+        var userInfo=$("#main-data-content").data("userInfo")
+        var userId=userInfo.userId;
+        var url="order/getUserOrderByUserId.to?t="+Math.random();
+        var param={
+            "userId":userId
+        }
+        $.ajax({
+            url:url,
+            data:param,
+            type:"post",
+            dataType:"json",
+            success:function (result) {
+                console.log(result)
+            }
+        })
+    }
+
+    function getUserComments() {
+        var userInfo=$("#main-data-content").data("userInfo")
+        console.log(userInfo.userId)
+    }
+</script>
