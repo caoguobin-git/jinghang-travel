@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        图片轮播</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <link rel="stylesheet"
+          href="bootstrap/css/bootstrap.css">
+
+    <style>
+        #pic-box-outer {
+            height: 200px;
+            /*overflow: hidden;*/
+        }
+
+        #pic-box-inner{
+            width: 200%;
+            height: 200px;
+            position: relative;
+        }
+
+        #pic-box-inner img {
+            width: 49%;
+            display: inline-block;
+            height: 200px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2"
+             id="pic-box-outer">
+            <div class="row"
+                 id="pic-box-inner">
+                <img src="1.jpg" id="pic-list"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+<script>
+    $(function () {
+        picScroll()
+    })
+    function picScroll() {
+        var a=1;
+        setInterval(function () {
+            $("#pic-list").attr("src",1+".jpg")
+            a++;
+            if (a>2){
+                a=1
+            }
+            var positionCurrent=$("#pic-box-inner").offset();
+            var positionLeft=positionCurrent.left;
+            $("#pic-box-inner").offset({top:0,left:positionLeft-1})
+        },50)
+    }
+
+</script>

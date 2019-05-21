@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c4d045a-adc9-4bb8-8339-8cdcc3b54c7b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/user_display_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/test/Teck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/test/target.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/travel/test/teck.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/picroll.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -57,64 +61,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/StrategyServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/picroll.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="186" column="9" selection-start-line="186" selection-start-column="9" selection-end-line="186" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/comment_display_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_details_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-                <element signature="e#72#78#0" expanded="true" />
-                <element signature="e#78#84#0" expanded="true" />
-                <element signature="e#84#90#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/head.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="211" column="32" selection-start-line="211" selection-start-column="32" selection-end-line="211" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_display_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="17" column="43" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="43" />
+            <state relative-caret-position="134">
+              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/OrderController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/test/Teck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-600">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="296">
+              <caret line="59" column="15" lean-forward="true" selection-start-line="51" selection-start-column="14" selection-end-line="59" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/test/teck.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/test/target.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -122,7 +111,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_display_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="5808">
               <caret line="242" column="82" selection-start-line="242" selection-start-column="82" selection-end-line="242" selection-end-column="82" />
             </state>
           </provider>
@@ -131,7 +120,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/StrategyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
+            <state relative-caret-position="744">
               <caret line="43" column="38" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -143,7 +132,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="1440">
               <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
             </state>
           </provider>
@@ -152,18 +141,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/strategy_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
+            <state relative-caret-position="5832">
               <caret line="243" selection-start-line="243" selection-end-line="254" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#8;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#10;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-                <element signature="e#71#77#0" expanded="true" />
-                <element signature="e#77#83#0" expanded="true" />
-                <element signature="e#83#89#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,14 +158,13 @@
         <option value="Jsp File" />
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>body</find>
       <find>index_text</find>
       <find>hotel-box</find>
       <find>page</find>
@@ -214,6 +194,7 @@
       <find>common</find>
       <find>comment</find>
       <find>&quot;</find>
+      <find>system</find>
     </findStrings>
     <replaceStrings>
       <replace>food</replace>
@@ -253,11 +234,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/realm/AdminRealm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/realm/MyModularRealmAuthenticator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/travel/realm/UserRealm.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/0670575a-2e33-4508-8fa4-1471ab78196f/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/resources/property/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/scenery_list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/comment_list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/sys/comment_edit.html" />
@@ -304,6 +280,11 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user-display-page.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/head.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/home/user_display_page.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/picroll.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/test/teck.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/test/target.txt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/test/TechEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/travel/test/Teck.java" />
       </list>
     </option>
   </component>
@@ -358,7 +339,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -399,159 +379,13 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="vo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="realm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="travel" type="462c0819:PsiDirectoryNode" />
-              <item name="serviceImpl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="mappers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="property" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jinghang-travel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jinghang-travel" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="sys" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -563,7 +397,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558097361926" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/pages/home" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -573,12 +407,11 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\jinghang-travel\src\main\webapp\pages\home" />
-      <recent name="D:\jinghang-travel\src\main\resources\mybatis\mappers" />
-      <recent name="D:\jinghang-travel\src\main\webapp\pages\sys" />
-      <recent name="E:\source\jinghang-travel\src\main\webapp\images\city_img" />
-      <recent name="E:\source\jinghang-travel\src\main\webapp\images" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\jinghang-travel\src\main\webapp\js" />
+      <recent name="D:\jinghang-travel\src\main\webapp\html" />
+      <recent name="D:\jinghang-travel\src\main\webapp\pages" />
+      <recent name="D:\jinghang-travel\src\main\webapp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.travel.common.entity" />
@@ -587,11 +420,12 @@
       <recent name="com.travel.service" />
       <recent name="com.travel.controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\jinghang-travel\src\main\webapp\js" />
-      <recent name="D:\jinghang-travel\src\main\webapp\html" />
-      <recent name="D:\jinghang-travel\src\main\webapp\pages" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\jinghang-travel\src\main\webapp" />
+      <recent name="D:\jinghang-travel\src\main\webapp\pages\home" />
+      <recent name="D:\jinghang-travel\src\main\resources\mybatis\mappers" />
+      <recent name="D:\jinghang-travel\src\main\webapp\pages\sys" />
+      <recent name="E:\source\jinghang-travel\src\main\webapp\images\city_img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -606,7 +440,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.jinghang-travel [tomcat7:run]">
+  <component name="RunManager" selected="Application.Teck">
+    <configuration name="Teck" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.travel.test.Teck" />
+      <module name="jinghang-travel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.travel.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test111" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.travel.Test111" />
       <module name="jinghang-travel" />
@@ -647,6 +494,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Teck" />
         <item itemvalue="Maven.jinghang-travel [tomcat7:run]" />
         <item itemvalue="Application.Test111" />
       </list>
@@ -672,6 +520,8 @@
       <workItem from="1557832664778" duration="9551000" />
       <workItem from="1557996586124" duration="4391000" />
       <workItem from="1558010175197" duration="7629000" />
+      <workItem from="1558410039355" duration="6105000" />
+      <workItem from="1558428188911" duration="4450000" />
     </task>
     <task id="LOCAL-00001" summary="0.01">
       <created>1557367019498</created>
@@ -883,16 +733,24 @@
       <option name="project" value="LOCAL" />
       <updated>1558156652486</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="2019-05-17-16/55&#10;评价管理和发送">
+      <created>1558158278444</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1558158278444</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271776000" />
+    <option name="totallyTimeSpent" value="282428000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19690502" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13020277" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -900,7 +758,7 @@
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Image Layers" order="7" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49893278" visible="true" weight="0.2510776" />
+      <window_info active="true" anchor="bottom" id="Run" order="0" sideWeight="0.49893278" visible="true" weight="0.49568966" />
       <window_info anchor="bottom" id="Spring" order="1" weight="0.32972136" />
       <window_info anchor="bottom" id="Database Console" order="2" weight="0.28663793" />
       <window_info anchor="bottom" id="Terminal" order="3" />
@@ -923,7 +781,7 @@
       <window_info anchor="right" id="Maven" order="3" weight="0.18783352" />
       <window_info anchor="right" id="PlantUML" order="4" weight="0.32977587" />
       <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.19690502" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.15261473" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="9" />
@@ -1024,7 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info" />
     <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/comment_info" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/CommentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1078,91 +935,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/common/vo/PageObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://775d145f-dd15-45a7-a5ed-7c25846baa98/schema/travel/table/scenery_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true">
-            <filter text="" />
-          </filtering>
         </state>
       </provider>
     </entry>
@@ -1308,23 +1084,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/StrategyServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="186" column="9" selection-start-line="186" selection-start-column="9" selection-end-line="186" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/comment_display_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/city_display_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1336,13 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/scenery_display_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1350,38 +1102,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/StrategyController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/serviceImpl/StrategyServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="43" column="38" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="4056">
+          <caret line="186" column="9" selection-start-line="186" selection-start-column="9" selection-end-line="186" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/strategy_list.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/comment_display_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="243" selection-start-line="243" selection-end-line="254" selection-end-column="5" />
+        <state relative-caret-position="696">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#8;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#10;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-            <element signature="e#71#77#0" expanded="true" />
-            <element signature="e#77#83#0" expanded="true" />
-            <element signature="e#83#89#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_display_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="242" column="82" selection-start-line="242" selection-start-column="82" selection-end-line="242" selection-end-column="82" />
         </state>
       </provider>
     </entry>
@@ -1389,33 +1123,113 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-            <element signature="e#72#78#0" expanded="true" />
-            <element signature="e#78#84#0" expanded="true" />
-            <element signature="e#84#90#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/head.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
+        <state relative-caret-position="5064">
           <caret line="211" column="32" selection-start-line="211" selection-start-column="32" selection-end-line="211" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_display_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
+        <state relative-caret-position="408">
           <caret line="17" column="43" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/OrderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600">
+        <state relative-caret-position="192">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/bower_components/jquery/dist/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238776">
+          <caret line="9961" column="4" selection-start-line="9961" selection-start-column="4" selection-end-line="9961" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/user_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/home/strategy_display_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5808">
+          <caret line="242" column="82" selection-start-line="242" selection-start-column="82" selection-end-line="242" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/controller/StrategyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="744">
+          <caret line="43" column="38" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sys/strategy_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5832">
+          <caret line="243" selection-start-line="243" selection-end-line="254" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/picroll.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/test/teck.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/test/TechEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/test/target.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/travel/test/Teck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="59" column="15" lean-forward="true" selection-start-line="51" selection-start-column="14" selection-end-line="59" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
