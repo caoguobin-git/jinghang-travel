@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+
 @SuppressWarnings("ALL")
 @Controller
 @RequestMapping("/scenery")
@@ -81,6 +83,13 @@ public class SceneryController {
             return new JsonResult("201", "操作失败", "请重试");
         }
     }
+    @RequestMapping(value = "/doGetSceneryByCondition")
+    @ResponseBody
+    public JsonResult doGetSceneryByCondition(String condition){
+        List<SceneryEntity> result=sceneryService.doGetSceneryByCondition(condition);
+        return new JsonResult(result);
+    }
+
 
     @RequestMapping("/doDeleteObject")
     @ResponseBody

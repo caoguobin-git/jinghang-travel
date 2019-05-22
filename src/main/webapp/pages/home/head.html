@@ -189,7 +189,7 @@
             <div class="col-lg-1 head-element">运河万象</div>
             <div class="col-lg-1 head-element" id="yunhe18cheng">运河十八城</div>
             <div class="col-lg-1 head-element">千年运河</div>
-            <div class="col-lg-2 head-element"><input placeholder="search" style="width: 50%;">&nbsp;&nbsp;&nbsp;&nbsp;搜索</div>
+            <div class="col-lg-2 head-element"><input placeholder="输入景点名称" style="width: 50%;">&nbsp;&nbsp;&nbsp;&nbsp;<span id="search-scenery-btn">搜索</span></div>
             <div class="col-lg-1 head-element user-login-logout user-register-login-btn">登录/注册</div>
             <div class="col-lg-1 head-element user-icon"><img id="login-user-icon" style="width: 40px" src="/pages/home/img/usericon.jpg"/> </div>
         </div>
@@ -205,8 +205,17 @@
         $("#head_top .user-register-login-btn").click(gotoUserLoginPage)
         $("#head_top").on("click",".user-logout-btn",doUserLogout)
         $("#login-user-icon").click(listUserInfo)
+        $("#search-scenery-btn").click(getSceneryByCondition)
 
     })
+
+    function getSceneryByCondition() {
+        var searchCondition=$(this).siblings("input").val()
+        $("#main-data-content").data("searchCondition",searchCondition)
+        $("#content").load("/pages/home/search_scenery_page.html")
+        $("#search-scenery-btn").siblings("input").val("")
+
+    }
 
     function listUserInfo() {
         console.log("获取userxinxi")

@@ -178,6 +178,11 @@ public class SceneryServiceImpl implements SceneryService {
         return pageObject;
     }
 
+    @Override
+    public List<SceneryEntity> doGetSceneryByCondition(String condition) {
+        return sceneryMapper.doGetSceneryByCondition(condition);
+    }
+
     private int getPageCountByCityName(int total, Integer pageSize) {
         return total/pageSize+1;
     }

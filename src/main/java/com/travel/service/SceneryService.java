@@ -5,6 +5,7 @@ import com.travel.common.vo.PageObject;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface SceneryService {
     PageObject doFindPageObjects(Integer pageCurrent, Integer pageSize);
@@ -18,4 +19,6 @@ public interface SceneryService {
     String doDeleteObject(String sceneryId);
 
     PageObject getScenerysByCityName(Integer pageCurrent, Integer pageSize,String cityName);
+
+    List<SceneryEntity> doGetSceneryByCondition(String condition);
 }

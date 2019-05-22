@@ -1,0 +1,74 @@
+
+<style>
+    #search-scenery-result img{
+        width: 100%;
+        height: 200px;
+    }
+    .scenery-name-search{
+        text-align: center;
+        font-size: 30px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2" id="search-scenery-result">
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        doGetSceneryByCondition()
+        $("#search-scenery-result").on("click",".search-scenery-info",gotoSceneryInfoPage)
+    })
+
+
+    function gotoSceneryInfoPage() {
+        var sceneryId=$(this).children(".scenery-id-search").attr("id")
+        var sceneryPic=$(this).children(".scenery-id-search").children("img").attr("src")
+        var sceneryName=$(this).children(".scenery-name-search").text()
+        var sceneryDesc=$(this).children(".scenery-desc-search").text()
+        var sceneryInfo={
+            "sceneryId":sceneryId,
+            "sceneryPic":sceneryPic,
+            "sceneryName":sceneryName,
+            "sceneryDesc":sceneryDesc
+        }
+        $("#main-data-content").data("sceneryInfo",sceneryInfo)
+        $("#content").load("/pages/home/scenery_display_page.html")
+
+    }
+
+    function doGetSceneryByCondition() {
+        var searchCondition=$("#main-data-content").data("searchCondition")
+        console.log(searchCondition)
+        var url="scenery/doGetSceneryByCondition.do?t="+Math.random();
+        var param={
+            "condition":searchCondition
+        }
+
+        $.ajax({
+            url:url,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            type:"post",
+            dataType:"json",
+            data:param,
+            success:function (result) {
+                initSearchResult(result.data)
+            }
+        })
+    }
+    function initSearchResult(datas) {
+        console.log(datas)
+        $.each(datas,function (index,item) {
+            var div="<div class='row search-scenery-info'>\n" +
+                "        <div class='row scenery-id-search' id='"+item.sceneryId+"'><img src='http://image.travel.com/"+item.sceneryPic+"'/> </div>\n" +
+                "        <div class='row scenery-name-search'>"+item.sceneryName+"</div>\n" +
+                "        <div class='row scenery-desc-search' style='display: none'>"+item.sceneryDesc+"</div>\n" +
+                "        </div>";
+            $("#search-scenery-result").append(div)
+        })
+    }
+
+
+</script>

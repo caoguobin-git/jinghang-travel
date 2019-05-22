@@ -55,6 +55,7 @@
 				/food/get*=anon
 				/hotel/get*=anon
 				/scenery/getScenerysByCityName*=anon
+				/scenery/doGet*=anon
 				/ticket/get*=anon
 				/comment/get*=anon
 				/strategy/get*=anon

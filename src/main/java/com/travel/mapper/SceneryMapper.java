@@ -26,4 +26,6 @@ public interface SceneryMapper {
     int getPageCountByCityId(@Param("cityId") int cityId);
 
     int getCityIdByCityPY(@Param("cityName") String cityName);
+
+    List<SceneryEntity> doGetSceneryByCondition(@Param("condition") String condition);
 }

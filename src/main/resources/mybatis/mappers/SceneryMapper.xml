@@ -32,6 +32,25 @@
         order by ci.city_id
     </select>
 
+    <select id="doGetSceneryByCondition"
+            resultType="com.travel.common.entity.SceneryEntity">
+        select si.id,
+               scenery_id,
+               scenery_name,
+               scenery_desc,
+               scenery_pic,
+               ci.city_id,
+               ci.city_name,
+               si.create_time,
+               si.modified_time
+        from scenery_info si
+                 left join city_info ci
+                           on si.city_id =
+                              ci.city_id
+        where si.scenery_name like "%"#{condition}"%"
+        order by si.create_time desc
+    </select>
+
     <select id="doFindObjectById"
             resultType="com.travel.common.entity.SceneryEntity">
         select si.id,

@@ -393,7 +393,7 @@
         <version>2.2</version>
         <configuration>
           <path>/</path>
-          <port>8088</port>
+          <port>8998</port>
         </configuration>
       </plugin>
         <plugin>
