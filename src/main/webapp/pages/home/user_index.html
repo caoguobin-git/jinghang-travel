@@ -55,6 +55,37 @@
         .index_text::-webkit-scrollbar {
             display: none
         }
+
+        #pic-box-outer {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        #pic-box-inner {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            animation: all 2s linear;
+
+        }
+
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #pic-box-inner img {
+            width: 100%;
+            position: absolute; /*图片采取绝对定位，均位于左上角，重叠在一起*/
+            height: 400px;
+            opacity: 0; /*初始不透明度为0，图片都看不见*/
+            transition: opacity 1s linear; /*--重点--定义一个关于透明度的transition*/
+        }
+
+        #pic-box-inner img.active {
+            opacity: 1; /*有active类的图片不透明度为1，即显示图片*/
+        }
     </style>
 </head>
 <body id="main-data-content">
@@ -64,43 +95,30 @@
 <div id="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="box"
-                 id="box">
-                <div class="inner">
-                    <!--轮播图-->
-                    <ul>
-                        <li>
-                            <a href="#"><img
-                                    src="../../images/1.jpg"
-                                    alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#"><img
-                                    src="../../images/2.jpg"
-                                    alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#"><img
-                                    src="../../images/3.jpg"
-                                    alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#"><img
-                                    src="../../images/4.jpg"
-                                    alt=""></a>
-                        </li>
-                    </ul>
-                    <ol class="bar">
-                    </ol>
-                    <!--左右焦点-->
-                    <div id="arr">
-                        <span id="left"> <</span>
-                        <span id="right">></span>
-                    </div>
-
+            <div class="col-lg-8 col-lg-offset-2"
+                 id="pic-box-outer">
+                <div class="row"
+                     id="pic-box-inner">
+                    <img class="active city-pic-list" src="images/city_img/beijing.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/cangzhou.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/changzhou.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/dezhou.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/hangzhou.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/hengshui.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/huaian.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/huzhou.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/jiaxing.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/jining.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/liaocheng.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/suqian.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/suzhou.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/taian.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/tianjin.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/wuxi.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/yangzhou.jpg"/>
+                    <img class="city-pic-list" src="images/city_img/zaozhuang.jpg"/>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="index_info">
@@ -175,8 +193,10 @@
 <script>
     $(function () {
         getUserInfo()
+        slideshow()
         undisplayUserIcon()
         $('body ').height($(window).height());
+        $(".city-pic-list").click(displayCityInfoByPic)
 
     })
 
@@ -184,11 +204,60 @@
     $("#head").load("/pages/home/head.html");
     $("#foot").load("/pages/home/foot.html");
 
+
+    function f() {
+
+
+    }
+
+    function displayCityInfoByPic() {
+        undisplayCitys();
+        var city=$(this).siblings(".active").attr("src")
+        var start = city.lastIndexOf("/")+1;
+        var end=city.lastIndexOf(".");
+        city=city.substring(start,end)
+        $("#main-data-content").data("cityName",city)
+        $("#content").load("/pages/home/city_display_page.html")
+    }
+
     function displayUserIcon() {
         $("#head_top .user-icon").show()
     }
     function undisplayUserIcon() {
         $("#head_top .user-icon").hide()
+    }
+    function slideshow() {
+        var slideshow = document.getElementById("pic-box-inner"),
+            imgs = slideshow.getElementsByTagName("img"), //得到图片们
+
+            current = 0; //current为当前活跃的图片编号
+
+        function slideOff() {
+            imgs[current].className = ""; //图片淡出
+
+        }
+
+        function slideOn() {
+            imgs[current].className = "active"; //图片淡入
+
+        }
+
+        function changeSlide() { //切换图片的函数
+            slideOff();
+            current++; //自增1
+            if (current >= imgs.length) current = 0;
+            slideOn();
+        }
+
+        //每2s调用changeSlide函数进行图片轮播
+        var slideon = setInterval(changeSlide, 2000);
+
+        slideshow.onmouseover = function () {
+            clearInterval(slideon); //当鼠标移入时清除轮播事件
+        }
+        slideshow.onmouseout = function () {
+            slideon = setInterval(changeSlide, 1500); //当鼠标移出时重新开始轮播事件
+        }
     }
 
     function getUserInfo() {

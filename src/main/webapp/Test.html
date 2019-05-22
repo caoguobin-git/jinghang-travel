@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+
+        #name{
+            Color:red;
+            position: relative;
+            Height:100px;
+            width: 110px;
+            Left:50px;
+            top:50px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<select>
+
+<option value="red">red</option>
+
+<option value="gray">gray</option>
+
+<option value="blue">blue</option>
+
+</select>
+
+</body>
+</html>
+<script>
+    $(function () {
+        $("select").change(test)
+        test()
+    })
+    function test() {
+        $("select").css("background",$("select").val())
+    }
+</script>

@@ -20,7 +20,6 @@ public class Teck {
         File file1 = new File("D:\\jinghang-travel\\src\\main\\java\\com\\travel\\test\\target.txt");
         inputStream = new FileInputStream(file1);
         bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        //读取
         while ((a = bufferedReader.readLine()) != null) {
             String[] s = a.split(" ");
             List<String> list = new LinkedList<>();
@@ -51,25 +50,16 @@ public class Teck {
             }
         });
         result.forEach((k, v) -> {
-            for (int j=0;j<2-v.size();j++){
-                for (int index = 0; index < j; index++) {
+            for (int j=0;j<2-v.size();){
                     int i = new Random().nextInt(lastTech.size());
                     String remove = lastTech.remove(i);
                     v.add(remove);
-                }
             }
-//            if (v.size() == 1) {
-//                int i = new Random().nextInt(lastTech.size());
-//                String remove = lastTech.remove(i);
-//                v.add(remove);
-//            } else if (v.size() == 0) {
-//
-//            }
         });
         System.out.println("未被选中:");
-        lastTech.forEach(item -> {
-            System.out.print(item + "  ");
-        });
+        lastTech.forEach(item ->
+            System.out.print(item + "  ")
+        );
         System.out.println();
         System.out.println("结果：");
         result.forEach((k, v) -> {
