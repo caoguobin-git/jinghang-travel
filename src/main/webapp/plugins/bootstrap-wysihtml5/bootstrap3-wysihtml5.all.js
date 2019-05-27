@@ -5776,7 +5776,7 @@ wysihtml5.dom.observe = function(element, eventNames, handler) {
       element.addEventListener(eventName, handler, false);
     } else {
       handlerWrapper = function(event) {
-        if (!("target" in event)) {
+        if (!("com.travel.test.target" in event)) {
           event.target = event.srcElement;
         }
         event.preventDefault = event.preventDefault || function() {

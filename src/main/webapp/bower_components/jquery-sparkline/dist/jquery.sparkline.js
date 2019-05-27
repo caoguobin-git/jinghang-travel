@@ -2536,18 +2536,18 @@
                 Math.round((q2 - minValue) * unitSize + canvasLeft),
                 Math.round(canvasHeight * 0.9),
                 options.get('medianColor')).append();
-            if (options.get('target')) {
+            if (options.get('com.travel.test.target')) {
                 size = Math.ceil(options.get('spotRadius'));
                 target.drawLine(
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
+                    Math.round((options.get('com.travel.test.target') - minValue) * unitSize + canvasLeft),
                     Math.round((canvasHeight / 2) - size),
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft),
+                    Math.round((options.get('com.travel.test.target') - minValue) * unitSize + canvasLeft),
                     Math.round((canvasHeight / 2) + size),
                     options.get('targetColor')).append();
                 target.drawLine(
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft - size),
+                    Math.round((options.get('com.travel.test.target') - minValue) * unitSize + canvasLeft - size),
                     Math.round(canvasHeight / 2),
-                    Math.round((options.get('target') - minValue) * unitSize + canvasLeft + size),
+                    Math.round((options.get('com.travel.test.target') - minValue) * unitSize + canvasLeft + size),
                     Math.round(canvasHeight / 2),
                     options.get('targetColor')).append();
             }

@@ -56,7 +56,7 @@
       .find(this.selector)
       .map(function () {
         var $el   = $(this)
-        var href  = $el.data('target') || $el.attr('href')
+        var href  = $el.data('com.travel.test.target') || $el.attr('href')
         var $href = /^#./.test(href) && $(href)
 
         return ($href

@@ -349,7 +349,7 @@ define(["./raphael.core"], function(R) {
                         }
                         break;
                     case "href":
-                    case "target":
+                    case "com.travel.test.target":
                         var pn = node.parentNode;
                         if (pn.tagName.toLowerCase() != "a") {
                             var hl = $("a");
@@ -357,7 +357,7 @@ define(["./raphael.core"], function(R) {
                             hl.appendChild(node);
                             pn = hl;
                         }
-                        if (att == "target") {
+                        if (att == "com.travel.test.target") {
                             pn.setAttributeNS(xlink, "show", value == "blank" ? "new" : value);
                         } else {
                             pn.setAttributeNS(xlink, att, value);

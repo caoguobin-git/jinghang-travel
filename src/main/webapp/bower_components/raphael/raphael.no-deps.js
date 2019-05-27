@@ -5841,7 +5841,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        }
 	                        break;
 	                    case "href":
-	                    case "target":
+	                    case "com.travel.test.target":
 	                        var pn = node.parentNode;
 	                        if (pn.tagName.toLowerCase() != "a") {
 	                            var hl = $("a");
@@ -5849,7 +5849,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            hl.appendChild(node);
 	                            pn = hl;
 	                        }
-	                        if (att == "target") {
+	                        if (att == "com.travel.test.target") {
 	                            pn.setAttributeNS(xlink, "show", value == "blank" ? "new" : value);
 	                        } else {
 	                            pn.setAttributeNS(xlink, att, value);
