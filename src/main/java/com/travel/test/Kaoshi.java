@@ -29,26 +29,26 @@ public class Kaoshi {
         LinkedHashMap map = objectMapper.readValue(timu.toString(), LinkedHashMap.class);
         Object d = map.get("d");
         ArrayList arrayList = (ArrayList) d;
-        ArrayList timus = (ArrayList) arrayList.get(0);
+        ArrayList subjectLists = (ArrayList) arrayList.get(0);
         int i = 1;
-        for (Object o : timus) {
-            LinkedHashMap linkedHashMap = (LinkedHashMap) o;
-            ArrayList answers = (ArrayList) linkedHashMap.get("Answer");
-            System.out.println(i + ". 【" + linkedHashMap.get("QuestionType") + "】" + linkedHashMap.get("Topic"));
+        for (Object subjectObject : subjectLists) {
+            LinkedHashMap subjectBody = (LinkedHashMap) subjectObject;
+            System.out.println(i + ". 【" + subjectBody.get("QuestionType") + "】" + subjectBody.get("Topic"));
             int a = 65;
-            LinkedList<Character> results = new LinkedList<>();
-            String rightA = (String) linkedHashMap.get("AnswersIds");
+            LinkedList<Character> correctAnswers = new LinkedList<>();
+            String rightAnswerString = (String) subjectBody.get("AnswersIds");
+            ArrayList answers = (ArrayList) subjectBody.get("Answer");
             for (Object answer : answers) {
                 LinkedHashMap answerMap = (LinkedHashMap) answer;
-                if (rightA.contains(answerMap.get("AnswerID").toString())) {
-                    results.add((char) a);
+                if (rightAnswerString.contains(answerMap.get("AnswerID").toString())) {
+                    correctAnswers.add((char) a);
                 }
                 System.out.println("   " + (char) a + ". " + answerMap.get("AnswerContent"));
                 a++;
             }
-            System.out.println("  答案：" + results);
-            System.out.println("  难易："+linkedHashMap.get("QuestionLevel"));
-            System.out.println("  分析：" + linkedHashMap.get("AnalyticDesc"));
+            System.out.println("  答案：" + correctAnswers);
+            System.out.println("  难易："+subjectBody.get("QuestionLevel"));
+            System.out.println("  分析：" + subjectBody.get("AnalyticDesc"));
             System.out.println();
             i++;
         }
